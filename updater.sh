@@ -103,7 +103,7 @@ recognizeExtension()
     int)
       folder='System';
       textFile=1;;
-    utx)
+    utx | usx)
       folder='Textures';
       textFile=0;;
     uax)
