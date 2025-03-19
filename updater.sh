@@ -29,6 +29,7 @@ skipFiles=(
   'System/Window.int'
   'System/WinDrv.int'
   #'Textures/rage_warehouse.utx'
+  'Textures/MobileForceFonts.utx'
 )
 
 # function arguments: $1 is the file to check the sum of
@@ -43,20 +44,17 @@ wget_cmd () {
   eval "${WGET_CMD:-curl -sf \'$1/$2\' -o $2}"
 }
 
-# function arguments: $1 is the url to get the content of
-curl_cmd () {
-  # executes the injected command or defaults to curl
-  eval "${CURL_CMD:-curl -sf $1}"
-}
-
-# function arguments: $1 is the pattern to find in stdin
-grep_cmd () {
-  # executes the injected command or defaults to grep
-  eval "${GREP_CMD:-grep -oP '$1'}" < /dev/stdin
+# function arguments: $1 is the program to start
+wine_cmd () {
+  # executes the injected command or defaults to wine
+  eval "${WINE_CMD:-wine $1}" 2> /dev/null
 }
 
 checkIfFilesExist() {
-  for folder in System Maps Textures Physics Sounds Music; do
+  MAPS='Maps';
+  [ -d "$MAPS" ] || MAPS='maps';
+
+  for folder in $MAPS Music Physics Sounds System Textures; do
     if ! [ -d "../$folder" ]; then
       echo "Couldn't find $folder in parallel folders, can't continue"
       read -n 1
@@ -73,12 +71,7 @@ checkIfFilesExist() {
 
 downloadShasums() {
   echo Trying to download sha512.txt
-
-  wget_cmd $url sha512.txt ||
-  curl_cmd "${url}/?C=M;O=D" | grep_cmd '(?<=href=").+?\.sha512' |
-    while read -r sha_file; do
-      curl_cmd "${url}/${sha_file}"
-    done > sha512.txt
+  wget_cmd $url sha512.txt
 
   if ! [ -f sha512.txt ]; then
     echo Failed to download sha512.txt or recreate it
@@ -105,30 +98,17 @@ clearInfo() {
 
 recognizeExtension() {
   case $ext in
-    u)
-      folder='System'
+    umf | umx | uax | u | utx)
       textFile=0;;
-    umf)
-      folder='Maps'
-      textFile=0;;
-    int)
-      folder='System'
-      textFile=1;;
-    utx | usx)
-      folder='Textures'
-      textFile=0;;
-    uax)
-      folder='Sounds'
-      textFile=0;;
-    umx)
-      folder='Music'
-      textFile=0;;
-    COL | hnd2)
-      folder='Physics'
+    COL | hnd2 | int)
       textFile=1;;
     *)
-      echo "Unknown extension $ext, skipping";;
+      echo "Unknown extension $ext, skipping"
+      textFile=-1
+      ;;
   esac
+
+  return $textFile
 }
 
 setLocalHash() {
@@ -152,6 +132,7 @@ checkHashes() {
     echo "Local file hash:  $localHash"
     echo "Remote file hash: $remoteHash"
   fi
+
   return 1
 }
 
@@ -165,9 +146,9 @@ getFile() {
     echo "Downloading ${filename}.uz from the server"
     wget -q -c "https://mf.nofisto.com/fast_download/${filename}.uz" -O "${filename}.uz"
     echo "Decompressing ${filename}.uz"
-    cd "../System"
+    cd ../System
     wine UCC decompress "../Updater/${filename}.uz" 2> /dev/null
-    cd "../Updater"
+    cd ../Updater
 
     if [[ $folder != 'System' ]]; then
       mv "../System/$filename" "../$folder"
