@@ -44,15 +44,15 @@ wget_cmd () {
   eval "${WGET_CMD:-curl -sf \'$1/$2\' -o $2}"
 }
 
-# function arguments: $1 is the program to start
+# function arguments: $* is the program to start with arguments
 wine_cmd () {
   # executes the injected command or defaults to wine
-  eval "${WINE_CMD:-wine $1}" 2> /dev/null
+  eval "${WINE_CMD:-wine $*}" 2> /dev/null
 }
 
 checkIfFilesExist() {
-  MAPS='Maps';
-  [ -d "$MAPS" ] || MAPS='maps';
+  MAPS='Maps'
+  [ -d "$MAPS" ] || MAPS='maps'
 
   for folder in $MAPS Music Physics Sounds System Textures; do
     if ! [ -d "../$folder" ]; then
@@ -62,7 +62,7 @@ checkIfFilesExist() {
     fi
   done
 
-  if ! [ -f '../System/UCC.exe' ]; then
+  if ! [ -f ../System/UCC.exe ]; then
     echo Couldn't find UCC.exe in System folder, can't continue
     read -n 1
     exit 1
@@ -74,18 +74,18 @@ downloadShasums() {
   wget_cmd $url sha512.txt
 
   if ! [ -f sha512.txt ]; then
-    echo Failed to download sha512.txt or recreate it
+    echo Failed to download sha512.txt
     read -n 1
     exit 1
   fi
 }
 
 setInfo() {
-  if [[ -z $remoteHash ]]; then
+  if [ -z "$remoteHash" ]; then
     remoteHash=$word
     return 1
 
-  elif [[ -z $filename ]]; then
+  elif [ -z "$filename" ]; then
     filename=$(echo $word | sed 's/.*\///')
     ext=$(echo $filename | sed 's/.*\.//')
   fi
@@ -112,20 +112,20 @@ recognizeExtension() {
 }
 
 setLocalHash() {
-  if [[ -a "../${folder}/${filename}" ]]; then
-    localHash=$(sha256sum "../${folder}/${filename}" | sed 's/ .*//')
-  elif [[ ! -z $localHash ]]; then
+  if [ -f "../${folder}/${filename}" ]; then
+    localHash=$(sha_cmd "../${folder}/${filename}" | sed 's/ .*//')
+  elif ! [ -z "$localHash" ]; then
     unset localHash
   fi
 }
 
 checkHashes() {
-  if [[ $localHash == $remoteHash ]]; then
+  if [ "$localHash" = "$remoteHash" ]; then
     echo "$filename is up to date"
     clearInfo
-    return 0
 
-  elif [[ -z $localHash ]]; then
+    return 0
+  elif [ -z "$localHash" ]; then
     echo "$filename is missing"
   else
     echo "$filename is mismatching"
@@ -137,28 +137,29 @@ checkHashes() {
 }
 
 getFile() {
-  if [[ $filename == 'Engine.u' || $filename == 'RageWeapons.u' ]]; then
+  if [ "$filename" = 'Engine.u' ] || [ "$filename" = 'RageWeapons.u' ]; then
     echo "$filename is assumed to be indecompressible"
     echo "Downloading $filename from the server"
-    wget -q -c "https://mf.nofisto.com/fast_download/$filename" -O "$filename"
+    wget_cmd $url $filename
     mv "$filename" ../System
-  elif (( ! $textFile )); then
+  elif [ "$textFile" -eq 0 ]; then
     echo "Downloading ${filename}.uz from the server"
-    wget -q -c "https://mf.nofisto.com/fast_download/${filename}.uz" -O "${filename}.uz"
+    wget_cmd $url "${filename}.uz"
     echo "Decompressing ${filename}.uz"
+
     cd ../System
-    wine UCC decompress "../Updater/${filename}.uz" 2> /dev/null
+    wine_cmd UCC decompress "../Updater/${filename}.uz"
     cd ../Updater
 
-    if [[ $folder != 'System' ]]; then
+    if [ "$folder" != 'System' ]; then
       mv "../System/$filename" "../$folder"
     fi
 
-    rm ${filename}.uz;
+    rm "${filename}.uz";
   else
     echo "Downloading $filename from the server"
-    wget -q -c "https://mf.nofisto.com/fast_download/$filename" -O "$filename"
-    mv "$filename" "../$folder"
+    wget_cmd $url $filename
+    mv $filename "../$folder"
   fi
 }
 
@@ -168,7 +169,7 @@ downloadShasums
 while read word; do
   setInfo
 
-  if (( $? == 1 )); then
+  if [ $? -eq 1 ]; then
     continue
   fi
 
@@ -176,7 +177,7 @@ while read word; do
   setLocalHash
   checkHashes
 
-  if (( $? == 0 )); then
+  if [ $? -eq 0 ]; then
     continue
   fi
 
@@ -185,4 +186,4 @@ while read word; do
 done < sha512.txt
 
 echo Update finished
-read -n 1
+sleep 1
