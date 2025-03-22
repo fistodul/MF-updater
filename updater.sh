@@ -1,47 +1,46 @@
-#!/bin/sh
+#!/bin/bash
 
 url='https://mf.nofisto.com/fast_download'
 
 skipFiles=(
-  #'Sounds/Announcer.uax'
-  #'Sounds/RagePlayerVoice.uax'
-  'System/Core.int'
-  'System/D3DDrv.int'
-  'System/Editor.int'
-  'System/Engine.int'
-  'System/Engine.u'
-  'System/Galaxy.int'
-  'System/IpDrv.int'
-  'System/IpServer.int'
-  'System/License.int'
-  'System/Manifest.int'
-  'System/MobileForcesEd.int'
-  'System/MobileForces.int'
-  'System/RageBrowser.int'
-  'System/RageGame.int'
-  'System/RageGfx.int'
-  'System/Rage.int'
-  'System/RageMenu.int'
-  'System/RageWeapons.int'
-  'System/Setup.int'
-  'System/Startup.int'
-  'System/UBrowser.int'
-  'System/Window.int'
-  'System/WinDrv.int'
-  #'Textures/rage_warehouse.utx'
-  'Textures/MobileForceFonts.utx'
+  #'Announcer.uax'
+  #'RagePlayerVoice.uax'
+  'Core.int'
+  'D3DDrv.int'
+  'Editor.int'
+  'Engine.int'
+  'Galaxy.int'
+  'IpDrv.int'
+  'IpServer.int'
+  'License.int'
+  'Manifest.int'
+  'MobileForcesEd.int'
+  'MobileForces.int'
+  'RageBrowser.int'
+  'RageGame.int'
+  'RageGfx.int'
+  'Rage.int'
+  'RageMenu.int'
+  'RageWeapons.int'
+  'Setup.int'
+  'Startup.int'
+  'UBrowser.int'
+  'Window.int'
+  'WinDrv.int'
+  #'rage_warehouse.utx'
+  'MobileForceFonts.utx'
 )
 
 # function arguments: $1 is the file to check the sum of
 sha_cmd () {
   # executes the injected command or defaults to shasum
-  eval "${SHA_CMD:-shasum -a 512 -c -s $1}"
+  eval "${SHA_CMD:-shasum -a 512 $1}" 2> /dev/null
 }
 
 # function arguments: $1 is the url and $2 the file to download
 wget_cmd () {
   # executes the injected command or defaults to curl with -o
-  eval "${WGET_CMD:-curl -sf \'$1/$2\' -o $2}"
+  eval "${WGET_CMD:-curl -sf '$1/$2' -o $2}"
 }
 
 # function arguments: $* is the program to start with arguments
@@ -52,7 +51,7 @@ wine_cmd () {
 
 checkIfFilesExist() {
   MAPS='Maps'
-  [ -d "$MAPS" ] || MAPS='maps'
+  [ -d "../$MAPS" ] || MAPS='maps'
 
   for folder in $MAPS Music Physics Sounds System Textures; do
     if ! [ -d "../$folder" ]; then
@@ -73,116 +72,90 @@ downloadShasums() {
   echo Trying to download sha512.txt
   wget_cmd $url sha512.txt
 
-  if ! [ -f sha512.txt ]; then
+  if [ $? -ne 0 ]; then
     echo Failed to download sha512.txt
     read -n 1
     exit 1
   fi
+
+   echo sha512.txt successfully downloaded
 }
 
 setInfo() {
-  if [ -z "$remoteHash" ]; then
-    remoteHash=$word
-    return 1
-
-  elif [ -z "$filename" ]; then
-    filename=$(echo $word | sed 's/.*\///')
-    ext=$(echo $filename | sed 's/.*\.//')
-  fi
+  file=${1##*/}
+  ext=${file##*.}
+  echo $file $ext
 }
 
-clearInfo() {
-  unset remoteHash
-  unset filename
-}
-
-recognizeExtension() {
-  case $ext in
+isTextFile() {
+  case $1 in
     umf | umx | uax | u | utx)
-      textFile=0;;
+      return 0;;
     COL | hnd2 | int)
-      textFile=1;;
+      return 1;;
     *)
-      echo "Unknown extension $ext, skipping"
-      textFile=-1
-      ;;
+      echo "Unknown extension for $file"
+      return 2;;
   esac
-
-  return $textFile
-}
-
-setLocalHash() {
-  if [ -f "../${folder}/${filename}" ]; then
-    localHash=$(sha_cmd "../${folder}/${filename}" | sed 's/ .*//')
-  elif ! [ -z "$localHash" ]; then
-    unset localHash
-  fi
 }
 
 checkHashes() {
-  if [ "$localHash" = "$remoteHash" ]; then
-    echo "$filename is up to date"
-    clearInfo
+  localHash=($(sha_cmd $3))
 
+  if [ "$localHash" = "$2" ]; then
+    echo "$1 is up to date"
     return 0
   elif [ -z "$localHash" ]; then
-    echo "$filename is missing"
+    echo "$1 is missing"
   else
-    echo "$filename is mismatching"
-    echo "Local file hash:  $localHash"
-    echo "Remote file hash: $remoteHash"
+    echo "$1 is mismatching"
+    echo "Local file hash: $localHash"
+    echo "Remote file hash: $2"
   fi
 
   return 1
 }
 
 getFile() {
-  if [ "$filename" = 'Engine.u' ] || [ "$filename" = 'RageWeapons.u' ]; then
-    echo "$filename is assumed to be indecompressible"
-    echo "Downloading $filename from the server"
-    wget_cmd $url $filename
-    mv "$filename" ../System
-  elif [ "$textFile" -eq 0 ]; then
-    echo "Downloading ${filename}.uz from the server"
-    wget_cmd $url "${filename}.uz"
-    echo "Decompressing ${filename}.uz"
-
-    cd ../System
-    wine_cmd UCC decompress "../Updater/${filename}.uz"
-    cd ../Updater
-
-    if [ "$folder" != 'System' ]; then
-      mv "../System/$filename" "../$folder"
-    fi
-
-    rm "${filename}.uz";
+  echo "Downloading $1 from the server"
+  if [[ $3 -eq 1 || "$1" == @(Engine.u|RageWeapons.u) ]]; then
+    wget_cmd $url $1
+    mv $1 $2
   else
-    echo "Downloading $filename from the server"
-    wget_cmd $url $filename
-    mv $filename "../$folder"
+    wget_cmd $url "$1.uz"
+    echo "Decompressing $1.uz"
+
+    wine_cmd ../System/UCC.exe decompress "$PWD/$1.uz"
+    mv "../System/$1" $2 2> /dev/null
+    rm "$1.uz"
   fi
 }
 
 checkIfFilesExist
 downloadShasums
 
-while read word; do
-  setInfo
+while read hash; do
+  hash=($hash)
+  file=($(setInfo ${hash[1]}))
 
-  if [ $? -eq 1 ]; then
+  if [[ "${skipFiles[@]}" == *"$file"* ]]; then
+    echo "Skipping $file"
     continue
   fi
 
-  recognizeExtension
-  setLocalHash
-  checkHashes
+  isTextFile ${file[1]}
+  textFile=$?
 
+  if [ $textFile -eq 2 ]; then
+    continue
+  fi
+
+  checkHashes $file $hash ${hash[1]}
   if [ $? -eq 0 ]; then
     continue
   fi
 
-  getFile
-  clearInfo
+  getFile $file ${hash[1]} $textFile
 done < sha512.txt
 
 echo Update finished
