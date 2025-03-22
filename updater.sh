@@ -117,11 +117,12 @@ checkHashes() {
 }
 
 getFile() {
-  echo "Downloading $1 from the server"
   if [[ $3 -eq 1 || "$1" == @(Engine.u|RageWeapons.u) ]]; then
+    echo "Downloading $1 from the server"
     wget_cmd $url $1
     mv $1 $2
   else
+    echo "Downloading $1.uz from the server"
     wget_cmd $url "$1.uz"
     echo "Decompressing $1.uz"
 
