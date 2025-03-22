@@ -134,9 +134,8 @@ getFile() {
 checkIfFilesExist
 downloadShasums
 
-while read hash; do
-  hash=($hash)
-  file=($(setInfo ${hash[1]}))
+while read hash filePath; do
+  file=($(setInfo $filePath))
 
   if [[ "${skipFiles[@]}" == *"$file"* ]]; then
     echo "Skipping $file"
@@ -150,12 +149,12 @@ while read hash; do
     continue
   fi
 
-  checkHashes $file $hash ${hash[1]}
+  checkHashes $file $hash $filePath
   if [ $? -eq 0 ]; then
     continue
   fi
 
-  getFile $file ${hash[1]} $textFile
+  getFile $file $filePath $textFile
 done < sha512.txt
 
 echo Update finished
