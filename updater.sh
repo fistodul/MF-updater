@@ -50,10 +50,9 @@ wine_cmd () {
 }
 
 checkIfFilesExist() {
-  MAPS='Maps'
-  [ -d "../$MAPS" ] || MAPS='maps'
+  mv ../maps ../Maps 2> /dev/null
 
-  for folder in $MAPS Music Physics Sounds System Textures; do
+  for folder in Maps Music Physics Sounds System Textures; do
     if ! [ -d "../$folder" ]; then
       echo "Couldn't find $folder in parallel folders, can't continue"
       read -n 1
