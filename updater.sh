@@ -116,7 +116,7 @@ checkHashes() {
 }
 
 getFile() {
-  if [[ $3 -eq 1 || "$1" == @(Engine.u|RageWeapons.u) ]]; then
+  if [[ $3 -eq 1 || "$1" == @(EffectsFix.u|Rage.u|Engine.u|RageWeapons.u) ]]; then
     echo "Downloading $1 from the server"
     wget_cmd $url $1
     mv $1 $2
