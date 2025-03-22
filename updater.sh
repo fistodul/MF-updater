@@ -94,7 +94,7 @@ isTextFile() {
     COL | hnd2 | int)
       return 1;;
     *)
-      echo "Unknown extension for $file"
+      echo "Unknown extension $1"
       return 2;;
   esac
 }
