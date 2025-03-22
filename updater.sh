@@ -40,13 +40,13 @@ sha_cmd () {
 # function arguments: $1 is the url and $2 the file to download
 wget_cmd () {
   # executes the injected command or defaults to curl with -o
-  eval "${WGET_CMD:-curl -sf '$1/$2' -o $2}"
+  eval "${WGET_CMD:-curl -sf '$1/$2' -o $2}" > /dev/null
 }
 
 # function arguments: $* is the program to start with arguments
 wine_cmd () {
   # executes the injected command or defaults to wine
-  eval "${WINE_CMD:-wine $*}" 2> /dev/null
+  eval "${WINE_CMD:-wine $*}" 
 }
 
 checkIfFilesExist() {
@@ -108,8 +108,6 @@ checkHashes() {
     echo "$1 is missing"
   else
     echo "$1 is mismatching"
-    echo "Local file hash: $localHash"
-    echo "Remote file hash: $2"
   fi
 
   return 1
