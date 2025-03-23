@@ -61,7 +61,7 @@ checkIfFilesExist() {
   done
 
   if ! [ -f ../System/UCC.exe ]; then
-    echo Couldn't find UCC.exe in System folder, can't continue
+    echo 'Couldn't find UCC.exe in System folder, can't continue'
     read -n 1
     exit 1
   fi
