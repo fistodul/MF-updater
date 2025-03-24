@@ -49,8 +49,26 @@ wine_cmd () {
   eval "${WINE_CMD:-wine $*}" 
 }
 
+# function arguments: $1 is what to move and $2 is where
+mv_cmd () {
+  # executes the injected command or defaults to mv
+  eval "${MV_CMD:-mv $1 $2}" &> /dev/null
+}
+
+# function arguments: $1 is file to delete
+rm_cmd () {
+  # executes the injected command or defaults to rm
+  eval "${RM_CMD:-rm $1}"
+}
+
+# function arguments: $1 is the amount of seconds to sleep
+sleep_cmd () {
+  # executes the injected command or defaults to sleep
+  eval "${SLEEP_CMD:-sleep $1}" > /dev/null
+}
+
 checkIfFilesExist() {
-  mv ../maps ../Maps 2> /dev/null
+  mv_cmd ../maps ../Maps
 
   for folder in Maps Music Physics Sounds System Textures; do
     if ! [ -d "../$folder" ]; then
@@ -61,7 +79,7 @@ checkIfFilesExist() {
   done
 
   if ! [ -f ../System/UCC.exe ]; then
-    echo 'Couldn't find UCC.exe in System folder, can't continue'
+    echo "Couldn't find UCC.exe in System folder, can't continue"
     read -n 1
     exit 1
   fi
@@ -117,15 +135,15 @@ getFile() {
   if [[ $3 -eq 1 || "$1" == @(EffectsFix.u|Rage.u|Engine.u|RageWeapons.u) ]]; then
     echo "Downloading $1 from the server"
     wget_cmd $url $1
-    mv $1 $2
+    mv_cmd $1 $2
   else
     echo "Downloading $1.uz from the server"
     wget_cmd $url "$1.uz"
     echo "Decompressing $1.uz"
 
     wine_cmd ../System/UCC.exe decompress "$PWD/$1.uz"
-    mv "../System/$1" $2 2> /dev/null
-    rm "$1.uz"
+    mv_cmd "../System/$1" $2
+    rm_cmd "$1.uz"
   fi
 }
 
@@ -156,4 +174,4 @@ while read hash filePath; do
 done < sha512.txt
 
 echo Update finished
-sleep 1
+sleep_cmd 1
