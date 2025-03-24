@@ -40,13 +40,13 @@ sha_cmd () {
 # function arguments: $1 is the url and $2 the file to download
 wget_cmd () {
   # executes the injected command or defaults to curl with -o
-  eval "${WGET_CMD:-curl -sf '$1/$2' -o $2}" > /dev/null
+  eval "${WGET_CMD:-curl -sf "$1/$2" -o $2}" > /dev/null
 }
 
 # function arguments: $* is the program to start with arguments
 wine_cmd () {
   # executes the injected command or defaults to wine
-  eval "${WINE_CMD:-wine $*}" 
+  eval "${WINE_CMD:-wine $*}"
 }
 
 # function arguments: $1 is what to move and $2 is where
@@ -78,7 +78,7 @@ checkIfFilesExist() {
     fi
   done
 
-  if ! [ -f ../System/UCC.exe ]; then
+  if ! [ -f '../System/UCC.exe' ]; then
     echo "Couldn't find UCC.exe in System folder, can't continue"
     read -n 1
     exit 1
