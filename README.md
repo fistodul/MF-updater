@@ -1,59 +1,63 @@
-Readme written by Gregaras
+# MF-updater
 
-You should have received a folder with .dll, .exe and other files in it. The folder should be called 'Updater'. You should place the folder inside the main Mobile Forces game folder in which System, Texture, Maps and other such folders reside.
+Mobile Forces updater written in Bash with wrapper versions in Batch and PowerShell for Windows that use the MSYS2 Bash package
 
-It is assumed that files can be downloaded from https://mf.nofisto.com/fast_download. You can paste the link into the address bar of your web browser and try to open the page. If the page doesn't open up (the server is down/doesn't exist) then you shouldn't launch the updater or you should edit the script so that you can download the files from elsewhere.
+It is assumed that files can be downloaded from https://mf.nofisto.com/fast_download. You can paste the link into the address bar of your web browser and try to open the page. If the page doesn't open up (the server is down/doesn't exist) then you shouldn't launch the updater or you should edit the script so that you can download the files from elsewhere
 
-Before updating, keep in mind to backup the game in case you will want to revert back since the script will overwrite any mismatching file.
+As of 2024-05-03 msys2-runtime was updated to Cygwin 3.5 which dropped support for Windows 7, due to backwards compatiblity reasons we have sticked to msys2-runtime-3.4, more info here: https://www.msys2.org/docs/windows_support/
 
-To begin the update process, launch script.bat. You may wait until script finishes or you may close the window If you wish to no longer continue the execution. If you choose to cancel the execution, a file called "shasums" should remain in the Updater folder. You may delete or keep it, script will overwrite it on the next updare procedure.
+## Setup instructions
 
-If you use the script to download modded game files (the ones from Update.zip) of the System folder then shasums.txt has to be set up on the server so that some of the files are downloaded before the others, otherwise there might be problems with UCC decompress command. As of 2024-06-30, the priority is this: EffectsFix.u, RageWeapons.u, Rage.u, Engine.u and the rest of the files. Not sure if there is a way to decompress a compressed version of Engine.u by using game's own UCC, instead script just downloads an uncompressed version of Engine.u. Also, there has been a problem with RageWeapons.u decompression once, so this file is downloaded uncompressed as well.
+Before updating, keep in mind to backup the game in case you will want to revert back since the script will overwrite any mismatching file
 
+First download this repo and extract it inside the main Mobile Forces game folder in which System, Texture, Maps and other such folders reside
 
-*****
+```
+wget https://github.com/fistodul/MF-updater/archive/refs/heads/main.zip
+unzip main.zip
+```
 
-Script made by Gregaras
+The folder should come with a .dll, .exe and other files in it
 
-Looking for info at forums like StackOverflow and similar helped me write the first version of the script (was longer, had 21 loops instead of 6). Also, one documentation I think helped me:
+To begin the update process, launch the script for your OS (table below). You may wait until script finishes or you may close the window if you wish to no longer continue the execution. If you choose to cancel the execution, a file called "sha512.txt" should remain in the updater folder. You may delete or keep it, script will overwrite it on the next updare procedure
 
-https://en.wikibooks.org/wiki/Windows_Batch_Scripting
+| OS          | Script      | Note
+| ----------- | ----------- | ------------------------------------------- |
+| Linux / Mac | updater.sh  | Just have Bash installed                    |
+| Windows 10  | updater.ps1 | Maybe needs to have running scripts enabled |
+| Windows 7   | updater.bat | Maybe needs an exclusion in your antivirus  |
 
-The script still probably could be improved a lot, maybe It could be rewritten in something like PowerShell or maybe an updater with a GUI somehow could be made.
+If you use the script to download modded game files (the ones from Update.zip) of the System folder then sha512.txt has to be set up on the server so that some of the files are downloaded before the others, otherwise there might be problems with UCC decompress command. As of 2024-06-30, the priority is this: EffectsFix.u, Rage.u, Engine.u, RageWeapons.u and the rest of the files. Not sure if there is a way to decompress a compressed version of Engine.u by using game's own UCC, instead script just downloads an uncompressed version of Engine.u. Also, it downloads other files uncompressed for which we noted problems with their decompression as well
 
-*****
+## Back story
 
-There is software which was obtained from here:
+This Script was first made by Gregaras and then improved by Filip
 
-https://github.com/git-for-windows/git/releases/download/v2.43.0.windows.1/PortableGit-2.43.0-64-bit.7z.exe
+> Looking for info at forums like StackOverflow and similar helped me write the first version of the script (was longer, had 21 loops). Also, one documentation I think helped me: https://en.wikibooks.org/wiki/Windows_Batch_Scripting
 
-The page that included the link:
+The script had a lot to improve and still does, an updater with a GUI somehow could be made maybe
 
-https://git-scm.com/download/win
+We thought that it could be rewritten in something like PowerShell but went with Bash since we were Linux users and most experienced in it
 
-Link to the GitHub release page:
+> I tried to make most of the code POSIX and follow best practices from https://mywiki.wooledge.org/BashFAQ and not include features of Bash 4+ to be compatible with Apple's Bash 3.2.57 version
 
-https://github.com/git-for-windows/git/releases/tag/v2.43.0.windows.1 
+## Thanks to
+
+msys2-runtime-3.4 and bash packages which were obtained from here:
+
+https://mirror.msys2.org/msys/x86_64/msys2-runtime-3.4-3.4.10-3-x86_64.pkg.tar.zst
+
+https://mirror.msys2.org/msys/x86_64/bash-5.2.037-2-x86_64.pkg.tar.zst
+
+The pages that included the links:
+
+https://packages.msys2.org/packages/bash?variant=x86_64
+
+https://packages.msys2.org/packages/msys2-runtime-3.4?variant=x86_64
 
 List of the files:
 
-sha256sum.exe
-sed.exe
-msys-pcre-1.dll
-msys-intl-8.dll
-msys-iconv-2.dll
-msys-2.0.dll
-grep.exe
-
-As of 2024-04-24 there is a version 2.44 that seems to have differing versions of aforementioned files. Although, I'm not sure If it is worth including them since msys-2.0.dll now takes up 19 megabytes instead of 3 and no internet access operations are done with these programs (they are not even able to do that I suppose, not the executables at least).
-
-
-wget.exe was obtained from there:
-
-https://eternallybored.org/misc/wget/1.21.4/32/wget.exe
-
-These pages get you to the download link of wget.exe:
-
-https://www.gnu.org/software/wget/
-http://wget.addictivecode.org/FrequentlyAskedQuestions.html#download
-https://eternallybored.org/misc/wget/
+```
+usr/bin/msys-2.0.dll
+usr/bin/bash.exe
+```
