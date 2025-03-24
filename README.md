@@ -35,7 +35,7 @@ This Script was first made by Gregaras and then improved by Filip
 
 > Looking for info at forums like StackOverflow and similar helped me write the first version of the script (was longer, had 21 loops). Also, one documentation I think helped me: https://en.wikibooks.org/wiki/Windows_Batch_Scripting
 
-The script had a lot to improve and still does, an updater with a GUI somehow could be made maybe
+The script had a lot to improve and still does, it originally used files from Git for Windows v2.43.0 - v2.46.2 and now an updater with a GUI somehow could be made maybe
 
 We thought that it could be rewritten in something like PowerShell but went with Bash since we were Linux users and most experienced in it
 
