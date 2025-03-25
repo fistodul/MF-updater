@@ -34,7 +34,7 @@ skipFiles=(
 # function arguments: $1 is the file to check the sum of
 sha_cmd () {
   # executes the injected command or defaults to shasum
-  eval "${SHA_CMD:-shasum -a 512 $1}" 2> /dev/null
+  eval "${SHA_CMD:-sha512sum $1}" 2> /dev/null
 }
 
 # function arguments: $1 is the url and $2 the file to download

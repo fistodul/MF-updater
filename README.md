@@ -21,11 +21,12 @@ The folder should come with a .dll, .exe and other files in it
 
 To begin the update process, launch the script for your OS (table below). You may wait until script finishes or you may close the window if you wish to no longer continue the execution. If you choose to cancel the execution, a file called "sha512.txt" should remain in the updater folder. You may delete or keep it, script will overwrite it on the next updare procedure
 
-| OS          | Script      | Note
-| ----------- | ----------- | ------------------------------------------- |
-| Linux / Mac | updater.sh  | Just have Bash installed                    |
-| Windows 10  | updater.ps1 | Maybe needs to have running scripts enabled |
-| Windows 7   | updater.bat | Maybe needs an exclusion in your antivirus  |
+| OS         | Script      | Note
+| ---------- | ----------- | ------------------------------------------- |
+| Linux      | updater.sh  | Just have Bash installed                    |
+| Windows 10 | updater.ps1 | Maybe needs to have running scripts enabled |
+| Windows 7  | updater.bat | Maybe needs an exclusion in your antivirus  |
+| Mac        | updater.sh  | Run as `SHA_CMD='shasum -a 512 $1' bash updater.sh` or install sha512sum |
 
 If you use the script to download modded game files (the ones from Update.zip) of the System folder then sha512.txt has to be set up on the server so that some of the files are downloaded before the others, otherwise there might be problems with UCC decompress command. As of 2024-06-30, the priority is this: EffectsFix.u, Rage.u, Engine.u, RageWeapons.u and the rest of the files. Not sure if there is a way to decompress a compressed version of Engine.u by using game's own UCC, instead script just downloads an uncompressed version of Engine.u. Also, it downloads other files uncompressed for which we noted problems with their decompression as well
 
