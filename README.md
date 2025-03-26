@@ -20,7 +20,7 @@ To begin the update process, launch the script for your OS:
 
 ## Instructions for server hosts
 
-A text file with a list of sha512 hashes and paths has to be made. Example of sha512.txt file:
+A text file named sha512.txt with a list of sha512 hashes and paths has to be made. Example of sha512.txt file:
 
 ```
 b72da50395d4d57e87324127118112e81f43d5e2e50b9cc09ec565b30397bf651e9aa34c077311bb6cc0b5d68668291cebe2844b4342da020334189a6381a02c  ../Maps/mf-dockyard.umf
@@ -45,6 +45,8 @@ RageWeapons.u
 Other files
 ```
 Otherwise, UCC decompress command might act up and the updater script might not work as intended. Although, the ultimate solution might be not to attempt to decompress any of the game code packages and instead download the uncompressed versions of them. Maybe such feature will soon be implemented.
+
+[The script](https://github.com/filipopo/MF-ansible/blob/main/templates/gameserver/scripts/compress.sh) that sets up fast_download directory as well as generates the sha512.txt file.
 
 ## Back story
 
