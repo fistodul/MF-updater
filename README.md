@@ -44,7 +44,7 @@ Engine.u
 RageWeapons.u
 Other files
 ```
-Otherwise, UCC decompress command might act up and the updater script might not work as intended. Although, the ultimate solution might be not to attempt to decompress any of the game code packages and instead download the uncompressed versions of them. Maybe such feature will soon be implemented.
+Otherwise, UCC decompress command might act up and the updater script might not work as intended. Although, the ultimate solution might be not to attempt to decompress any of the game code packages and instead download the uncompressed versions of them at the beginning of file check/download process. Maybe such feature will soon be implemented.
 
 [The script](https://github.com/filipopo/MF-ansible/blob/main/templates/gameserver/scripts/compress.sh) that sets up fast_download directory as well as generates the sha512.txt file.
 
