@@ -1,7 +1,7 @@
 # This script comes with the msys2-runtime and bash
 
 $Env:SHA_CMD = 'powershell -Command "(Get-FileHash -Algorithm SHA512 $1).Hash.ToLower()"'
-$Env:WGET_CMD = 'powershell -Command "Invoke-WebRequest "$1/$2" -OutFile $2"'
+$Env:WGET_CMD = 'powershell -Command "Set-Variable ProgressPreference SilentlyContinue; Invoke-WebRequest $1/$2 -OutFile $2"'
 $Env:WINE_CMD = '$*'
 
 $Env:MV_CMD = 'powershell -Command "Move-Item -Path $1 -Destination $2 -Force"'
