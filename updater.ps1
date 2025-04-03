@@ -4,7 +4,7 @@ $Env:SHA_CMD = 'powershell -Command "(Get-FileHash -Algorithm SHA512 $1).Hash.To
 $Env:WGET_CMD = 'powershell -Command "Invoke-WebRequest "$1/$2" -OutFile $2"'
 $Env:WINE_CMD = '$*'
 
-$Env:MV_CMD = 'powershell -Command "Move-Item -Path $1 -Destination $2" -Force'
+$Env:MV_CMD = 'powershell -Command "Move-Item -Path $1 -Destination $2 -Force"'
 $Env:RM_CMD = 'powershell -Command "Remove-Item $1"'
 $Env:SLEEP_CMD = 'powershell -Command "Start-Sleep -Seconds $1"'
 
