@@ -33,7 +33,7 @@ skipFiles=(
 
 # function arguments: $1 is the file to check the sum of
 sha_cmd () {
-  # executes the injected command or defaults to shasum
+  # executes the injected command or defaults to sha512sum
   eval "${SHA_CMD:-sha512sum $1}" 2> /dev/null
 }
 
