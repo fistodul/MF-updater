@@ -73,14 +73,14 @@ checkIfFilesExist() {
   for folder in Maps Music Physics Sounds System Textures; do
     if ! [ -d "../$folder" ]; then
       echo "Couldn't find $folder in parallel folders, can't continue"
-      read -n 1
+      sleep_cmd 2
       exit 1
     fi
   done
 
   if ! [ -f '../System/UCC.exe' ]; then
     echo "Couldn't find UCC.exe in System folder, can't continue"
-    read -n 1
+    sleep_cmd 2
     exit 1
   fi
 }
@@ -91,7 +91,7 @@ downloadShasums() {
 
   if [ $? -ne 0 ]; then
     echo Failed to download sha512.txt
-    read -n 1
+    sleep_cmd 2
     exit 1
   fi
 
