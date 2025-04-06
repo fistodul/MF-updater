@@ -136,7 +136,7 @@ getFile() {
     echo "Downloading $1 from the server"
     wget_cmd $url $1
     mv_cmd $1 $2
-  else
+  elif [ $3 -eq 0 ]; then
     echo "Downloading $1.uz from the server"
     wget_cmd $url "$1.uz"
     echo "Decompressing $1.uz"
@@ -158,19 +158,13 @@ while read hash filePath; do
     continue
   fi
 
-  isTextFile ${file[1]}
-  textFile=$?
-
-  if [ $textFile -eq 2 ]; then
-    continue
-  fi
-
   checkHashes $file $hash $filePath
   if [ $? -eq 0 ]; then
     continue
   fi
 
-  getFile $file $filePath $textFile
+  isTextFile ${file[1]}
+  getFile $file $filePath $?
 done < sha512.txt
 
 echo Update finished
