@@ -46,7 +46,7 @@ wget_cmd () {
 # function arguments: $* is the program to start with arguments
 wine_cmd () {
   # executes the injected command or defaults to wine
-  eval "${WINE_CMD:-wine $*}"
+  eval "${WINE_CMD:-wine $*}" 2> /dev/null
 }
 
 # function arguments: $1 is what to move and $2 is where
