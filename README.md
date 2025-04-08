@@ -70,16 +70,17 @@ As of 2024-05-03 msys2-runtime was updated to Cygwin 3.5 which dropped support f
 
 `usr/bin/msys-2.0.dll`:
 
-https://packages.msys2.org/packages/msys2-runtime-3.4?variant=x86_64 (main page)\
-https://mirror.msys2.org/msys/x86_64/msys2-runtime-3.4-3.4.10-3-x86_64.pkg.tar.zst (package with binaries)\
-https://mirror.msys2.org/msys/sources/msys2-runtime-3.4-3.4.10-3.src.tar.zst (source code)\
-https://github.com/fistodul/MF-updater/releases/download/v1.0.0/msys2-runtime-3.4-3.4.10-3.src.tar.zst (source code mirror)
+[Main page](https://packages.msys2.org/packages/msys2-runtime-3.4?variant=x86_64)\
+[Package with binaries](https://mirror.msys2.org/msys/x86_64/msys2-runtime-3.4-3.4.10-3-x86_64.pkg.tar.zst)\
+[Source code](https://mirror.msys2.org/msys/sources/msys2-runtime-3.4-3.4.10-3.src.tar.zst)\
+[Source code mirror](https://github.com/fistodul/MF-updater/releases/download/v1.0.0/msys2-runtime-3.4-3.4.10-3.src.tar.zst)
 
 `usr/bin/bash.exe`:
 
-https://packages.msys2.org/packages/bash?variant=x86_64 (main page)\
-https://mirror.msys2.org/msys/x86_64/bash-5.2.037-2-x86_64.pkg.tar.zst (package with binaries)\
-https://mirror.msys2.org/msys/sources/bash-5.2.037-2.src.tar.zst (source code)\
-https://github.com/fistodul/MF-updater/releases/download/v1.0.0/bash-5.2.037-2.src.tar.zst (source code mirror)
+[Main page](https://packages.msys2.org/packages/bash?variant=x86_64)\
+[Package with binaries](https://mirror.msys2.org/msys/x86_64/bash-5.2.037-2-x86_64.pkg.tar.zst)\
+[Source code](https://mirror.msys2.org/msys/sources/bash-5.2.037-2.src.tar.zst)\
+[Source code mirror](https://github.com/fistodul/MF-updater/releases/download/v1.0.0/bash-5.2.037-2.src.tar.zst)
+
 
 
