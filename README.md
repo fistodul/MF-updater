@@ -4,7 +4,7 @@ Mobile Forces updater written in Bash with wrapper versions in Batch and PowerSh
 
 It is assumed that files can be downloaded from https://mf.nofisto.com/fast_download. You can paste the link into the address bar of your web browser and try to open the page. If the page doesn't open up (the server is down/doesn't exist) then you shouldn't launch the updater or you should edit the script so that you can download the files from elsewhere.
 
-## Setup instructions
+## Setup/running instructions
 
 First download this [archive file](https://github.com/fistodul/MF-updater/archive/refs/heads/main.zip) and extract it inside the main Mobile Forces game folder in which System, Texture, Maps and other such folders reside.
 
@@ -18,7 +18,7 @@ To begin the update process, launch the script for your OS:
 | Windows 7  | updater.bat | Maybe needs an exclusion in your antivirus |
 | Mac        | updater.sh  | Run as `SHA_CMD='shasum -a 512 $1' bash updater.sh` or install sha512sum |
 
-## Instructions for server hosts
+## Information for server hosts
 
 A text file named sha512.txt with a list of sha512 hashes and paths has to be made. Example of sha512.txt file:
 
@@ -34,21 +34,25 @@ d529debe43dffd9662bf4844cbbb519cc0041208bf313dd8907dee9a6f637bd6fbd3be1ca3c716f4
 
 The file has to include all the game files that you want your clients to update.
 
-If base files/game code packages (Rage.u, RageWeapons.u, Engine.u, etc.) are **not** being downloaded then the list can be freely sorted, although it is recommended to sort them by modified date so that whenever new files are put to the server, clients can download them at the beginning stage of the script. 
+If base files/game code packages (`Rage.u`, `RageWeapons.u`, `Engine.u`, etc.) are **not** being downloaded then the list can be freely sorted, although it is recommended to sort them by modified date so that whenever new files are put to the server, clients can download them at the beginning stage of the script. 
 
-If base files/game code packages **are** being downloaded then the list has to be different. For example, in case of downloading [modded game files](https://mf.nofisto.com/download/Update.zip), the list has to be in this order:
+If base files/game code packages **are** being downloaded then the list has to be different. For example, in case of downloading [modded game files](https://mf.nofisto.com/download/Update.zip), the list has to start with `EffectsFix.u`, `Rage.u`, `Engine.u`, `RageWeapons.u` packages (order doesn't matter) and then continue with other files (recommended to sort these files by modified date as well). Example of file order:
+
 ```
-EffectsFix.u
 Rage.u
-Engine.u
 RageWeapons.u
-Other files
+EffectsFix.u
+Engine.u
+mf-warehouse.umf
+rage_warehouse.utx
+...
 ```
-Otherwise, UCC decompress command might act up and the updater script might not work as intended. Although, the ultimate solution might be not to attempt to decompress any of the game code packages and instead download the uncompressed versions of them at the beginning of file check/download process. Maybe such feature will soon be implemented.
+
+If the 4 packages are not checked/updated at the beginning, there is a possibility that UCC decompression will stop working.
 
 [This script](https://github.com/filipopo/MF-ansible/blob/main/templates/gameserver/scripts/compress.sh) sets up fast_download directory as well as generates the sha512.txt file. Check out the [full repo](https://github.com/filipopo/MF-ansible) for more info on setting up your own server.
 
-## Back story
+## Backstory
 
 This Script was first made by Gregaras and then improved by Filip.
 
