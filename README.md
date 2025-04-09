@@ -6,7 +6,7 @@ It is assumed that files can be downloaded from https://mf.nofisto.com/fast_down
 
 ## Setup/running instructions
 
-First download this [archive file](https://github.com/fistodul/MF-updater/releases/download/v1.0.0/MF-updater-1.0.0.zip) and extract it inside the main Mobile Forces game folder in which System, Texture, Maps and other such folders reside.
+First, download this [archive file](https://github.com/fistodul/MF-updater/releases/download/v1.0.0/MF-updater-1.0.0.zip) and extract it inside the main Mobile Forces game folder in which System, Texture, Maps and other such folders reside.
 
 Before updating, keep in mind to backup the game in case you will want to revert back since the script will overwrite any mismatching file.
 
