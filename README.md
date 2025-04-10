@@ -2,7 +2,7 @@
 
 Mobile Forces updater written in Bash with wrapper versions in Batch and PowerShell for Windows that use the MSYS2 Bash package.
 
-It is assumed that files can be downloaded from https://mf.nofisto.com/fast_download. You can paste the link into the address bar of your web browser and try to open the page. If the page doesn't open up (the server is down/doesn't exist) then you shouldn't launch the updater or you should edit the script so that you can download the files from elsewhere.
+It is assumed that files can be downloaded from https://mf.nofisto.com/fast_download. You can paste the link into the address bar of your web browser and try to open the page. If the page doesn't open up (the server is down) then you shouldn't launch the updater or you should edit the script so that you can download the files from elsewhere.
 
 ## Setup/running instructions
 
@@ -34,9 +34,13 @@ d529debe43dffd9662bf4844cbbb519cc0041208bf313dd8907dee9a6f637bd6fbd3be1ca3c716f4
 
 The file has to include all the game files that you want your clients to update.
 
-If base files/game code packages (`Rage.u`, `RageWeapons.u`, `Engine.u`, etc.) are **not** being downloaded then the list can be freely sorted, although it is recommended to sort them by modified date so that whenever new files are put to the server, clients can download them at the beginning stage of the script. 
+If base files/game code packages (`Rage.u`, `RageWeapons.u`, `Engine.u`, etc.) **are** being downloaded then the list has to start with them.
 
-If base files/game code packages **are** being downloaded then the list has to be different. For example, in case of downloading [modded game files](https://mf.nofisto.com/download/Update.zip), the list has to start with `EffectsFix.u`, `Rage.u`, `Engine.u`, `RageWeapons.u` packages (order doesn't matter) and then continue with other files (recommended to sort these files by modified date as well). Example of file order:
+For example, in case of downloading [modded game files](https://mf.nofisto.com/download/Update.zip), the [list](https://mf.nofisto.com/fast_download/sha512.txt) starts with `EffectsFix.u`, `Rage.u`, `Engine.u`, `RageWeapons.u` (order doesn't matter) and then continues with other files.
+
+Other than that, the list can be freely sorted, although it is recommended to sort them by modified date so that whenever new files are put to the server, clients can download them at the beginning stage of the script. 
+
+Example of file order:
 
 ```
 Rage.u
@@ -81,6 +85,3 @@ As of 2024-05-03 msys2-runtime was updated to Cygwin 3.5 which dropped support f
 [Package with binaries](https://mirror.msys2.org/msys/x86_64/bash-5.2.037-2-x86_64.pkg.tar.zst)\
 [Source code](https://mirror.msys2.org/msys/sources/bash-5.2.037-2.src.tar.zst)\
 [Source code mirror](https://github.com/fistodul/MF-updater/releases/download/v1.0.0/bash-5.2.037-2.src.tar.zst)
-
-
-
