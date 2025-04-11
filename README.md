@@ -6,7 +6,7 @@ It is assumed that files can be downloaded from https://mf.nofisto.com/fast_down
 
 ## Setup/running instructions
 
-First, download this [archive file](https://github.com/fistodul/MF-updater/releases/download/v1.0.0/MF-updater-1.0.0.zip) and extract it inside the main Mobile Forces game folder in which System, Texture, Maps and other such folders reside.
+First, download this [archive file](https://github.com/fistodul/MF-updater/archive/refs/heads/main.zip) and extract it inside the main Mobile Forces game folder in which System, Texture, Maps and other such folders reside. 
 
 Before updating, keep in mind to backup the game in case you will want to revert back since the script will overwrite any mismatching file.
 
@@ -76,12 +76,10 @@ As of 2024-05-03 msys2-runtime was updated to Cygwin 3.5 which dropped support f
 
 [Main page](https://packages.msys2.org/packages/msys2-runtime-3.4?variant=x86_64)\
 [Package with binaries](https://mirror.msys2.org/msys/x86_64/msys2-runtime-3.4-3.4.10-3-x86_64.pkg.tar.zst)\
-[Source code](https://mirror.msys2.org/msys/sources/msys2-runtime-3.4-3.4.10-3.src.tar.zst)\
-[Source code mirror](https://github.com/fistodul/MF-updater/releases/download/v1.0.0/msys2-runtime-3.4-3.4.10-3.src.tar.zst)
+[Source code](https://mirror.msys2.org/msys/sources/msys2-runtime-3.4-3.4.10-3.src.tar.zst)
 
 `usr/bin/bash.exe`:
 
 [Main page](https://packages.msys2.org/packages/bash?variant=x86_64)\
 [Package with binaries](https://mirror.msys2.org/msys/x86_64/bash-5.2.037-2-x86_64.pkg.tar.zst)\
-[Source code](https://mirror.msys2.org/msys/sources/bash-5.2.037-2.src.tar.zst)\
-[Source code mirror](https://github.com/fistodul/MF-updater/releases/download/v1.0.0/bash-5.2.037-2.src.tar.zst)
+[Source code](https://mirror.msys2.org/msys/sources/bash-5.2.037-2.src.tar.zst)
