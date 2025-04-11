@@ -3,7 +3,7 @@
 rem This script comes with the msys2-runtime and bash
 
 set "SHA_CMD={ read head; read hash; } < <(certutil -hashfile $1 SHA512) && echo $hash"
-set WGET_CMD=certutil -urlcache -f "$1/$2" $2
+set WGET_CMD=certutil -urlcache -f $1/$2 $2
 set WINE_CMD=$*
 
 set MV_CMD=cmd //c move $1 $2
