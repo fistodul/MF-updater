@@ -43,22 +43,10 @@ wget_cmd () {
   eval "${WGET_CMD:-curl -sf "$1/$2" -o $2}" > /dev/null
 }
 
-# function arguments: $* is the program to start with arguments
-wine_cmd () {
-  # executes the injected command or defaults to wine
-  eval "${WINE_CMD:-wine $*}" 2> /dev/null
-}
-
 # function arguments: $1 is what to move and $2 is where
 mv_cmd () {
   # executes the injected command or defaults to mv
   eval "${MV_CMD:-mv $1 $2}" &> /dev/null
-}
-
-# function arguments: $1 is file to delete
-rm_cmd () {
-  # executes the injected command or defaults to rm
-  eval "${RM_CMD:-rm $1}"
 }
 
 # function arguments: $1 is the amount of seconds to sleep
@@ -77,12 +65,6 @@ checkIfFilesExist() {
       exit 1
     fi
   done
-
-  if ! [ -f '../System/UCC.exe' ]; then
-    echo "Couldn't find UCC.exe in System folder, can't continue"
-    sleep_cmd 2
-    exit 1
-  fi
 }
 
 downloadShasums() {
@@ -96,24 +78,6 @@ downloadShasums() {
   fi
 
    echo sha512.txt successfully downloaded
-}
-
-setInfo() {
-  file=${1##*/}
-  ext=${file##*.}
-  echo $file $ext
-}
-
-isTextFile() {
-  case $1 in
-    umf | umx | uax | u | utx)
-      return 0;;
-    COL | hnd2 | int)
-      return 1;;
-    *)
-      echo "Unknown extension $1"
-      return 2;;
-  esac
 }
 
 checkHashes() {
@@ -132,26 +96,16 @@ checkHashes() {
 }
 
 getFile() {
-  if [[ $3 -eq 1 || "$1" == @(EffectsFix.u|Rage.u|Engine.u|RageWeapons.u) ]]; then
-    echo "Downloading $1 from the server"
-    wget_cmd $url $1
-    mv_cmd $1 $2
-  elif [ $3 -eq 0 ]; then
-    echo "Downloading $1.uz from the server"
-    wget_cmd $url "$1.uz"
-    echo "Decompressing $1.uz"
-
-    wine_cmd ../System/UCC.exe decompress "$PWD/$1.uz"
-    mv_cmd "../System/$1" $2
-    rm_cmd "$1.uz"
-  fi
+  echo "Downloading $1 from the server"
+  wget_cmd $url $1
+  mv_cmd $1 $2
 }
 
 checkIfFilesExist
 downloadShasums
 
 while read hash filePath; do
-  file=($(setInfo $filePath))
+  file=${filePath##*/}
 
   if [[ "${skipFiles[@]}" == *"$file"* ]]; then
     echo "Skipping $file"
@@ -163,8 +117,7 @@ while read hash filePath; do
     continue
   fi
 
-  isTextFile ${file[1]}
-  getFile $file $filePath $?
+  getFile $file $filePath
 done < sha512.txt
 
 echo Update finished
