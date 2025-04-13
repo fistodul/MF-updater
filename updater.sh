@@ -37,10 +37,11 @@ sha_cmd () {
   eval "${SHA_CMD:-sha512sum $1}" 2> /dev/null
 }
 
-# function arguments: $1 is the url and $2 the file to download
+# function arguments: $1 is the url, $2 the file to download and $3 is where
 wget_cmd () {
+  target=${3:-$2}
   # executes the injected command or defaults to curl with -o
-  eval "${WGET_CMD:-curl -sf "$1/$2" -o $2}" > /dev/null
+  eval "${WGET_CMD:-curl -sf $1/$2 -o $target}" > /dev/null
 }
 
 # function arguments: $1 is what to move and $2 is where
@@ -97,8 +98,7 @@ checkHashes() {
 
 getFile() {
   echo "Downloading $1 from the server"
-  wget_cmd $url $1
-  mv_cmd $1 $2
+  wget_cmd $url $1 $2
 }
 
 checkIfFilesExist
