@@ -36,8 +36,6 @@ If base files/game code packages (`Rage.u`, `RageWeapons.u`, `Engine.u`, etc.) *
 
 For example, in case of downloading [modded game files](https://mf.nofisto.com/download/Update.zip), the [list](https://mf.nofisto.com/fast_download/sha512.txt) starts with `EffectsFix.u`, `Rage.u`, `Engine.u`, `RageWeapons.u` (order doesn't matter) and then continues with other files.
 
-Other than that, the list can be freely sorted, although it is recommended to sort them by modified date so that whenever new files are put to the server, clients can download them at the beginning stage of the script. 
-
 Example of file order:
 
 ```
@@ -51,6 +49,8 @@ rage_warehouse.utx
 ```
 
 If the 4 packages are not checked/updated at the beginning, there is a possibility that UCC decompression will stop working.
+
+Other than that, the list can be freely sorted, although it is recommended to sort it by modified date so that whenever new files are put to the server, clients can download them at the beginning stage of the script. 
 
 [This script](https://github.com/filipopo/MF-ansible/blob/main/templates/gameserver/scripts/compress.sh) sets up fast_download directory as well as generates the sha512.txt file. Check out the [full repo](https://github.com/filipopo/MF-ansible) for more info on setting up your own server.
 
