@@ -30,9 +30,7 @@ d529debe43dffd9662bf4844cbbb519cc0041208bf313dd8907dee9a6f637bd6fbd3be1ca3c716f4
 5b4488096c83b0cab8e688dd4ea42649765735310040683d07e65d6d31645bafc68ce63b9f8c0e502713a6469479bf01c5b6eb849f63a9db560a4038726e3a96  ../Maps/mf-western.umf
 ```
 
-The file has to include all the game files that you want your clients to update.
-
-The list can be freely sorted, although it is recommended to sort it by modified date so that whenever new files are put to the server, clients can download them at the beginning stage of the script. 
+The file has to include all the game files that you want your clients to update. The list can be freely sorted, although it is recommended to sort it by modified date so that whenever new files are put to the server, clients can download them at the beginning stage of the script. 
 
 [This script](https://github.com/filipopo/MF-ansible/blob/main/templates/gameserver/scripts/compress.sh) sets up fast_download directory as well as generates the sha512.txt file. Check out the [full repo](https://github.com/filipopo/MF-ansible) for more info on setting up your own server.
 
