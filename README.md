@@ -2,8 +2,6 @@
 
 Mobile Forces updater written in Bash with wrapper versions in Batch and PowerShell for Windows that use the MSYS2 Bash package.
 
-UCC dependency was dropped with [this commit](https://github.com/fistodul/MF-updater/commit/cff1385a9a6b7122a4b2405e02ccfee40431e6ba), so [a branch was made](https://github.com/fistodul/MF-updater/tree/ucc).
-
 ## Setup/running instructions
 
 First, download this [archive file](https://github.com/fistodul/MF-updater/archive/refs/heads/main.zip) and extract it inside the main Mobile Forces game folder in which System, Texture, Maps and other such folders reside. 
@@ -69,6 +67,8 @@ We thought that it could be rewritten in PowerShell but went with Bash since we 
 > I tried to make most of the code POSIX and follow best practices from https://mywiki.wooledge.org/BashFAQ and not include features of Bash 4+ to be compatible with Apple's Bash 3.2.57 version
 
 As of 2024-05-03 msys2-runtime was updated to Cygwin 3.5 which dropped support for Windows 7, due to backwards compatiblity reasons we have sticked to msys2-runtime-3.4, more info here: https://www.msys2.org/docs/windows_support/
+
+UCC dependency was dropped with [this commit](https://github.com/fistodul/MF-updater/commit/cff1385a9a6b7122a4b2405e02ccfee40431e6ba), so [a branch was made](https://github.com/fistodul/MF-updater/tree/ucc).
 
 ## Binaries used in the repository
 
