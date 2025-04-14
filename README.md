@@ -6,8 +6,6 @@ UCC dependency was dropped with [this commit](https://github.com/fistodul/MF-upd
 
 ## Setup/running instructions
 
-It is assumed that files can be downloaded from https://mf.nofisto.com/fast_download. You can paste the link into the address bar of your web browser and try to open the page. If the page doesn't open up (the server is down) then you shouldn't use the updater or you should edit the script (`updater.sh`) so that you can download the files from elsewhere.
-
 First, download this [archive file](https://github.com/fistodul/MF-updater/archive/refs/heads/main.zip) and extract it inside the main Mobile Forces game folder in which System, Texture, Maps and other such folders reside. 
 
 Before updating, keep in mind to backup the game in case you will want to revert back since the script will overwrite any mismatching file.
