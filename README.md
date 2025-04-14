@@ -32,6 +32,8 @@ d529debe43dffd9662bf4844cbbb519cc0041208bf313dd8907dee9a6f637bd6fbd3be1ca3c716f4
 
 The file has to include all the game files that you want your clients to update.
 
+The list can be freely sorted, although it is recommended to sort it by modified date so that whenever new files are put to the server, clients can download them at the beginning stage of the script. 
+
 [This script](https://github.com/filipopo/MF-ansible/blob/main/templates/gameserver/scripts/compress.sh) sets up fast_download directory as well as generates the sha512.txt file. Check out the [full repo](https://github.com/filipopo/MF-ansible) for more info on setting up your own server.
 
 ## Backstory
