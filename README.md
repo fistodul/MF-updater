@@ -2,9 +2,11 @@
 
 Mobile Forces updater written in Bash with wrapper versions in Batch and PowerShell for Windows that use the MSYS2 Bash package.
 
-It is assumed that files can be downloaded from https://mf.nofisto.com/fast_download. You can paste the link into the address bar of your web browser and try to open the page. If the page doesn't open up (the server is down) then you shouldn't launch the updater or you should edit the script so that you can download the files from elsewhere.
+UCC dependency was dropped with [this commit](https://github.com/fistodul/MF-updater/commit/cff1385a9a6b7122a4b2405e02ccfee40431e6ba), so [a branch was made](https://github.com/fistodul/MF-updater/tree/ucc).
 
 ## Setup/running instructions
+
+It is assumed that files can be downloaded from https://mf.nofisto.com/fast_download. You can paste the link into the address bar of your web browser and try to open the page. If the page doesn't open up (the server is down) then you shouldn't use the updater or you should edit the script (`updater.sh`) so that you can download the files from elsewhere.
 
 First, download this [archive file](https://github.com/fistodul/MF-updater/archive/refs/heads/main.zip) and extract it inside the main Mobile Forces game folder in which System, Texture, Maps and other such folders reside. 
 
@@ -76,10 +78,18 @@ As of 2024-05-03 msys2-runtime was updated to Cygwin 3.5 which dropped support f
 
 [Main page](https://packages.msys2.org/packages/msys2-runtime-3.4?variant=x86_64)\
 [Package with binaries](https://mirror.msys2.org/msys/x86_64/msys2-runtime-3.4-3.4.10-3-x86_64.pkg.tar.zst)\
-[Source code](https://mirror.msys2.org/msys/sources/msys2-runtime-3.4-3.4.10-3.src.tar.zst)
+[Source code](https://mirror.msys2.org/msys/sources/msys2-runtime-3.4-3.4.10-3.src.tar.zst)\
+[Source code mirror](https://github.com/fistodul/MF-updater/releases/download/v1.0.0/msys2-runtime-3.4-3.4.10-3.src.tar.zst)
 
 `usr/bin/bash.exe`:
 
 [Main page](https://packages.msys2.org/packages/bash?variant=x86_64)\
 [Package with binaries](https://mirror.msys2.org/msys/x86_64/bash-5.2.037-2-x86_64.pkg.tar.zst)\
-[Source code](https://mirror.msys2.org/msys/sources/bash-5.2.037-2.src.tar.zst)
+[Source code](https://mirror.msys2.org/msys/sources/bash-5.2.037-2.src.tar.zst)\
+[Source code mirror](https://github.com/fistodul/MF-updater/releases/download/v1.0.0/bash-5.2.037-2.src.tar.zst)
+
+## License
+
+Scripts are licensed under Apache 2.0 license. The reason for picking this license is because [GNU recommends it for small programs](https://www.gnu.org/licenses/license-recommendations.html#small).
+
+Binaries inside `/usr/bin` have their source code which is licensed under different license(s). To see the source code and license terms, use source code links from this [section](https://github.com/fistodul/MF-updater#binaries-used-in-the-repository).
