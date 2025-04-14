@@ -34,9 +34,7 @@ The file has to include all the game files that you want your clients to update.
 
 If base files/game code packages (`Rage.u`, `RageWeapons.u`, `Engine.u`, etc.) **are** being downloaded then the list has to start with them.
 
-For example, in case of downloading [modded game files](https://mf.nofisto.com/download/Update.zip), the [list](https://mf.nofisto.com/fast_download/sha512.txt) starts with `EffectsFix.u`, `Rage.u`, `Engine.u`, `RageWeapons.u` (order doesn't matter) and then continues with other files.
-
-Example of file order:
+For example, in case of downloading [modded game files](https://mf.nofisto.com/download/Update.zip), the [list](https://mf.nofisto.com/fast_download/sha512.txt) starts with `EffectsFix.u`, `Rage.u`, `Engine.u`, `RageWeapons.u` (order doesn't matter) and then continues with other files. Example of file order:
 
 ```
 Rage.u
