@@ -81,19 +81,30 @@ downloadShasums() {
    echo sha512.txt successfully downloaded
 }
 
+fixCase() {
+  name="${1,,}/${2,,}"
+
+  for f in $1/*; do
+    if [ "${f,,}" = "$name" ]; then
+      mv_cmd $f $1/$2
+      return 0
+    fi
+  done
+
+  echo "$2 is missing"
+  return 1
+}
+
 checkHashes() {
   localHash=($(sha_cmd $3))
 
   if [ "$localHash" = "$2" ]; then
     echo "$1 is up to date"
     return 0
-  elif [ -z "$localHash" ]; then
-    echo "$1 is missing"
   else
     echo "$1 is mismatching"
+    return 1
   fi
-
-  return 1
 }
 
 getFile() {
@@ -112,8 +123,7 @@ while read hash filePath; do
     continue
   fi
 
-  checkHashes $file $hash $filePath
-  if [ $? -eq 0 ]; then
+  if fixCase ${filePath%/*} $file && checkHashes $file $hash $filePath; then
     continue
   fi
 
