@@ -90,4 +90,4 @@ UCC dependency was dropped with [this commit](https://github.com/fistodul/MF-upd
 
 Scripts are licensed under Apache 2.0 license. The reason for picking this license is because [GNU recommends it for small programs](https://www.gnu.org/licenses/license-recommendations.html#small).
 
-Binaries inside `/usr/bin` have their source code which is licensed under different license(s). To see the source code and license terms, use source code links from this [section](https://github.com/fistodul/MF-updater#binaries-used-in-the-repository).
+Binaries inside `/usr/bin` have their source code which is licensed under different license(s). To see the source code and license terms, use source code links from [Binaries used in the repository](https://github.com/fistodul/MF-updater#binaries-used-in-the-repository) section.
