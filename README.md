@@ -84,6 +84,6 @@ As of 2024-05-03 msys2-runtime was updated to Cygwin 3.5 which dropped support f
 
 ## License
 
-Scripts are licensed under Apache 2.0 license. The reason for picking this license is because [GNU recommends it for small programs](https://www.gnu.org/licenses/license-recommendations.html#small).
+Scripts are licensed under Apache 2.0 license. The reason for picking this license is because [GNU project recommends it for small programs](https://www.gnu.org/licenses/license-recommendations.html#small).
 
 Binaries inside `/usr/bin` have their source code which is licensed under different license(s). To see the source code and license terms, use source code links from [Binaries used in the repository](https://github.com/fistodul/MF-updater/tree/ucc#binaries-used-in-the-repository) section.
