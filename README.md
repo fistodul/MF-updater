@@ -32,7 +32,7 @@ d529debe43dffd9662bf4844cbbb519cc0041208bf313dd8907dee9a6f637bd6fbd3be1ca3c716f4
 
 The file has to include all the game files that you want your clients to update. The list can be freely sorted, although it is recommended to sort it by modified date so that whenever new files are put to the server, clients can download them at the beginning stage of the script.
 
-To be compatible with [UCC version of updater](https://github.com/fistodul/MF-updater/tree/ucc) and [modded Mobile Forces version](https://mf.nofisto.com/download/Update.zip), the list should be sorted in an order described [here](https://github.com/fistodul/MF-updater/tree/ucc#information-for-server-hosts). It won't break the compatibility with this updater.
+To be compatible with [UCC version of updater](https://github.com/fistodul/MF-updater/tree/ucc) that will download [modded Mobile Forces version](https://mf.nofisto.com/download/Update.zip) files, the list should be sorted in an order described [here](https://github.com/fistodul/MF-updater/tree/ucc#information-for-server-hosts). It won't break the compatibility with this updater.
 
 [This script](https://github.com/filipopo/MF-ansible/blob/main/templates/gameserver/scripts/compress.sh) sets up fast_download directory as well as generates the sha512.txt file. Check out the [full repo](https://github.com/filipopo/MF-ansible) for more info on setting up your own server.
 
