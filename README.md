@@ -30,7 +30,9 @@ d529debe43dffd9662bf4844cbbb519cc0041208bf313dd8907dee9a6f637bd6fbd3be1ca3c716f4
 5b4488096c83b0cab8e688dd4ea42649765735310040683d07e65d6d31645bafc68ce63b9f8c0e502713a6469479bf01c5b6eb849f63a9db560a4038726e3a96  ../Maps/mf-western.umf
 ```
 
-The file has to include all the game files that you want your clients to update. The list can be freely sorted, although it is recommended to sort it by modified date so that whenever new files are put to the server, clients can download them at the beginning stage of the script. 
+The file has to include all the game files that you want your clients to update. The list can be freely sorted, although it is recommended to sort it by modified date so that whenever new files are put to the server, clients can download them at the beginning stage of the script.
+
+To be compatible with [UCC version of updater](https://github.com/fistodul/MF-updater/tree/ucc), the list should be sorted in an order described [here](https://github.com/fistodul/MF-updater/tree/ucc#information-for-server-hosts). It won't break the compatibility with this updater.
 
 [This script](https://github.com/filipopo/MF-ansible/blob/main/templates/gameserver/scripts/compress.sh) sets up fast_download directory as well as generates the sha512.txt file. Check out the [full repo](https://github.com/filipopo/MF-ansible) for more info on setting up your own server.
 
@@ -46,7 +48,7 @@ We thought that it could be rewritten in PowerShell but went with Bash since we 
 
 > I tried to make most of the code POSIX and follow best practices from https://mywiki.wooledge.org/BashFAQ and not include features of Bash 4+ to be compatible with Apple's Bash 3.2.57 version
 
-As of 2024-05-03 msys2-runtime was updated to Cygwin 3.5 which dropped support for Windows 7, due to backwards compatiblity reasons we have sticked to msys2-runtime-3.4, more info here: https://www.msys2.org/docs/windows_support/
+As of 2024-05-03 msys2-runtime was updated to Cygwin 3.5 which dropped support for Windows 7, due to backwards compatibility reasons we have sticked to msys2-runtime-3.4, more info here: https://www.msys2.org/docs/windows_support/
 
 UCC dependency was dropped with [this commit](https://github.com/fistodul/MF-updater/commit/cff1385a9a6b7122a4b2405e02ccfee40431e6ba), so [a branch was made](https://github.com/fistodul/MF-updater/tree/ucc).
 
