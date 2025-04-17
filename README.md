@@ -6,7 +6,7 @@ Mobile Forces updater written in Bash with wrapper versions in Batch and PowerSh
 
 First, download this [archive file](https://github.com/fistodul/MF-updater/archive/refs/heads/main.zip) and extract it inside the main Mobile Forces game folder in which System, Texture, Maps and other such folders reside.
 
-If website https://mf.nofisto.com is down, then the URL inside updater.sh (3rd line):
+If website https://mf.nofisto.com is down or for some other reason, the URL inside updater.sh (3rd line):
 
 ```bash
 url='https://mf.nofisto.com/fast_download'
