@@ -6,6 +6,23 @@ Mobile Forces updater written in Bash with wrapper versions in Batch and PowerSh
 
 First, download this [archive file](https://github.com/fistodul/MF-updater/archive/refs/heads/ucc.zip) and extract it inside the main Mobile Forces game folder in which System, Texture, Maps and other such folders reside. 
 
+If website https://mf.nofisto.com is down or for some other reason, the URL inside updater.sh (3rd line):
+
+```bash
+url='https://mf.nofisto.com/fast_download'
+```
+
+may be changed to a different website.
+
+If you have installed [modded game files for russian MF version](https://mf.nofisto.com/download/RUupdate.zip), then the following lines might be uncommented (6th and 7th):
+
+```bash
+  #'Announcer.uax'
+  #'RagePlayerVoice.uax'
+```
+
+so these files are skipped during the file check/updating process and russian voiceovers remain.
+
 Before updating, keep in mind to backup the game in case you will want to revert back since the script will overwrite any mismatching file.
 
 To begin the update process, launch the script for your OS:
