@@ -4,7 +4,7 @@ Mobile Forces updater written in Bash with wrapper versions in Batch and PowerSh
 
 ## Setup/running instructions
 
-First, download this [archive file](https://github.com/fistodul/MF-updater/archive/refs/heads/main.zip) and extract it inside the main Mobile Forces game folder in which System, Texture, Maps and other such folders reside. 
+First, download this [archive file](https://github.com/fistodul/MF-updater/archive/refs/heads/ucc.zip) and extract it inside the main Mobile Forces game folder in which System, Texture, Maps and other such folders reside. 
 
 Before updating, keep in mind to backup the game in case you will want to revert back since the script will overwrite any mismatching file.
 
