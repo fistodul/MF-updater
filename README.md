@@ -12,7 +12,7 @@ If website https://mf.nofisto.com is down or for some other reason, the URL insi
 url='https://mf.nofisto.com/fast_download'
 ```
 
-If you have installed [modded game files for Russian MF version](https://mf.nofisto.com/download/RUupdate.zip) and want the Russian voiceovers to remain, the following lines might be uncommented (6th and 7th) to skip them during the file check/updating process:
+If you have installed [modded game files for Russian MF version](https://mf.nofisto.com/download/RUupdate.zip), the following lines may be uncommented (6th and 7th) to skip the Russian voiceovers during the file check/updating process:
 
 ```bash
   #'Announcer.uax'
