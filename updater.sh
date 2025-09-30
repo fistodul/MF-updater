@@ -61,7 +61,7 @@ checkIfFilesExist() {
 
   for folder in Maps Music Physics Sounds System Textures; do
     if ! [ -d "../$folder" ]; then
-      echo "Couldn't find $folder in parallel folders, can't continue"
+      printf "Couldn't find %s in parallel folders, can't continue\n" $folder
       sleep_cmd 2
       exit 1
     fi
@@ -69,16 +69,16 @@ checkIfFilesExist() {
 }
 
 downloadShasums() {
-  echo Trying to download sha512.txt
+  printf "Trying to download sha512.txt\n"
   wget_cmd $url sha512.txt
 
   if [ $? -ne 0 ]; then
-    echo Failed to download sha512.txt
+    printf "Failed to download sha512.txt\n"
     sleep_cmd 2
     exit 1
   fi
 
-   echo sha512.txt successfully downloaded
+   printf "sha512.txt successfully downloaded\n"
 }
 
 fixCase() {
@@ -91,7 +91,7 @@ fixCase() {
     fi
   done
 
-  echo "$2 is missing"
+  printf "%s is missing\n" "$2"
   return 1
 }
 
@@ -99,16 +99,16 @@ checkHashes() {
   localHash=($(sha_cmd $3))
 
   if [ "$localHash" = "$2" ]; then
-    echo "$1 is up to date"
+    printf "%s is up to date\n" "$1"
     return 0
   else
-    echo "$1 is mismatching"
+    printf "%s is mismatching\n" "$1"
     return 1
   fi
 }
 
 getFile() {
-  echo "Downloading $1 from the server"
+  printf "Downloading %s from the server\n" "$1"
   wget_cmd $url $1 $2
 }
 
@@ -119,7 +119,7 @@ while read hash filePath; do
   file=${filePath##*/}
 
   if [[ "${skipFiles[@]}" == *"$file"* ]]; then
-    echo "Skipping $file"
+    printf "Skipping %s\n" "$file"
     continue
   fi
 
@@ -130,5 +130,5 @@ while read hash filePath; do
   getFile $file $filePath
 done < sha512.txt
 
-echo Update finished
+printf "Update finished\n"
 sleep_cmd 1
