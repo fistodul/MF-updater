@@ -97,7 +97,7 @@ def checkHashes(file: str, hashed: str, filePath: str) -> bool:
 
 def getFile(file: str, filePath: str) -> None:
     print(f'Downloading {file} from the server')
-    res = urlopen(f'{url}/sha512.txt')
+    res = urlopen(f'{url}/{file}')
 
     with open(filePath, 'wb') as f:
         f.write(res.read())
