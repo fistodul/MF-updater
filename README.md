@@ -21,7 +21,7 @@ If you have installed [modded game files for Russian MF version](https://mf.nofi
 
 Before updating, keep in mind to backup the game in case you will want to revert back since the script will overwrite any mismatching file.
 
-To begin the update process, launch the script for your OS:
+To begin the update process, launch `updater.py` or the script for your OS:
 | OS         | Script      | Note
 | ---------- | ----------- | ------------------------------------------ |
 | Linux      | updater.sh  | Just have Bash installed                   |
