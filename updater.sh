@@ -61,7 +61,7 @@ checkIfFilesExist() {
 
   for folder in Maps Music Physics Sounds System Textures; do
     if ! [ -d "../$folder" ]; then
-      printf "Couldn't find %s in parallel folders, can't continue\n" $folder
+      printf "Didn't find %s in parallel folders, can't continue\n" $folder
       sleep_cmd 2
       exit 1
     fi
@@ -78,7 +78,7 @@ downloadShasums() {
     exit 1
   fi
 
-   printf "sha512.txt successfully downloaded\n"
+  printf "sha512.txt successfully downloaded\n"
 }
 
 fixCase() {
