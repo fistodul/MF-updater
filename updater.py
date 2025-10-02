@@ -54,7 +54,7 @@ def checkIfFilesExist() -> None:
         if not path.isdir(src):
             print(f"Didn't find {folder} in parallel folders, can't continue")
             sleep(2)
-            raise SystemExit()
+            raise SystemExit(1)
 
 
 def downloadShasums() -> list:
@@ -65,7 +65,7 @@ def downloadShasums() -> list:
     except Exception:
         print('Failed to download sha512.txt')
         sleep(2)
-        raise SystemExit()
+        raise SystemExit(1)
 
     print('sha512.txt successfully downloaded')
     return res.read().decode().splitlines()
