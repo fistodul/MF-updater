@@ -20,8 +20,10 @@ jobs:
         run: pip install pyinstaller
 
       - name: Compile to single binary
-        run: pyinstaller updater.py -F -n updater-linux-amd64
-      
+        run: | 
+          pyinstaller updater.py -s --optimize 2 -F -n updater-linux-amd64
+          chmod +x dist/*
+
       - name: Upload binary
         uses: actions/upload-artifact@v4
         with:
@@ -42,7 +44,7 @@ jobs:
         run: pip install pyinstaller
 
       - name: Compile to single binary
-        run: pyinstaller updater.py -F -n updater-windows-amd64.exe
+        run: pyinstaller updater.py --optimize 2 -F -n updater-windows-amd64
 
       - name: Upload binary
         uses: actions/upload-artifact@v4
@@ -64,7 +66,9 @@ jobs:
         run: pip install pyinstaller
 
       - name: Compile to single binary
-        run: pyinstaller updater.py -F -n updater-macos-arm64
+        run: |
+          pyinstaller updater.py -s --optimize 2 -F -n updater-macos-arm64
+          chmod +x dist/*
       
       - name: Upload binary
         uses: actions/upload-artifact@v4
