@@ -118,7 +118,7 @@ downloadShasums
 while read hash filePath; do
   file=${filePath##*/}
 
-  if [[ "${skipFiles[@]}" == *"$file"* ]]; then
+  if [[ " ${skipFiles[*]} " == *" $file "* ]]; then
     printf "Skipping %s\n" "$file"
     continue
   fi
