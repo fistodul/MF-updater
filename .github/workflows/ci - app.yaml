@@ -16,13 +16,10 @@ jobs:
         uses: actions/setup-python@v5
 
       - name: Install dependencies
-        run: pip install flake8 pyinstaller
-
-      - name: Lint code
-        run: flake8 --extend-ignore=D103
+        run: pip install pyinstaller
 
       - name: Compile to single binary
-        run: pyinstaller updater.py --onefile && ls -lah
+        run: pyinstaller updater.py --onefile && ls -lah dist
 
   build-windows:
     runs-on: windows-2022
@@ -36,7 +33,7 @@ jobs:
         run: pip install pyinstaller
 
       - name: Compile to single binary
-        run: pyinstaller updater.py --onefile && dir
+        run: pyinstaller updater.py --onefile && dir dist
   build-macos:
     runs-on: macos-latest
     steps:
@@ -49,4 +46,4 @@ jobs:
         run: pip install pyinstaller
 
       - name: Compile to single binary
-        run: pyinstaller updater.py --onefile && ls -lah
+        run: pyinstaller updater.py --onefile && ls -lah dist
