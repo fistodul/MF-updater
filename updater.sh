@@ -37,32 +37,13 @@ sha_cmd () {
   eval "${SHA_CMD:-sha512sum $1}" 2> /dev/null
 }
 
-# function arguments: $1 is the url, $2 the file to download and $3 is where
-wget_cmd () {
-  target=${3:-$2}
-  # executes the injected command or defaults to curl with -o
-  eval "${WGET_CMD:-curl -sf $1/$2 -o $target}" > /dev/null
-}
-
-# function arguments: $1 is what to move and $2 is where
-mv_cmd () {
-  # executes the injected command or defaults to mv
-  eval "${MV_CMD:-mv $1 $2}" &> /dev/null
-}
-
-# function arguments: $1 is the amount of seconds to sleep
-sleep_cmd () {
-  # executes the injected command or defaults to sleep
-  eval "${SLEEP_CMD:-sleep $1}" > /dev/null
-}
-
 checkIfFilesExist() {
-  mv_cmd ../maps ../Maps
+  mv ../maps ../Maps 2> /dev/null
 
   for folder in Maps Music Physics Sounds System Textures; do
     if ! [ -d "../$folder" ]; then
       printf "Didn't find %s in parallel folders, can't continue\n" $folder
-      sleep_cmd 2
+      sleep 2
       exit 1
     fi
   done
@@ -70,11 +51,10 @@ checkIfFilesExist() {
 
 downloadShasums() {
   printf "Trying to download sha512.txt\n"
-  wget_cmd $url sha512.txt
 
-  if [ $? -ne 0 ]; then
+  if ! curl -sf $url/sha512.txt -o sha512.txt; then
     printf "Failed to download sha512.txt\n"
-    sleep_cmd 2
+    sleep 2
     exit 1
   fi
 
@@ -86,7 +66,9 @@ fixCase() {
 
   for f in $1/*; do
     if [ "${f,,}" = "$name" ]; then
-      mv_cmd $f $1/$2
+      if [ "$f" != "$1/$2" ]; then
+        mv $f $1/$2
+      fi
       return 0
     fi
   done
@@ -109,7 +91,7 @@ checkHashes() {
 
 getFile() {
   printf "Downloading %s from the server\n" "$1"
-  wget_cmd $url $1 $2
+  curl -sf $url/$1 -o $2
 }
 
 checkIfFilesExist
@@ -131,4 +113,4 @@ while read hash filePath; do
 done < sha512.txt
 
 printf "Update finished\n"
-sleep_cmd 1
+sleep 1
