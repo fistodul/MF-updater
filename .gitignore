@@ -11,3 +11,5 @@ sha512.txt
 *.utx
 dist
 build
+updater.c
+updater.*.so
