@@ -5,8 +5,8 @@ Below the imports the url to connect to is set alongside the skipFiles array
 there's a few commented files that you may want to enable by removing "# "
 """
 
-import os
 from hashlib import sha512
+from os import listdir, path, rename
 from time import sleep
 from urllib.request import urlopen
 
@@ -46,12 +46,12 @@ def checkIfFilesExist() -> None:
     src = '../maps'
     dst = '../Maps'
 
-    if os.path.isdir(src) and not os.path.isdir(dst):
-        os.rename(src, dst)
+    if path.isdir(src) and not path.isdir(dst):
+        rename(src, dst)
 
     for folder in ['Maps', 'Music', 'Physics', 'Sounds', 'System', 'Textures']:
         src = f'../{folder}'
-        if not os.path.isdir(src):
+        if not path.isdir(src):
             print(f"Didn't find {folder} in parallel folders, can't continue")
             sleep(2)
             raise SystemExit()
@@ -75,10 +75,10 @@ def downloadShasums() -> None:
 def fixCase(folder: str, file: str) -> bool:
     name = file.lower()
 
-    for f in os.listdir(folder):
+    for f in listdir(folder):
         if f.lower() == name:
             if f != file:
-                os.rename(f'{folder}/{f}', f'{folder}/{file}')
+                rename(f'{folder}/{f}', f'{folder}/{file}')
             return True
 
     print(f'{file} is missing')
@@ -111,8 +111,8 @@ with open('sha512.txt') as f:
         line = line.rstrip('\n')
         hashed, filePath = line.split(maxsplit=1)
 
-        file = os.path.basename(filePath)
-        folder = os.path.dirname(filePath)
+        file = path.basename(filePath)
+        folder = path.dirname(filePath)
 
         if file in skipFiles:
             print(f'Skipping {file}')
