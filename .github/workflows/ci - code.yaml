@@ -4,6 +4,7 @@ on:
   push:
     branches: [main]
     paths: ['updater.py']
+  workflow_dispatch:
 
 jobs:
   test:

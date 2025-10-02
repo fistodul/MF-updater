@@ -6,7 +6,7 @@ Mobile Forces updater written in Bash and [Python](https://www.python.org/) with
 
 First, download this [archive file](https://github.com/fistodul/MF-updater/archive/refs/heads/main.zip) and extract it inside the main Mobile Forces game folder in which System, Texture, Maps and other such folders reside.
 
-If https://mf.nofisto.com is down or for some other reason, the URL inside updater.sh (3rd line) may be changed:
+If https://mf.nofisto.com is down or for other reasons, the URL inside updater.sh (3rd line) may be changed:
 
 ```bash
 url='https://mf.nofisto.com/fast_download'
@@ -19,7 +19,7 @@ If you have installed [modded game files for Russian MF version](https://mf.nofi
   #'RagePlayerVoice.uax'
 ```
 
-Before updating, keep in mind to backup the game in case you will want to revert back since the script will overwrite any mismatching file. To begin the update process, launch one of the `updater.sh` or `updater.py` scripts:
+Before updating, keep in mind to backup the game in case you will want to revert back since the script will overwrite any mismatching file. To start updating, launch one of the `updater.sh` or `updater.py` scripts:
 
 | OS      | Script     | Note                                       |
 | --------| ---------- | ------------------------------------------ |
