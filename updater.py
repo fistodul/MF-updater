@@ -57,19 +57,18 @@ def checkIfFilesExist() -> None:
             raise SystemExit()
 
 
-def downloadShasums() -> None:
+def downloadShasums() -> list:
     print('Trying to download sha512.txt')
 
     try:
         res = urlopen(f'{url}/sha512.txt')
-        with open('sha512.txt', 'wb') as f:
-            f.write(res.read())
     except Exception:
         print('Failed to download sha512.txt')
         sleep(2)
         raise SystemExit()
 
     print('sha512.txt successfully downloaded')
+    return res.read().decode().splitlines()
 
 
 def fixCase(folder: str, file: str) -> bool:
@@ -104,24 +103,19 @@ def getFile(file: str, filePath: str) -> None:
 
 
 checkIfFilesExist()
-downloadShasums()
+for line in downloadShasums():
+    hashed, filePath = line.split(maxsplit=1)
+    file = path.basename(filePath)
+    folder = path.dirname(filePath)
 
-with open('sha512.txt') as f:
-    for line in f:
-        line = line.rstrip('\n')
-        hashed, filePath = line.split(maxsplit=1)
+    if file in skipFiles:
+        print(f'Skipping {file}')
+        continue
 
-        file = path.basename(filePath)
-        folder = path.dirname(filePath)
+    if fixCase(folder, file) and checkHashes(file, hashed, filePath):
+        continue
 
-        if file in skipFiles:
-            print(f'Skipping {file}')
-            continue
-
-        if fixCase(folder, file) and checkHashes(file, hashed, filePath):
-            continue
-
-        getFile(file, filePath)
+    getFile(file, filePath)
 
 print('Update finished')
 sleep(1)
