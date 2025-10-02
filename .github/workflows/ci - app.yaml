@@ -1,0 +1,51 @@
+name: CI - code
+
+on:
+  push:
+    branches: [main]
+    paths: ['updater.py']
+
+jobs:
+  build-linux:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+
+      - name: Install dependencies
+        run: pip install flake8 pyinstaller
+
+      - name: Lint code
+        run: flake8 --extend-ignore=D103
+
+      - name: Compile to single binary
+        run: pyinstaller updater.py --onefile && ls -lah
+
+  build-windows:
+    runs-on: windows-2022
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+
+      - name: Install dependencies
+        run: pip install pyinstaller
+
+      - name: Compile to single binary
+        run: pyinstaller updater.py --onefile && dir
+  build-macos:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+
+      - name: Install dependencies
+        run: pip install pyinstaller
+
+      - name: Compile to single binary
+        run: pyinstaller updater.py --onefile && ls -lah

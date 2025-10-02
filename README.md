@@ -1,12 +1,12 @@
 # MF-updater
 
-Mobile Forces updater written in Bash with wrapper versions in Batch and PowerShell for Windows that use the MSYS2 Bash package.
+Mobile Forces updater written in Bash and [Python](https://www.python.org/) with compiled binaries available using pyinstaller.
 
 ## Setup/running instructions
 
 First, download this [archive file](https://github.com/fistodul/MF-updater/archive/refs/heads/main.zip) and extract it inside the main Mobile Forces game folder in which System, Texture, Maps and other such folders reside.
 
-If website https://mf.nofisto.com is down or for some other reason, the URL inside updater.sh (3rd line) may be changed:
+If https://mf.nofisto.com is down or for some other reason, the URL inside updater.sh (3rd line) may be changed:
 
 ```bash
 url='https://mf.nofisto.com/fast_download'
@@ -19,15 +19,15 @@ If you have installed [modded game files for Russian MF version](https://mf.nofi
   #'RagePlayerVoice.uax'
 ```
 
-Before updating, keep in mind to backup the game in case you will want to revert back since the script will overwrite any mismatching file.
+Before updating, keep in mind to backup the game in case you will want to revert back since the script will overwrite any mismatching file. To begin the update process, launch one of the `updater.sh` or `updater.py` scripts:
 
-To begin the update process, launch the `updater.py` [Python](https://www.python.org/) script or shell script for your OS:
-| OS         | Script      | Note
-| ---------- | ----------- | ------------------------------------------ |
-| Linux      | updater.sh  | Just have Bash installed                   |
-| Windows 10 | updater.ps1 | Maybe needs to enable running scripts      |
-| Windows 7  | updater.bat | Maybe needs an exclusion in your antivirus |
-| Mac        | updater.sh  | Run as `SHA_CMD='shasum -a 512 $1' bash updater.sh` or install sha512sum |
+| OS      | Script     | Note                                       |
+| --------| ---------- | ------------------------------------------ |
+| Linux   | updater.sh | Just have Bash installed                   |
+| Mac     | updater.sh | Run as `SHA_CMD='shasum -a 512 $1' bash updater.sh` or install sha512sum |
+| Any     | updater.py | Just have Python installed                 |
+
+Binary versions of the `updater.py` script compiled for Windows, Linux and Mac are available in the [releases](https://github.com/fistodul/MF-updater/releases/latest)
 
 ## Information for server hosts
 
@@ -55,34 +55,10 @@ This Script was first made by Gregaras and then improved by Filip.
 
 > Looking for info at forums like StackOverflow and similar helped me write the first version of the script (was longer, had 21 loops). Also, one documentation I think helped me: https://en.wikibooks.org/wiki/Windows_Batch_Scripting
 
-The script had a lot to improve and still does, it originally used files from Git for Windows v2.43.0 - v2.46.2.
-
-We thought that it could be rewritten in PowerShell but went with Bash since we were Linux users and most experienced in it.
-
 > I tried to make most of the code POSIX and follow best practices from https://mywiki.wooledge.org/BashFAQ and not include features of Bash 4+ to be compatible with Apple's Bash 3.2.57 version
 
-As of 2024-05-03 msys2-runtime was updated to Cygwin 3.5 which dropped support for Windows 7, due to backwards compatibility reasons we have sticked to msys2-runtime-3.4, more info here: https://www.msys2.org/docs/windows_support/
-
-UCC dependency was dropped with [this commit](https://github.com/fistodul/MF-updater/commit/cff1385a9a6b7122a4b2405e02ccfee40431e6ba), so [a branch was made](https://github.com/fistodul/MF-updater/tree/ucc).
-
-## Binaries used in the repository
-
-`usr/bin/msys-2.0.dll`:
-
-[Main page](https://packages.msys2.org/packages/msys2-runtime-3.4?variant=x86_64)\
-[Package with binaries](https://mirror.msys2.org/msys/x86_64/msys2-runtime-3.4-3.4.10-3-x86_64.pkg.tar.zst)\
-[Source code](https://mirror.msys2.org/msys/sources/msys2-runtime-3.4-3.4.10-3.src.tar.zst)\
-[Source code mirror](https://github.com/fistodul/MF-updater/releases/download/v1.0.0/msys2-runtime-3.4-3.4.10-3.src.tar.zst)
-
-`usr/bin/bash.exe`:
-
-[Main page](https://packages.msys2.org/packages/bash?variant=x86_64)\
-[Package with binaries](https://mirror.msys2.org/msys/x86_64/bash-5.2.037-2-x86_64.pkg.tar.zst)\
-[Source code](https://mirror.msys2.org/msys/sources/bash-5.2.037-2.src.tar.zst)\
-[Source code mirror](https://github.com/fistodul/MF-updater/releases/download/v1.0.0/bash-5.2.037-2.src.tar.zst)
+Previously this program made use of UCC (dropped after [this commit](https://github.com/fistodul/MF-updater/tree/6c30dc6e1f68466fb2c4ab1f8aaa3825d694d96a)) and Windows scripts (dropped after [this commit](https://github.com/fistodul/MF-updater/tree/e8b62573f26a211d00ae11b7df6f5f31427cd9e8)), so these branches were made: [ucc](https://github.com/fistodul/MF-updater/tree/ucc) and [windows](https://github.com/fistodul/MF-updater/tree/windows).
 
 ## License
 
-Scripts are licensed under Apache 2.0 license. The reason for picking this license is because [GNU project recommends it for small programs](https://www.gnu.org/licenses/license-recommendations.html#small).
-
-Binaries inside `/usr/bin` have their source code which is licensed under different license(s). To see the source code and license terms, use source code links from [Binaries used in the repository](https://github.com/fistodul/MF-updater#binaries-used-in-the-repository) section.
+Scripts are licensed under Apache 2.0 license. The reason for picking this license is because the [GNU project recommends it for small programs](https://www.gnu.org/licenses/license-recommendations.html#small).

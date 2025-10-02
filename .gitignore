@@ -9,3 +9,5 @@ sha512.txt
 *.int
 *.u
 *.utx
+dist
+build
