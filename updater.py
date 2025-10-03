@@ -43,11 +43,8 @@ skip_files = [
 
 
 def check_files_exist() -> None:
-    src = '../maps'
-    dst = '../Maps'
-
-    if path.isdir(src) and not path.isdir(dst):
-        rename(src, dst)
+    if path.isdir('../maps'):
+        rename('../maps', '../Maps')
 
     for folder in ['Maps', 'Music', 'Physics', 'Sounds', 'System', 'Textures']:
         if not path.isdir(f'../{folder}'):
