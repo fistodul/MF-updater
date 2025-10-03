@@ -34,25 +34,25 @@ skipFiles=(
 # function arguments: $1 is the file to check the sum of
 sha_cmd () {
   # executes the injected command or defaults to sha512sum
-  eval "${SHA_CMD:-sha512sum $1}" 2> /dev/null
+  eval "${SHA_CMD:-sha512sum "$1"}" 2> /dev/null
 }
 
-checkIfFilesExist() {
+check_files_exist() {
   mv ../maps ../Maps 2> /dev/null
 
   for folder in Maps Music Physics Sounds System Textures; do
     if ! [ -d "../$folder" ]; then
-      printf "Didn't find %s in parallel folders, can't continue\n" $folder
+      printf "Didn't find %s in parallel folders, can't continue\n" "$folder"
       sleep 2
       exit 1
     fi
   done
 }
 
-downloadShasums() {
+download_shasums() {
   printf "Trying to download sha512.txt\n"
 
-  if ! curl -sf $url/sha512.txt -o sha512.txt; then
+  if ! curl -sf "$url/sha512.txt" -o sha512.txt; then
     printf "Failed to download sha512.txt\n"
     sleep 2
     exit 1
@@ -61,13 +61,13 @@ downloadShasums() {
   printf "sha512.txt successfully downloaded\n"
 }
 
-fixCase() {
+fix_case() {
   name="${1,,}/${2,,}"
 
-  for f in $1/*; do
+  for f in "$1"/*; do
     if [ "${f,,}" = "$name" ]; then
       if [ "$f" != "$1/$2" ]; then
-        mv $f $1/$2
+        mv "$f" "$1/$2"
       fi
       return 0
     fi
@@ -77,8 +77,8 @@ fixCase() {
   return 1
 }
 
-checkHashes() {
-  localHash=($(sha_cmd $3))
+check_hashes() {
+  localHash=($(sha_cmd "$3"))
 
   if [ "$localHash" = "$2" ]; then
     printf "%s is up to date\n" "$1"
@@ -89,15 +89,15 @@ checkHashes() {
   fi
 }
 
-getFile() {
+get_file() {
   printf "Downloading %s from the server\n" "$1"
-  curl -sf $url/$1 -o $2
+  curl -sf "$url/$1" -o "$2"
 }
 
-checkIfFilesExist
-downloadShasums
+check_files_exist
+download_shasums
 
-while read hash filePath; do
+while read -r hash filePath; do
   file=${filePath##*/}
 
   if [[ " ${skipFiles[*]} " == *" $file "* ]]; then
@@ -105,11 +105,11 @@ while read hash filePath; do
     continue
   fi
 
-  if fixCase ${filePath%/*} $file && checkHashes $file $hash $filePath; then
+  if fix_case "${filePath%/*}" "$file" && check_hashes "$file" "$hash" "$filePath"; then
     continue
   fi
 
-  getFile $file $filePath
+  get_file "$file" "$filePath"
 done < sha512.txt
 
 printf "Update finished\n"

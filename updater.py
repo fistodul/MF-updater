@@ -12,7 +12,7 @@ from urllib.request import urlopen
 
 url = 'https://mf.nofisto.com/fast_download'
 
-skipFiles = [
+skip_files = [
     # 'Announcer.uax',
     # 'RagePlayerVoice.uax',
     'Core.int',
@@ -42,7 +42,7 @@ skipFiles = [
 ]
 
 
-def checkIfFilesExist() -> None:
+def check_files_exist() -> None:
     src = '../maps'
     dst = '../Maps'
 
@@ -57,7 +57,7 @@ def checkIfFilesExist() -> None:
             raise SystemExit(1)
 
 
-def downloadShasums() -> list:
+def download_shasums() -> list:
     print('Trying to download sha512.txt')
 
     try:
@@ -71,7 +71,7 @@ def downloadShasums() -> list:
     return res.read().decode().splitlines()
 
 
-def fixCase(folder: str, file: str) -> bool:
+def fix_case(folder: str, file: str) -> bool:
     name = file.lower()
 
     for f in listdir(folder):
@@ -84,8 +84,8 @@ def fixCase(folder: str, file: str) -> bool:
     return False
 
 
-def checkHashes(file: str, hashed: str, filePath: str) -> bool:
-    with open(filePath, 'rb') as f:
+def check_hashes(file: str, hashed: str, file_path: str) -> bool:
+    with open(file_path, 'rb') as f:
         if sha512(f.read()).hexdigest() == hashed:
             print(f'{file} is up to date')
             return True
@@ -94,28 +94,28 @@ def checkHashes(file: str, hashed: str, filePath: str) -> bool:
             return False
 
 
-def getFile(file: str, filePath: str) -> None:
+def get_file(file: str, file_path: str) -> None:
     print(f'Downloading {file} from the server')
     res = urlopen(f'{url}/{file}')
 
-    with open(filePath, 'wb') as f:
+    with open(file_path, 'wb') as f:
         f.write(res.read())
 
 
-checkIfFilesExist()
-for line in downloadShasums():
-    hashed, filePath = line.split(maxsplit=1)
-    file = path.basename(filePath)
-    folder = path.dirname(filePath)
+check_files_exist()
+for line in download_shasums():
+    hashed, file_path = line.split(maxsplit=1)
+    file = path.basename(file_path)
+    folder = path.dirname(file_path)
 
-    if file in skipFiles:
+    if file in skip_files:
         print(f'Skipping {file}')
         continue
 
-    if fixCase(folder, file) and checkHashes(file, hashed, filePath):
+    if fix_case(folder, file) and check_hashes(file, hashed, file_path):
         continue
 
-    getFile(file, filePath)
+    get_file(file, file_path)
 
 print('Update finished')
 sleep(1)
