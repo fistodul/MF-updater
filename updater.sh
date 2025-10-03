@@ -52,7 +52,7 @@ check_files_exist() {
 download_shasums() {
   printf "Trying to download sha512.txt\n"
 
-  if ! curl -sf "$url/sha512.txt" -o sha512.txt; then
+  if ! curl -sSf "$url/sha512.txt" -o sha512.txt; then
     printf "Failed to download sha512.txt\n"
     sleep 5
     exit 1
@@ -91,7 +91,7 @@ check_hash() {
 
 get_file() {
   printf "Downloading %s from the server\n" "$1"
-  curl -sf "$url/$1" -o "$2"
+  curl -sSf "$url/$1" -o "$2"
 }
 
 check_files_exist
