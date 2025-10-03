@@ -2,7 +2,7 @@
 
 url='https://mf.nofisto.com/fast_download'
 
-skipFiles=(
+skip_files=(
   #'Announcer.uax'
   #'RagePlayerVoice.uax'
   'Core.int'
@@ -78,9 +78,9 @@ fix_case() {
 }
 
 check_hashes() {
-  localHash=($(sha_cmd "$3"))
+  local_hash=($(sha_cmd "$3"))
 
-  if [ "$localHash" = "$2" ]; then
+  if [ "$local_hash" = "$2" ]; then
     printf "%s is up to date\n" "$1"
     return 0
   else
@@ -97,19 +97,19 @@ get_file() {
 check_files_exist
 download_shasums
 
-while read -r hash filePath; do
-  file="${filePath##*/}"
+while read -r hash file_path; do
+  file="${file_path##*/}"
 
-  if [[ " ${skipFiles[*]} " == *" $file "* ]]; then
+  if [[ " ${skip_files[*]} " == *" $file "* ]]; then
     printf "Skipping %s\n" "$file"
     continue
   fi
 
-  if fix_case "${filePath%/*}" "$file" && check_hashes "$file" "$hash" "$filePath"; then
+  if fix_case "${file_path%/*}" "$file" && check_hashes "$file" "$hash" "$file_path"; then
     continue
   fi
 
-  get_file "$file" "$filePath"
+  get_file "$file" "$file_path"
 done < sha512.txt
 
 printf "Update finished\n"
