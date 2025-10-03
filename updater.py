@@ -102,13 +102,12 @@ check_files_exist()
 for line in download_shasums():
     hashed, file_path = line.split(maxsplit=1)
     file = path.basename(file_path)
-    folder = path.dirname(file_path)
 
     if file in skip_files:
         print(f'Skipping {file}')
         continue
 
-    if fix_case(folder, file) and check_hash(file, hashed, file_path):
+    if fix_case(path.dirname(file_path), file) and check_hash(file, hashed, file_path):
         continue
 
     get_file(file, file_path)
