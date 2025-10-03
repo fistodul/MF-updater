@@ -77,7 +77,7 @@ fix_case() {
   return 1
 }
 
-check_hashes() {
+check_hash() {
   local_hash=$(sha_cmd "$3")
 
   if [ "${local_hash%% *}" = "$2" ]; then
@@ -97,7 +97,7 @@ get_file() {
 check_files_exist
 download_shasums
 
-while read -r hash file_path; do
+while read -r hashed file_path; do
   file="${file_path##*/}"
 
   if [[ " ${skip_files[*]} " == *" $file "* ]]; then
@@ -105,7 +105,7 @@ while read -r hash file_path; do
     continue
   fi
 
-  if fix_case "${file_path%/*}" "$file" && check_hashes "$file" "$hash" "$file_path"; then
+  if fix_case "${file_path%/*}" "$file" && check_hash "$file" "$hashed" "$file_path"; then
     continue
   fi
 

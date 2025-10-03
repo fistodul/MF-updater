@@ -80,7 +80,7 @@ def fix_case(folder: str, file: str) -> bool:
     return False
 
 
-def check_hashes(file: str, hashed: str, file_path: str) -> bool:
+def check_hash(file: str, hashed: str, file_path: str) -> bool:
     with open(file_path, 'rb') as f:
         if sha512(f.read()).hexdigest() == hashed:
             print(f'{file} is up to date')
@@ -108,7 +108,7 @@ for line in download_shasums():
         print(f'Skipping {file}')
         continue
 
-    if fix_case(folder, file) and check_hashes(file, hashed, file_path):
+    if fix_case(folder, file) and check_hash(file, hashed, file_path):
         continue
 
     get_file(file, file_path)
