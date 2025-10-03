@@ -43,7 +43,7 @@ check_files_exist() {
   for folder in Maps Music Physics Sounds System Textures; do
     if ! [ -d "../$folder" ]; then
       printf "Didn't find %s in parallel folders, can't continue\n" "$folder"
-      sleep 2
+      sleep 5
       exit 1
     fi
   done
@@ -54,7 +54,7 @@ download_shasums() {
 
   if ! curl -sf "$url/sha512.txt" -o sha512.txt; then
     printf "Failed to download sha512.txt\n"
-    sleep 2
+    sleep 5
     exit 1
   fi
 
@@ -113,4 +113,4 @@ while read -r hashed file_path; do
 done < sha512.txt
 
 printf "Update finished\n"
-sleep 1
+sleep 2

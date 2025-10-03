@@ -49,7 +49,7 @@ def check_files_exist() -> None:
     for folder in ['Maps', 'Music', 'Physics', 'Sounds', 'System', 'Textures']:
         if not path.isdir(f'../{folder}'):
             print(f"Didn't find {folder} in parallel folders, can't continue")
-            sleep(2)
+            sleep(5)
             raise SystemExit(1)
 
 
@@ -60,7 +60,7 @@ def download_shasums() -> list:
         res = urlopen(f'{url}/sha512.txt')
     except Exception as e:
         print('Failed to download sha512.txt with', e)
-        sleep(2)
+        sleep(5)
         raise SystemExit(1)
 
     print('sha512.txt successfully downloaded')
@@ -113,4 +113,4 @@ for line in download_shasums():
     get_file(file, file_path)
 
 print('Update finished')
-sleep(1)
+sleep(2)
