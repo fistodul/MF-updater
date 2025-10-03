@@ -27,7 +27,12 @@ Before updating, keep in mind to backup the game in case you will want to revert
 | Mac     | updater.sh | Run as `SHA_CMD='shasum -a 512 $1' bash updater.sh` or install sha512sum |
 | Any     | updater.py | Just have Python installed                 |
 
-Binary versions of the `updater.py` script compiled for Windows, Linux and Mac are available in the [releases](https://github.com/fistodul/MF-updater/releases/latest)
+Binary versions of the `updater.py` script compiled for Windows, Linux and Mac are available in the [releases](https://github.com/fistodul/MF-updater/releases/latest). If you wish to cythonize the updater, you can do it like so
+
+```bash
+python setup.py build_ext --inplace
+echo "import updater" > updater.py
+```
 
 ## Information for server hosts
 
