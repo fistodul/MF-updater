@@ -13,3 +13,4 @@ dist
 build
 updater.c
 updater.*.so
+*.spec
