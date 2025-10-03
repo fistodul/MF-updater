@@ -17,10 +17,7 @@ jobs:
           python-version: ${{ env.PYTHON_VERSION }}
 
       - name: Install dependencies
-        run: |
-          pip install pyinstaller cython
-          python setup.py build_ext --inplace
-          echo "import updater" > updater.py
+        run: pip install pyinstaller cython
 
       - name: Compile to single binary
         run: pyinstaller updater.py -s --optimize 2 -F -n updater-linux-amd64
@@ -42,10 +39,7 @@ jobs:
           python-version: ${{ env.PYTHON_VERSION }}
 
       - name: Install dependencies
-        run: |
-          pip install pyinstaller cython
-          python setup.py build_ext --inplace
-          echo "import updater" > updater.py
+        run: pip install pyinstaller cython
 
       - name: Compile to single binary
         run: pyinstaller updater.py --optimize 2 -F -n updater-windows-amd64
@@ -67,10 +61,7 @@ jobs:
           python-version: ${{ env.PYTHON_VERSION }}
 
       - name: Install dependencies
-        run: |
-          pip install pyinstaller cython
-          python setup.py build_ext --inplace
-          echo "import updater" > updater.py
+        run: pip install pyinstaller
 
       - name: Compile to single binary
         run: pyinstaller updater.py -s --optimize 2 -F -n updater-macos-arm64
