@@ -98,7 +98,7 @@ check_files_exist
 download_shasums
 
 while read -r hash filePath; do
-  file=${filePath##*/}
+  file="${filePath##*/}"
 
   if [[ " ${skipFiles[*]} " == *" $file "* ]]; then
     printf "Skipping %s\n" "$file"
