@@ -78,9 +78,9 @@ fix_case() {
 }
 
 check_hashes() {
-  local_hash=($(sha_cmd "$3"))
+  local_hash=$(sha_cmd "$3")
 
-  if [ "$local_hash" = "$2" ]; then
+  if [ "${local_hash%% *}" = "$2" ]; then
     printf "%s is up to date\n" "$1"
     return 0
   else
