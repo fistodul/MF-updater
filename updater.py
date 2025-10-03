@@ -58,8 +58,8 @@ def download_shasums() -> list:
 
     try:
         res = urlopen(f'{url}/sha512.txt')
-    except Exception:
-        print('Failed to download sha512.txt')
+    except Exception as e:
+        print('Failed to download sha512.txt with', e)
         sleep(2)
         raise SystemExit(1)
 
