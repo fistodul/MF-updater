@@ -50,8 +50,7 @@ def check_files_exist() -> None:
         rename(src, dst)
 
     for folder in ['Maps', 'Music', 'Physics', 'Sounds', 'System', 'Textures']:
-        src = f'../{folder}'
-        if not path.isdir(src):
+        if not path.isdir(f'../{folder}'):
             print(f"Didn't find {folder} in parallel folders, can't continue")
             sleep(2)
             raise SystemExit(1)
