@@ -6,7 +6,7 @@ there's a few commented files that you may want to enable by removing "# "
 """
 
 from hashlib import sha512
-from os import listdir, path, rename
+from os import chdir, listdir, path, rename
 from time import sleep
 from urllib.request import urlopen
 
@@ -98,6 +98,7 @@ def get_file(file: str, file_path: str) -> None:
         f.write(res.read())
 
 
+chdir(path.dirname(__file__))
 check_files_exist()
 for line in download_shasums():
     hashed, file_path = line.split(maxsplit=1)
