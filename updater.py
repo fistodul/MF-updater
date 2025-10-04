@@ -99,19 +99,20 @@ def get_file(file: str, file_path: str) -> None:
 
 
 chdir(path.dirname(__file__))
-check_files_exist()
-for line in download_shasums():
-    hashed, file_path = line.split(maxsplit=1)
-    file = path.basename(file_path)
+if __name__ == '__main__':
+    check_files_exist()
+    for line in download_shasums():
+        hashed, file_path = line.split(maxsplit=1)
+        file = path.basename(file_path)
 
-    if file in skip_files:
-        print(f'Skipping {file}')
-        continue
+        if file in skip_files:
+            print(f'Skipping {file}')
+            continue
 
-    if fix_case(path.dirname(file_path), file) and check_hash(file, hashed, file_path):
-        continue
+        if fix_case(path.dirname(file_path), file) and check_hash(file, hashed, file_path):
+            continue
 
-    get_file(file, file_path)
+        get_file(file, file_path)
 
-print('Update finished')
-sleep(2)
+    print('Update finished')
+    sleep(2)
