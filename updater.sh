@@ -94,6 +94,7 @@ get_file() {
   curl -sSf "$url/$1" -o "$2"
 }
 
+cd "$(dirname "$0")"
 check_files_exist
 download_shasums
 
