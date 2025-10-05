@@ -53,7 +53,7 @@ def check_files_exist() -> None:
             raise SystemExit(1)
 
 
-def download_shasums() -> list:
+def download_shasums() -> list[str]:
     print('Trying to download sha512.txt')
 
     try:
