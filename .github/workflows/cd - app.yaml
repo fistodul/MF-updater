@@ -20,7 +20,7 @@ jobs:
         run: pip install nuitka
 
       - name: Compile to single binary
-        run: nuitka --python-flag=-OO --onefile --output-filename=updater-linux-amd64 updater.py
+        run: nuitka --assume-yes-for-downloads --python-flag=-OO --onefile --output-filename=updater-linux-amd64 updater.py
 
       - name: Upload binary
         uses: actions/upload-artifact@v4
@@ -42,7 +42,7 @@ jobs:
         run: pip install nuitka
 
       - name: Compile to single binary
-        run: nuitka --python-flag=-OO --onefile --output-filename=updater-windows-amd64.exe updater.py
+        run: nuitka --assume-yes-for-downloads --python-flag=-OO --onefile --output-filename=updater-windows-amd64.exe updater.py
 
       - name: Upload binary
         uses: actions/upload-artifact@v4
@@ -64,7 +64,7 @@ jobs:
         run: pip install nuitka
 
       - name: Compile to single binary
-        run: nuitka --python-flag=-OO --onefile --output-filename=updater-macos-arm64 updater.py
+        run: nuitka --assume-yes-for-downloads --python-flag=-OO --onefile --output-filename=updater-macos-arm64 updater.py
 
       - name: Upload binary
         uses: actions/upload-artifact@v4
@@ -99,7 +99,7 @@ jobs:
       - name: Compute semantic version
         id: version
         run: |
-          BUILD_NUMBER=$(($GITHUB_RUN_NUMBER + $GITHUB_RUN_ATTEMPT - 3))
+          BUILD_NUMBER=$(($GITHUB_RUN_NUMBER + $GITHUB_RUN_ATTEMPT - 4))
           echo "v=v2.$(($BUILD_NUMBER / 10)).$(($BUILD_NUMBER % 10))" >> $GITHUB_OUTPUT
 
       - name: Create Release
