@@ -1,6 +1,6 @@
 # MF-updater
 
-Mobile Forces updater written in Bash and [Python](https://www.python.org/) with compiled binaries available using pyinstaller.
+Mobile Forces updater written in Bash and [Python](https://www.python.org/) with compiled binaries available using Nuitka.
 
 ## Setup/running instructions
 

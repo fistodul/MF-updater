@@ -17,10 +17,10 @@ jobs:
           python-version: ${{ env.PYTHON_VERSION }}
 
       - name: Install dependencies
-        run: pip install pyinstaller
+        run: pip install nuitka
 
       - name: Compile to single binary
-        run: pyinstaller updater.py -s --optimize 2 -F -n updater-linux-amd64
+        run: nuitka --python-flag=-OO --onefile --output-filename=updater-linux-amd64 updater.py
 
       - name: Upload binary
         uses: actions/upload-artifact@v4
@@ -39,10 +39,10 @@ jobs:
           python-version: ${{ env.PYTHON_VERSION }}
 
       - name: Install dependencies
-        run: pip install pyinstaller
+        run: pip install nuitka
 
       - name: Compile to single binary
-        run: pyinstaller updater.py --optimize 2 -F -n updater-windows-amd64
+        run: nuitka --python-flag=-OO --onefile --output-filename=updater-windows-amd64.exe updater.py
 
       - name: Upload binary
         uses: actions/upload-artifact@v4
@@ -61,10 +61,10 @@ jobs:
           python-version: ${{ env.PYTHON_VERSION }}
 
       - name: Install dependencies
-        run: pip install pyinstaller
+        run: pip install nuitka
 
       - name: Compile to single binary
-        run: pyinstaller updater.py -s --optimize 2 -F -n updater-macos-arm64
+        run: nuitka --python-flag=-OO --onefile --output-filename=updater-macos-arm64 updater.py
 
       - name: Upload binary
         uses: actions/upload-artifact@v4
