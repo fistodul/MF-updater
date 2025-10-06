@@ -9,9 +9,13 @@ sha512.txt
 *.int
 *.u
 *.utx
-dist
+*.dist
 build
-updater.c
-updater.*.so
+*.build
+*-build
+*.c
+*.so
 *.spec
+*.bin
 setup.py
+updater-*
