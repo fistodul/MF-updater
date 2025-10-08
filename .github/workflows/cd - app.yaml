@@ -16,17 +16,20 @@ jobs:
         with:
           python-version: ${{ env.PYTHON_VERSION }}
 
-      - name: Install dependencies
-        run: pip install nuitka
+      - name: Build updater image with Docker
+        run: docker build -t updater:latest --build-arg MODE='onefile --onefile-tempdir-spec=../Cache' .
 
-      - name: Compile to single binary
-        run: nuitka --onefile-tempdir-spec=../Cache --assume-yes-for-downloads --python-flag=-OO --onefile --output-filename=updater-linux-amd64 updater.py
+      - name: Extract onefile binary
+        run: |
+          CONTAINER_ID=$(docker create updater:latest)
+          docker cp $CONTAINER_ID:/opt/updater-linux-amd64.bin .
+          docker rm $CONTAINER_ID
 
       - name: Upload binary
         uses: actions/upload-artifact@v4
         with:
           name: updater-linux
-          path: updater-linux-amd64
+          path: updater-linux-amd64.bin
 
   build-windows:
     runs-on: windows-2022
@@ -64,7 +67,10 @@ jobs:
         run: pip install nuitka
 
       - name: Compile to single binary
-        run: nuitka --onefile-tempdir-spec=../Cache --assume-yes-for-downloads --python-flag=-OO --onefile --output-filename=updater-macos-arm64 updater.py
+        run: |
+          nuitka --onefile --onefile-tempdir-spec=../Cache --deployment \
+            --assume-yes-for-downloads --python-flag=-OO \
+            --output-filename=updater-macos-arm64.bin updater.py
 
       - name: Upload binary
         uses: actions/upload-artifact@v4
