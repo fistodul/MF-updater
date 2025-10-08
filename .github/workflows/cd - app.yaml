@@ -11,15 +11,10 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: ${{ env.PYTHON_VERSION }}
-
       - name: Build updater image with Docker
         run: docker build -t updater:latest --build-arg MODE='onefile --onefile-tempdir-spec=../Cache' .
 
-      - name: Extract onefile binary
+      - name: Extract single binary
         run: |
           CONTAINER_ID=$(docker create updater:latest)
           docker cp $CONTAINER_ID:/opt/updater-linux-amd64.bin .
@@ -76,7 +71,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: updater-macos
-          path: updater-macos-arm64
+          path: updater-macos-arm64.bin
 
   create_release:
     needs: [build-linux, build-windows, build-macos]
