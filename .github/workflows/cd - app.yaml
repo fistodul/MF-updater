@@ -37,10 +37,13 @@ jobs:
           python-version: ${{ env.PYTHON_VERSION }}
 
       - name: Install dependencies
-        run: pip install pyinstaller
+        run: pip install nuitka
 
       - name: Compile to single binary
-        run: pyinstaller updater.py --optimize 2 -F -n updater-windows-amd64
+        run: |
+          nuitka --onefile --onefile-tempdir-spec=..\Cache --deployment \
+            --assume-yes-for-downloads --python-flag=-OO \
+            --output-filename=updater-windows-amd64.exe updater.py
 
       - name: Upload binary
         uses: actions/upload-artifact@v4
