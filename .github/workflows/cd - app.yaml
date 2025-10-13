@@ -103,7 +103,7 @@ jobs:
       - name: Compute semantic version
         id: version
         run: |
-          BUILD_NUMBER=$(($GITHUB_RUN_NUMBER + $GITHUB_RUN_ATTEMPT - 7))
+          BUILD_NUMBER=$(($GITHUB_RUN_NUMBER + $GITHUB_RUN_ATTEMPT - 8))
           echo "v=v2.$(($BUILD_NUMBER / 10)).$(($BUILD_NUMBER % 10))" >> $GITHUB_OUTPUT
 
       - name: Create Release
