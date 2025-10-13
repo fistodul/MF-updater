@@ -41,8 +41,8 @@ jobs:
 
       - name: Compile to single binary
         run: |
-          nuitka --onefile --onefile-tempdir-spec=..\Cache --deployment \
-            --assume-yes-for-downloads --python-flag=-OO \
+          nuitka --onefile --onefile-tempdir-spec=..\Cache --deployment `
+            --assume-yes-for-downloads --python-flag=-OO `
             --output-filename=updater-windows-amd64.exe updater.py
 
       - name: Upload binary
@@ -103,7 +103,7 @@ jobs:
       - name: Compute semantic version
         id: version
         run: |
-          BUILD_NUMBER=$(($GITHUB_RUN_NUMBER + $GITHUB_RUN_ATTEMPT - 6))
+          BUILD_NUMBER=$(($GITHUB_RUN_NUMBER + $GITHUB_RUN_ATTEMPT - 7))
           echo "v=v2.$(($BUILD_NUMBER / 10)).$(($BUILD_NUMBER % 10))" >> $GITHUB_OUTPUT
 
       - name: Create Release
