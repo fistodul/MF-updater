@@ -1,4 +1,4 @@
-ARG OS_VERSION=12 MODE="accelerated"
+ARG OS_VERSION=13 MODE="standalone"
 
 FROM debian:${OS_VERSION}-slim AS build
 ENV DEBIAN_FRONTEND=noninteractive
@@ -20,11 +20,12 @@ RUN apt-get update && \
       --deployment \
       --assume-yes-for-downloads \
       --python-flag=-OO \
-      --output-filename=updater-linux-amd64.bin \
-      updater.py
+      --output-filename=updater-linux-x64.bin \
+      updater.py && \
+      mkdir out && mv updater.{bin,dist/*} out/ 2> /dev/null
 
-FROM gcr.io/distroless/python3-debian${OS_VERSION}:latest
+FROM gcr.io/distroless/cc-debian${OS_VERSION}:latest
 
-COPY --from=build updater-linux-amd64.bin /opt/
+COPY --from=build out/* /opt/
 
-ENTRYPOINT ["/opt/updater-linux-amd64.bin"]
+ENTRYPOINT ["/opt/updater-linux-x64.bin"]

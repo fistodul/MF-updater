@@ -2,14 +2,11 @@ name: CD - app
 
 on: [workflow_dispatch]
 
-env:
-  PYTHON_VERSION: 3.13
-
 jobs:
   build-linux:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
 
       - name: Build updater image with Docker
         run: docker build -t updater:latest --build-arg MODE='onefile --onefile-tempdir-spec=../Cache' .
@@ -17,93 +14,80 @@ jobs:
       - name: Extract single binary
         run: |
           CONTAINER_ID=$(docker create updater:latest)
-          docker cp $CONTAINER_ID:/opt/updater-linux-amd64.bin .
+          docker cp $CONTAINER_ID:/opt/updater-linux-x64.bin .
           docker rm $CONTAINER_ID
 
       - name: Upload binary
         uses: actions/upload-artifact@v4
         with:
-          name: updater-linux
-          path: updater-linux-amd64.bin
+          name: updater-Linux
+          path: updater-linux-x64.bin
 
-  build-windows:
-    runs-on: windows-2022
+  build:
+    strategy:
+      matrix:
+        os: [windows-2022, macos-latest]
+
+    runs-on: ${{ matrix.os }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
 
-      - name: Set up Python
-        uses: actions/setup-python@v5
+      - name: Setup Python
+        uses: actions/setup-python@v6
         with:
-          python-version: ${{ env.PYTHON_VERSION }}
+          python-version: '3.13'
 
-      - name: Install dependencies
-        run: pip install nuitka
-
-      - name: Compile to single binary
-        run: |
-          nuitka --onefile --onefile-tempdir-spec=..\Cache --deployment `
-            --assume-yes-for-downloads --python-flag=-OO `
-            --output-filename=updater-windows-amd64.exe updater.py
+      - name: Build Executable with Nuitka
+        uses: Nuitka/Nuitka-Action@main
+        with:
+          mode: onefile
+          onefile-tempdir-spec: ../Cache
+          deployment: true
+          assume-yes-for-downloads: true
+          python-flag: -OO
+          output-file: >
+            updater-
+            ${RUNNER_OS,,}-
+            ${RUNNER_ARCH,,}.
+            ${{ runner.os == 'Windows' && 'exe' || 'bin' }}
+          script-name: updater.py
 
       - name: Upload binary
         uses: actions/upload-artifact@v4
         with:
-          name: updater-windows
-          path: updater-windows-amd64.exe
-
-  build-macos:
-    runs-on: macos-latest
-    steps:
-      - uses: actions/checkout@v4
-
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: ${{ env.PYTHON_VERSION }}
-
-      - name: Install dependencies
-        run: pip install nuitka
-
-      - name: Compile to single binary
-        run: |
-          nuitka --onefile --onefile-tempdir-spec=../Cache --deployment \
-            --assume-yes-for-downloads --python-flag=-OO \
-            --output-filename=updater-macos-arm64.bin updater.py
-
-      - name: Upload binary
-        uses: actions/upload-artifact@v4
-        with:
-          name: updater-macos
-          path: updater-macos-arm64.bin
+          name: updater-${{ runner.os }}
+          path: |
+            build/*.exe
+            build/*.bin
 
   create_release:
-    needs: [build-linux, build-windows, build-macos]
+    needs: [build-linux, build]
     runs-on: ubuntu-latest
     permissions:
       contents: write
     steps:
-      - name: Download linux artifact
-        uses: actions/download-artifact@v4
+      - name: Download Linux artifact
+        uses: actions/download-artifact@v5
         with:
-          name: updater-linux
+          name: updater-Linux
           path: release_artifacts
 
-      - name: Download windows artifact
-        uses: actions/download-artifact@v4
+      - name: Download Windows artifact
+        uses: actions/download-artifact@v5
         with:
-          name: updater-windows
+          name: updater-Windows
           path: release_artifacts
 
-      - name: Download mac artifact
-        uses: actions/download-artifact@v4
+      - name: Download macOS artifact
+        uses: actions/download-artifact@v5
         with:
-          name: updater-macos
+          name: updater-macOS
           path: release_artifacts
 
       - name: Compute semantic version
         id: version
         run: |
-          BUILD_NUMBER=$(($GITHUB_RUN_NUMBER + $GITHUB_RUN_ATTEMPT - 8))
+          BUILD_NUMBER=$(($GITHUB_RUN_NUMBER + $GITHUB_RUN_ATTEMPT - 9))
           echo "v=v2.$(($BUILD_NUMBER / 10)).$(($BUILD_NUMBER % 10))" >> $GITHUB_OUTPUT
 
       - name: Create Release
