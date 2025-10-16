@@ -14,14 +14,14 @@ jobs:
       - name: Extract single binary
         run: |
           CONTAINER_ID=$(docker create updater:latest)
-          docker cp $CONTAINER_ID:/opt/updater-Linux-X64.bin .
+          docker cp $CONTAINER_ID:/opt/updater-linux-x64.bin .
           docker rm $CONTAINER_ID
 
       - name: Upload binary
         uses: actions/upload-artifact@v4
         with:
           name: updater-Linux
-          path: updater-Linux-X64.bin
+          path: updater-linux-x64.bin
 
   build:
     strategy:
@@ -37,24 +37,22 @@ jobs:
         with:
           python-version: '3.13'
 
-      - name: Build Executable with Nuitka
-        uses: Nuitka/Nuitka-Action@b24f9b7859f1022afcfad039eb8b8ac3ae299e39
-        with:
-          mode: onefile
-          onefile-tempdir-spec: ../Cache
-          deployment: true
-          assume-yes-for-downloads: true
-          python-flag: -OO
-          output-file: updater-${{ runner.os }}-${{ runner.arch }}.${{ runner.os == 'Windows' && 'exe' || 'bin' }}
-          script-name: updater.py
+      - name: Install dependencies
+        run: pip install nuitka
+
+      - name: Compile to single binary
+        shell: bash
+        run: |
+          FILE=$(echo "updater-$RUNNER_OS-$RUNNER_ARCH" | tr '[:upper:]' '[:lower:]') && \
+          python -m nuitka --onefile --onefile-tempdir-spec=../Cache --deployment \
+            --assume-yes-for-downloads --python-flag=-OO \
+            --output-filename=$FILE.${{ runner.os == 'Windows' && 'exe' || 'bin' }} updater.py
 
       - name: Upload binary
         uses: actions/upload-artifact@v4
         with:
           name: updater-${{ runner.os }}
-          path: |
-            build/*.exe
-            build/*.bin
+          path: ${{ runner.os == 'Windows' && '*.exe' || '*.bin' }}
 
   create_release:
     needs: [build-linux, build]
@@ -83,7 +81,7 @@ jobs:
       - name: Compute semantic version
         id: version
         run: |
-          BUILD_NUMBER=$(($GITHUB_RUN_NUMBER + $GITHUB_RUN_ATTEMPT - 12))
+          BUILD_NUMBER=$(($GITHUB_RUN_NUMBER + $GITHUB_RUN_ATTEMPT - 17))
           echo "v=v2.$(($BUILD_NUMBER / 10)).$(($BUILD_NUMBER % 10))" >> $GITHUB_OUTPUT
 
       - name: Create Release

@@ -20,13 +20,13 @@ RUN apt-get update && \
       --deployment \
       --assume-yes-for-downloads \
       --python-flag=-OO \
-      --output-filename=updater-Linux-X64.bin \
+      --output-filename=updater-linux-x64.bin \
       updater.py && \
-      [ -f updater-Linux-X64.bin  ] && mkdir out && \
-      mv updater-Linux-X64.bin out/ || mv updater.dist out
+      [ -f *.bin  ] && mkdir out && \
+      mv *.bin out/ || mv *.dist out
 
 FROM gcr.io/distroless/cc-debian${OS_VERSION}:latest
 
 COPY --from=build out/* /opt/
 
-ENTRYPOINT ["/opt/updater-Linux-X64.bin"]
+ENTRYPOINT ["/opt/updater-linux-x64.bin"]
