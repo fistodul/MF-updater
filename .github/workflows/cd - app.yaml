@@ -14,14 +14,14 @@ jobs:
       - name: Extract single binary
         run: |
           CONTAINER_ID=$(docker create updater:latest)
-          docker cp $CONTAINER_ID:/opt/updater-linux-x64.bin .
+          docker cp $CONTAINER_ID:/opt/updater-Linux-X64.bin .
           docker rm $CONTAINER_ID
 
       - name: Upload binary
         uses: actions/upload-artifact@v4
         with:
           name: updater-Linux
-          path: updater-linux-x64.bin
+          path: updater-Linux-X64.bin
 
   build:
     strategy:
@@ -38,18 +38,14 @@ jobs:
           python-version: '3.13'
 
       - name: Build Executable with Nuitka
-        uses: Nuitka/Nuitka-Action@main
+        uses: Nuitka/Nuitka-Action@b24f9b7859f1022afcfad039eb8b8ac3ae299e39
         with:
           mode: onefile
           onefile-tempdir-spec: ../Cache
           deployment: true
           assume-yes-for-downloads: true
           python-flag: -OO
-          output-file: >
-            updater-
-            ${RUNNER_OS,,}-
-            ${RUNNER_ARCH,,}.
-            ${{ runner.os == 'Windows' && 'exe' || 'bin' }}
+          output-file: updater-${{ runner.os }}-${{ runner.arch }}.${{ runner.os == 'Windows' && 'exe' || 'bin' }}
           script-name: updater.py
 
       - name: Upload binary
@@ -87,7 +83,7 @@ jobs:
       - name: Compute semantic version
         id: version
         run: |
-          BUILD_NUMBER=$(($GITHUB_RUN_NUMBER + $GITHUB_RUN_ATTEMPT - 9))
+          BUILD_NUMBER=$(($GITHUB_RUN_NUMBER + $GITHUB_RUN_ATTEMPT - 12))
           echo "v=v2.$(($BUILD_NUMBER / 10)).$(($BUILD_NUMBER % 10))" >> $GITHUB_OUTPUT
 
       - name: Create Release
