@@ -42,7 +42,7 @@ check_files_exist() {
 
   for folder in Maps Music Physics Sounds System Textures; do
     if ! [ -d "../$folder" ]; then
-      printf "Didn't find %s in parallel folders, can't continue\n" "$folder"
+      echo "Didn't find $folder in parallel folders, can't continue"
       sleep 5
       exit 1
     fi
@@ -50,22 +50,22 @@ check_files_exist() {
 }
 
 download_shasums() {
-  printf "Trying to download sha512.txt\n"
+  echo "Trying to download sha512.txt"
 
   if ! curl -sSf "$url/sha512.txt" -o sha512.txt; then
-    printf "Failed to download sha512.txt\n"
+    echo "Failed to download sha512.txt"
     sleep 5
     exit 1
   fi
 
-  printf "sha512.txt successfully downloaded\n"
+  echo "sha512.txt successfully downloaded"
 }
 
 fix_case() {
-  name="${1,,}/${2,,}"
+  name=$(echo "$1/$2" | tr 'A-Z' 'a-z')
 
   for f in "$1"/*; do
-    if [ "${f,,}" = "$name" ]; then
+    if [ "$(echo "$f" | tr 'A-Z' 'a-z')" = "$name" ]; then
       if [ "$f" != "$1/$2" ]; then
         mv "$f" "$1/$2"
       fi
@@ -73,7 +73,7 @@ fix_case() {
     fi
   done
 
-  printf "%s is missing\n" "$2"
+  echo "$2 is missing"
   return 1
 }
 
@@ -81,16 +81,16 @@ check_hash() {
   local_hash=$(sha_cmd "$3")
 
   if [ "${local_hash%% *}" = "$2" ]; then
-    printf "%s is up to date\n" "$1"
+    echo "$1 is up to date"
     return 0
   else
-    printf "%s is mismatching\n" "$1"
+    echo "$1 is mismatching"
     return 1
   fi
 }
 
 get_file() {
-  printf "Downloading %s from the server\n" "$1"
+  echo "Downloading $1 from the server"
   curl -sSf "$url/$1" -o "$2"
 }
 
@@ -102,7 +102,7 @@ while read -r hashed file_path; do
   file="${file_path##*/}"
 
   if [[ " ${skip_files[*]} " == *" $file "* ]]; then
-    printf "Skipping %s\n" "$file"
+    echo "Skipping $file"
     continue
   fi
 
@@ -113,5 +113,5 @@ while read -r hashed file_path; do
   get_file "$file" "$file_path"
 done < sha512.txt
 
-printf "Update finished\n"
+echo "Update finished"
 sleep 2
