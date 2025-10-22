@@ -52,7 +52,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: updater-${{ runner.os }}
-          path: ${{ runner.os == 'Windows' && '*.exe' || '*.bin' }}
+          path: "*.${{ runner.os == 'Windows' && 'exe' || 'bin' }}"
 
   create_release:
     needs: [build-linux, build]
