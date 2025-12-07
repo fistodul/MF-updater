@@ -23,9 +23,9 @@ Before updating, keep in mind to backup the game in case you will want to revert
 
 | OS      | Script     | Note                                       |
 | --------| ---------- | ------------------------------------------ |
-| Linux   | updater.sh | Just have Bash installed                   |
+| Linux   | updater.sh | Just have Bash v4+ installed               |
 | Mac     | updater.sh | Run as `SHA_CMD='shasum -a 512 "$1"' bash updater.sh` or install sha512sum |
-| Any     | updater.py | Just have Python installed                 |
+| Any     | updater.py | Just have Python v3.9+ installed           |
 
 Binary versions of the `updater.py` script compiled for Windows, Linux and Mac are available in the [releases](https://github.com/fistodul/MF-updater/releases/latest). Assuming this repo is in the Mobile Folders folder, you can run it in Docker like this
 
@@ -67,7 +67,7 @@ This Script was first made by Gregaras and then improved by Filip.
 
 > Looking for info at forums like StackOverflow and similar helped me write the first version of the script (was longer, had 21 loops). Also, one documentation I think helped me: https://en.wikibooks.org/wiki/Windows_Batch_Scripting
 
-> I tried to make most of the code POSIX and follow best practices from https://mywiki.wooledge.org/BashFAQ and not include features of Bash 4+ to be compatible with Apple's Bash 3.2.57 version
+> I tried to make most of the code POSIX and follow best practices from https://mywiki.wooledge.org/BashFAQ and not include features of Bash 4+ to be compatible with Apple's Bash 3.2.57 version (but in the end I failed)
 
 Previously this program made use of UCC (dropped after [this commit](https://github.com/fistodul/MF-updater/tree/6c30dc6e1f68466fb2c4ab1f8aaa3825d694d96a)) and Windows scripts (dropped after [this commit](https://github.com/fistodul/MF-updater/tree/e8b62573f26a211d00ae11b7df6f5f31427cd9e8)), so these branches were made: [ucc](https://github.com/fistodul/MF-updater/tree/ucc) and [windows](https://github.com/fistodul/MF-updater/tree/windows).
 

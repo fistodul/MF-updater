@@ -62,10 +62,10 @@ download_shasums() {
 }
 
 fix_case() {
-  name=$(echo "$1/$2" | tr 'A-Z' 'a-z')
+  name="${1,,}/${2,,}"
 
   for f in "$1"/*; do
-    if [ "$(echo "$f" | tr 'A-Z' 'a-z')" = "$name" ]; then
+    if [ "${f,,}" = "$name" ]; then
       if [ "$f" != "$1/$2" ]; then
         mv "$f" "$1/$2"
       fi
