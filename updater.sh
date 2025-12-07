@@ -50,15 +50,15 @@ check_files_exist() {
 }
 
 download_shasums() {
-  echo "Trying to download sha512.txt"
+  echo 'Trying to download sha512.txt'
 
   if ! curl -sSf "$url/sha512.txt" -o sha512.txt; then
-    echo "Failed to download sha512.txt"
+    echo 'Failed to download sha512.txt'
     sleep 5
     exit 1
   fi
 
-  echo "sha512.txt successfully downloaded"
+  echo 'sha512.txt successfully downloaded'
 }
 
 fix_case() {
@@ -113,5 +113,5 @@ while read -r hashed file_path; do
   get_file "$file" "$file_path"
 done < sha512.txt
 
-echo "Update finished"
+echo 'Update finished'
 sleep 2
