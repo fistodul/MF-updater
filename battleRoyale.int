@@ -1,0 +1,8 @@
+Comment=Used RageGame.int as the template
+
+[Public]
+Object=(Name=battleRoyale.battleRoyale,Class=Class,MetaClass=Engine.GameInfo)
+
+[BattleRoyale]
+GameName=Battle Royale
+

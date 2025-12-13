@@ -1,0 +1,9 @@
+[RagebrowserMainWindow]
+WindowTitleString=Mobile Forces Server Browser
+
+[RagebrowserServerGrid]
+VersionName=Version
+EnabledText=Enabled
+ActiveText=Active
+InactiveText=Inactive
+

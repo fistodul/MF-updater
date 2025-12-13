@@ -1,0 +1,20 @@
+Comment = KnifeFight.int was used as a template
+
+[Public]
+Object=(Name=arenaMode.arenaMode,Class=Class,MetaClass=Engine.GameInfo)
+
+[arenaModeBoard]
+MapTitle=taking place in
+Author=by
+Restart=You've been killed.  Hit [Fire] to resurect!
+Continue=" Hit [Fire] to restart the match!"
+Ended="The match is over."
+ElapsedTime=Time Gone: 
+RemainingTime=Time Left: 
+PlayerString=Player
+FragsString=Kills
+DeathsString=Deaths
+PingString=Ping
+TimeString=Time
+LossString=Loss
+FPHString=FPH

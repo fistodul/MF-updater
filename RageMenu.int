@@ -1,0 +1,344 @@
+Comment= These are the messages for the game's Front End, when the player is selecting the various options before
+Comment= playing the game.
+
+[RageMenuScreen]
+Comment= Game title
+TXT_Title=MOBILE FORCES
+Comment= Back, as in to go back to the previous menu.
+TXT_Back=Back
+Comment= Launch, as in to start or initiate the game.
+TXT_Launch=Start
+TXT_OK=OK
+TXT_Cancel=Cancel
+TXT_Yes=Yes
+TXT_No=No
+Comment= Low, as a quantity, for picture quality - low, medium or high.
+TXT_Low=Low
+TXT_Medium=Medium
+TXT_High=High
+
+[ScreenProfiles]
+Comment= These are effectively save slots - works in the same way as Goldeneye or Tony Hawks GBA.
+Comment= Exit, which the player selects to quit the game completely.
+TXT_Exit=Quit
+Comment= At the start of the game the player can choose between different profiles or save positions - this
+Comment= also means two people could play, each using a different profile as their progress will be different.
+TXT_NewProfile=New Profile
+TXT_Title=Select Profile
+
+[ScreenOptionsInput]
+TXT_MouseSensitivity=Mouse Sensitivity
+TXT_MouseLook=Always Mouse-Look
+TXT_MouseSmooth=Smooth Mouse
+TXT_MouseInvert=Invert Mouse Y-Axis
+TXT_LookSpring=Look-Spring
+TXT_AutoSlope=Auto Slope View
+TXT_AutoAim=Auto-Aim
+TXT_UseJoystick=Use Joystick
+TXT_UseDirectInput=Use Direct Input
+TXT_Title=Input Options
+
+[ScreenOptionsAudio]
+TXT_SoundVolume=Sound Volume
+TXT_MusicVolume=Music Volume
+TXT_VoiceVolume=Voice Volume
+TXT_SoundQuality=Sound Quality
+TXT_PlayVoiceMessages=Play Voice Messages
+TXT_AutoTaunt=Auto-Taunt
+TXT_MessageBeep=Message Beep
+TXT_Hardware3D=3D Hardware Support
+TXT_Surround=Surround Sound
+TXT_All=All
+TXT_NoAutoTaunts=No Auto-Taunts
+TXT_NoTaunts=No Taunts
+TXT_None=None
+TXT_Title=Audio Options
+
+[ScreenOptionsGame]
+Comment= Does the player's view move (bob) up and down as they walk.
+TXT_ViewBob=Head Bob 
+TXT_WeaponFlash=Weapon Flash
+Comment= HUD = Head Up Display, overlaid information showing player health - similar to Airforce pilots etc.
+TXT_HudSize=HUD Size
+TXT_Crosshair=Crosshair
+TXT_NetSpeed=Network Speed
+TXT_MatureStuff=Gore/Adult
+Comment= Minimap is a top-down plan of each level showing the layout and other players.
+TXT_ShowMinimap=Show Mini-map
+TXT_Enable=Enable
+TXT_Disable=Disable
+TXT_Off=Off
+TXT_Modem=Modem
+TXT_ISDN=ISDN
+TXT_Cable=Cable/xDSL
+TXT_LAN=LAN
+TXT_Title=Game Options
+
+[RageMenuControlCW]
+Comment= These are the names of the keys/buttons to be displayed - shouldn't need to be changed??
+
+
+TXT_Labels[0]=Controls,Fire
+Comment= Each weapon has two ways of firing
+TXT_Labels[1]=Alternate Fire
+TXT_Labels[2]=Move Forward
+TXT_Labels[3]=Move Backward
+Comment= Strafe, as in to walk sideways.
+TXT_Labels[4]=Strafe Left
+TXT_Labels[5]=Strafe Right
+TXT_Labels[6]=Turn Left
+TXT_Labels[7]=Turn Right
+TXT_Labels[8]=Jump/Up
+TXT_Labels[9]=Crouch/Down
+Comment= Loadout is where players get their weapons from.
+TXT_Labels[10]=Enter Loadout
+TXT_Labels[11]=Enter Vehicle
+TXT_Labels[12]=Reload
+TXT_Labels[13]=Throw Flag
+TXT_Labels[14]=Mouse Look
+TXT_Labels[15]=Look Up
+TXT_Labels[16]=Look Down
+TXT_Labels[17]=Centre View
+TXT_Labels[18]=Walk
+TXT_Labels[19]=Strafe
+TXT_Labels[20]=Feign Death
+TXT_Labels[21]=Chat,Say
+TXT_Labels[22]=Squad Say
+TXT_Labels[23]=Orders
+TXT_Labels[24]=Weapons,Next Weapon
+TXT_Labels[25]=Previous Weapon
+TXT_Labels[26]=Commando Knife
+TXT_Labels[27]=Automatic Pistol
+TXT_Labels[28]=Machinegun
+TXT_Labels[29]=Combat Shotgun
+TXT_Labels[30]=Sniper Rifle
+TXT_Labels[31]=Heavy Machinegun
+TXT_Labels[32]=Rocket Launcher
+TXT_Labels[33]=Frag Grenade
+TXT_Labels[34]=Trip Mine
+TXT_Labels[35]=Adrenaline Shot
+TXT_Labels[36]=View from Squadmember,Squadmember 1
+TXT_Labels[37]=Squadmember 2
+TXT_Labels[38]=Squadmember 3
+TXT_Labels[39]=Squadmember 4
+TXT_Labels[40]=Squadmember 5
+TXT_Labels[41]=Squadmember 6
+TXT_Labels[42]=Squadmember 7
+TXT_Labels[43]=Squadmember 8
+TXT_Labels[44]=Squadmember 9
+TXT_Labels[45]=Squadmember 10
+TXT_Labels[46]=HUD,Increase HUD
+TXT_Labels[47]=Decrease HUD
+TXT_Labels[48]=Change Crosshair
+TXT_Labels[49]=Console,Console Key
+TXT_Labels[50]=Quick Console Key
+TXT_Joystick=Joystick
+TXT_JoyX=X Axis
+TXT_JoyXOptions[0]=Strafe Left/Right
+TXT_JoyXOptions[1]=Turn Left/Right
+TXT_JoyY=Y Axis
+TXT_JoyYOptions[0]=Move Forward/Back
+TXT_JoyYOptions[1]=Look Up/Down
+OrString=" or "
+
+[ScreenOptionsVideo]
+TXT_Resolution=Resolution
+TXT_ColourDepth=Color Depth
+TXT_WorldTexDetail="World Texture Detail"
+TXT_SkinDetail=Skin Texture Detail
+TXT_Brightness=Brightness
+TXT_Contrast=Contrast
+TXT_Gamma=Gamma
+TXT_ShowDecals=Show Shadows and Decals
+TXT_Bits=bit
+TXT_Title=Video Options
+
+[RageMenuMapSelector]
+TXT_PlayersText=Players
+
+Comment= Names of the different levels in the game.
+
+[RageMenuMissionSelector]
+TXT_MapTitles[0]="Warehouse"
+TXT_MapTitles[1]="Waterfront"
+TXT_MapTitles[2]="Western"
+TXT_MapTitles[3]="Car Park"
+TXT_MapTitles[4]="Hydroworks"
+TXT_MapTitles[5]="Polar"
+TXT_MapTitles[6]="Airport"
+TXT_MapTitles[7]="Sawmill"
+TXT_MapTitles[8]="Ghetto"
+TXT_MapTitles[9]="Rail Quarry"
+TXT_MapTitles[10]="Dockyard"
+
+TXT_Unavailable=Points required:
+
+[ScreenOptions]
+TXT_Video=Video
+TXT_Audio=Audio
+TXT_Game=Game
+TXT_Controls=Controls
+TXT_Input=Input
+TXT_PlayerSetup=Player Setup
+TXT_Title=Options
+
+[ScreenMainMenu]
+Comment= Logout takes players back to the "Choose Profile" screen, so they change which profile they're using.
+TXT_Logout=Exit Game
+TXT_Options=Options
+TXT_Multiplayer=Multiplayer
+TXT_SinglePlayer=Single Player
+TXT_Title=
+
+[ScreenRulesSafeCracker]
+TXT_FirstAttackers=First on the Attack
+TXT_Red=Red
+TXT_Blue=Blue
+TXT_Title=SafeCracker Rules
+
+[ScreenRules]
+TXT_ScoreLimit=Score Limit
+TXT_TimeLimit=Time Limit (mins)
+Comment= Friendly Fire is whether or not shooting your team mates hurts them.
+TXT_FriendlyFire=Friendly Fire (%)
+TXT_Title=Game Rules
+
+
+[ScreenStartServer]
+Comment= Dedicated, as in does nothing else.
+TXT_Dedicated=Dedicated Server
+TXT_LAN=LAN
+TXT_Internet=Internet
+TXT_InternetNondedicated=Non/Internet
+TXT_ServerName=Server Name
+TXT_NumBots=Min Players
+TXT_Title=New Multiplayer Game
+
+[ScreenStartGame]
+TXT_Rules=Game Settings
+Comment= Bot Skill, how skilful are the players shooting back at you.
+TXT_BotSkill=Bot Skill
+TXT_GameType=GameType
+TXT_NumBots=Number of Bots
+TXT_Level=Level
+
+[RageMenuBotSkill]
+Comment='Bot' ranks...
+TXT_BotSkills[0]=New Draft
+TXT_BotSkills[1]=Rookie
+TXT_BotSkills[2]=Green
+TXT_BotSkills[3]=Rank and File
+TXT_BotSkills[4]=Commando
+TXT_BotSkills[5]=Hero
+TXT_BotSkills[6]=Veteran
+TXT_BotSkills[7]=Elite
+
+[ScreenMissions]
+Comment= The different game types available - deathmatch is where you just have to kill as many people as possible.
+TXT_GameTypeNames[0]=Deathmatch
+Comment= Team Deathmatch is where you're split into teams, and you have to kill as many people on the other team
+Comment= as possible.
+TXT_GameTypeNames[1]=Squad Deathmatch
+Comment= Captains, is team based, and the most vulnerable person is the 'captain'.
+TXT_GameTypeNames[2]=Captains
+Comment= Capture the Flag, team based, where you have to steal the other team's flag and return with it to your base.
+TXT_GameTypeNames[3]=CTF
+Comment= Holdout (Domination), team based, where you have to control an area of the map for a certain amount of time.
+TXT_GameTypeNames[4]=Holdout
+Comment= Detonation, team based, where collecting and returning a key causes everyone on the other team to explode.
+TXT_GameTypeNames[5]=Detonation
+Comment= Safe cracker, team based, where you have to find the enemy Safe, destroy the door, and steal the gold inside.
+TXT_GameTypeNames[6]=Safecracker
+Comment= Trailer, team based, where you have to tow a bomb-laiden trailer into the enemy base, where it detonates.
+TXT_GameTypeNames[7]=Trailer
+TXT_Title=Single Player: Missions
+
+[ScreenMultiplayer]
+TXT_HostGame=Host Game
+TXT_JoinGame=Join Game
+TXT_OpenLoc=Open Location 
+TXT_Title=Multiplayer
+
+[ScreenOpenLocation]
+TXT_Title=Open Location
+
+[ScreenServerTypes]
+TXT_Title=Server Types
+
+[ScreenRulesTeamDM]
+TXT_Title=Squad DM Rules
+
+[ScreenPlayerSetup]
+TXT_PlayerName=Player Name
+TXT_PlayerModel=Player Model
+TXT_HelmetModel=Assault
+TXT_BalaclavaModel=Covert
+TXT_Team=Squad
+TXT_BlueTeam=Blue
+TXT_RedTeam=Red
+TXT_Title=Player Setup
+TXT_DefaultPlayerName=NewRecruit
+
+
+[ScreenOptionsControl]
+TXT_Defaults=Default
+TXT_Title=Control Options
+
+[ScreenMissionComplete]
+Comment= As the player progress through the game, more missions become available - this tells the player
+Comment= they've opened up a new mission (automatically preceeded by mission name).
+TXT_MapOpen=" mission available!"
+Comment= This tells the player how many points they still need to open up something new.
+TXT_PointsNeeded="Points still needed:"
+TXT_GameComplete=Game Completed
+TXT_CompletionTime=Completion Time: 
+TXT_Title=Mission Complete
+
+[ScreenSinglePlayer]
+TXT_Missions=Missions
+Comment= Skirmish mode is where the players can practise levels they've already opened up. Is called "practise"
+Comment= other games.
+TXT_Skirmish=Skirmish
+TXT_Title=Single Player
+
+[ScreenMissionFailed]
+TXT_Retry=Retry
+TXT_Title=Mission Failed
+
+[ScreenPause]
+TXT_Resume=Resume
+TXT_Restart=Restart
+TXT_Options=Options
+TXT_Quit=Quit Mission
+TXT_Title=Game Paused
+
+[ScreenPractice]
+TXT_Title=Single Player: Skirmish
+
+[ScreenBotSetup]
+TXT_Title=Bot Setup
+
+[ScreenPauseMP]
+TXT_Resume=Resume
+TXT_Options=Options
+TXT_Quit=Quit Mission
+TXT_Title=Game Paused
+
+[ScreenRulesDeathmatch]
+TXT_Title=Deathmatch Rules
+
+[ScreenRulesTrailer]
+TXT_Title=Trailer Rules
+
+[ScreenRulesDomination]
+TXT_Title=Holdout Rules
+
+[ScreenRulesDetonation]
+TXT_Title=Detonation Rules
+
+[ScreenRulesCTF]
+TXT_Title=Capture the Flag Rules
+
+[ScreenRulesCaptains]
+TXT_Title=Captains Rules
+

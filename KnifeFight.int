@@ -1,0 +1,18 @@
+[Public]
+Object=(Name=KnifeFight.KnifeFightGame,Class=Class,MetaClass=Engine.GameInfo)
+
+[KFScoreBoard]
+MapTitle=taking place in
+Author=by
+Restart=You've been killed.  Hit [Fire] to resurect!
+Continue=" Hit [Fire] to restart the match!"
+Ended="The match is over."
+ElapsedTime=Time Gone: 
+RemainingTime=Time Left: 
+PlayerString=Player
+FragsString=Kills
+DeathsString=Deaths
+PingString=Ping
+TimeString=Time
+LossString=Loss
+FPHString=FPH

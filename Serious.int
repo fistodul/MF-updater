@@ -1,0 +1,4 @@
+[Public]
+Object=(Name=serious.male,Class=Class,MetaClass=Rage.RagePlayerX)
+Object=(Name=serious.female,Class=Class,MetaClass=Rage.RagePlayerX)
+

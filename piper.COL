@@ -1,0 +1,212 @@
+sphere
+pos = 2.08569 -0.717715 0.583471
+radius = 0.2
+component = CT_WHEEL_REAR_LEFT
+type = COLT_WHEEL
+material = SMT_WHEEL_SPECIAL
+
+sphere
+pos = -2.14518 -0.717715 0.583471
+radius = 0.2
+component = CT_WHEEL_REAR_RIGHT
+type = COLT_WHEEL
+material = SMT_WHEEL_SPECIAL
+
+sphere
+pos = -0.017462 -0.717715 3.04974
+radius = 0.2
+component = CT_WHEEL_FRONT_RIGHT
+type = COLT_WHEEL
+material = SMT_WHEEL_SPECIAL
+
+sphere
+pos = -0.027462 -0.717715 3.04974
+radius = 0.2
+component = CT_WHEEL_FRONT_LEFT
+type = COLT_WHEEL
+material = SMT_WHEEL_SPECIAL
+
+
+sphere
+pos = 0.014175 0.234714 2.86118
+radius = 0.4477
+component = CT_CHASSIS
+type = COLT_BODY
+material = SMT_METAL
+
+sphere
+pos = 0.014175 0.234714 1.76008
+radius = 0.653522
+component = CT_CHASSIS
+type = COLT_BODY
+material = SMT_METAL
+
+sphere
+pos = 0.014175 0.234714 0.77722
+radius = 0.653522
+component = CT_CHASSIS
+type = COLT_BODY
+material = SMT_METAL
+
+sphere
+pos = 0.014175 0.234714 -0.411466
+radius = 0.603472
+component = CT_CHASSIS
+type = COLT_BODY
+material = SMT_METAL
+
+sphere
+pos = 0.014175 0.234714 -1.67398
+radius = 0.495603
+component = CT_CHASSIS
+type = COLT_BODY
+material = SMT_METAL
+
+sphere
+pos = 0.014175 0.234714 -2.77748
+radius = 0.428943
+component = CT_CHASSIS
+type = COLT_BODY
+material = SMT_METAL
+
+sphere
+pos = 0.014175 0.234714 -3.5438
+radius = 0.353269
+component = CT_CHASSIS
+type = COLT_BODY
+material = SMT_METAL
+
+sphere
+pos = -0.751274 0.234714 -3.5438
+radius = 0.353269
+component = CT_CHASSIS
+type = COLT_BODY
+material = SMT_METAL
+
+sphere
+pos = 0.914204 0.234714 -3.5438
+radius = 0.353269
+component = CT_CHASSIS
+type = COLT_BODY
+material = SMT_METAL
+
+sphere
+pos = 0.014175 1.15524 -3.5438
+radius = 0.324787
+component = CT_CHASSIS
+type = COLT_BODY
+material = SMT_METAL
+
+sphere
+pos = 1.41085 -0.154814 0.964038
+radius = 0.421442
+component = CT_CHASSIS
+type = COLT_BODY
+material = SMT_METAL
+
+sphere
+pos = 1.41085 -0.154814 0.198405
+radius = 0.421442
+component = CT_CHASSIS
+type = COLT_BODY
+material = SMT_METAL
+
+sphere
+pos = 2.41122 -0.154814 0.964038
+radius = 0.421442
+component = CT_CHASSIS
+type = COLT_BODY
+material = SMT_METAL
+
+sphere
+pos = 2.41122 -0.154814 0.198405
+radius = 0.421442
+component = CT_CHASSIS
+type = COLT_BODY
+material = SMT_METAL
+
+sphere
+pos = 3.44103 0.056708 0.964038
+radius = 0.421442
+component = CT_CHASSIS
+type = COLT_BODY
+material = SMT_METAL
+
+sphere
+pos = 3.44103 0.056708 0.198405
+radius = 0.421442
+component = CT_CHASSIS
+type = COLT_BODY
+material = SMT_METAL
+
+sphere
+pos = 4.45807 0.19253 0.964038
+radius = 0.421442
+component = CT_CHASSIS
+type = COLT_BODY
+material = SMT_METAL
+
+sphere
+pos = 4.45807 0.19253 0.198405
+radius = 0.421442
+component = CT_CHASSIS
+type = COLT_BODY
+material = SMT_METAL
+
+sphere
+pos = -2.37244 -0.154814 0.964038
+radius = 0.421442
+component = CT_CHASSIS
+type = COLT_BODY
+material = SMT_METAL
+
+sphere
+pos = -2.37244 -0.154814 0.198405
+radius = 0.421442
+component = CT_CHASSIS
+type = COLT_BODY
+material = SMT_METAL
+
+sphere
+pos = -1.37207 -0.154814 0.964038
+radius = 0.421442
+component = CT_CHASSIS
+type = COLT_BODY
+material = SMT_METAL
+
+sphere
+pos = -1.37207 -0.154814 0.198405
+radius = 0.421442
+component = CT_CHASSIS
+type = COLT_BODY
+material = SMT_METAL
+
+sphere
+pos = -3.41892 0.056708 0.964038
+radius = 0.421442
+component = CT_CHASSIS
+type = COLT_BODY
+material = SMT_METAL
+
+sphere
+pos = -3.41892 0.056708 0.198405
+radius = 0.421442
+component = CT_CHASSIS
+type = COLT_BODY
+material = SMT_METAL
+
+sphere
+pos = -4.47425 0.19253 0.964038
+radius = 0.421442
+component = CT_CHASSIS
+type = COLT_BODY
+material = SMT_METAL
+
+sphere
+pos = -4.47425 0.19253 0.198405
+radius = 0.421442
+component = CT_CHASSIS
+type = COLT_BODY
+material = SMT_METAL
+
+end

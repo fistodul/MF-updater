@@ -1,0 +1,57 @@
+Comment= The DeathMessage appears when someone is killed, and it displays who killed who ie for the Rocket Launcher it
+Comment= could appear in-game as "John was rocketed by Paul."
+Comment= The PickupMessage is displayed when the player picks up that weapon - it's not needed for the Knife, as
+Comment= everyone always has a Knife.
+
+[RocketLauncher]
+DeathMessage=%o was rocketed by %k.
+PickupMessage=Equipped Rocket Launcher.
+ItemName=Rocket Launcher
+
+[RageRifle]
+DeathMessage=%k picked off %o.
+PickupMessage=Equipped Sniper Rifle.
+ItemName=Sniper Rifle
+
+[HeavyMachineGun]
+DeathMessage=%k machinegunned %o.
+PickupMessage=Equipped Heavy Machinegun.
+ItemName=Heavy Machinegun
+
+[Shotgun]
+DeathMessage=%k blasted %o.
+PickupMessage=Equipped Combat Shotgun.
+ItemName=Combat Shotgun
+
+[Grenades]
+DeathMessage=%k blew %o to smithereens.
+PickupMessage=Equipped Frag Grenades.
+ItemName=Frag Grenades
+
+[RageKnife]
+DeathMessage=%k gutted %o.
+PickupMessage=
+ItemName=Commando Knife
+
+[MachineGun]
+DeathMessage=%k gunned down %o.
+PickupMessage=Equipped Machinegun.
+ItemName=Machinegun
+
+[Pistol]
+DeathMessage=%k shot %o.
+PickupMessage=Equipped Semi-Automatic Pistol.
+ItemName=Semi-Automatic Pistol
+
+[TripBombs]
+DeathMessage=%k tripped and detonated %o.
+PickupMessage=Equipped Trip Bombs.
+ItemName=Trip Bombs
+
+[RageArmour]
+PickupMessage=Equipped Impact Armor.
+ItemName=Impact Armor
+
+[AdrenalineShot]
+PickupMessage=Equipped Adrenaline Shot.
+ItemName=Adrenaline Shot

@@ -1,0 +1,785 @@
+;
+;GENERAL,
+EntityID,BALL
+HandlingType,0,
+Mass,10.000
+Width,1.000
+Height,1.000
+Length,1.000
+CofM_X,0.000
+CofM_Y,0.000
+CofM_Z,0.000
+Buoyancy,50
+VirtualY,0.000
+;
+;GENERAL,
+EntityID,WHEELL
+HandlingType,0,
+Mass,100.000
+Width,1.000
+Height,1.000
+Length,1.000
+CofM_X,-0.150
+CofM_Y,0.000
+CofM_Z,0.000
+Buoyancy,50
+VirtualY,0.000
+;
+;GENERAL,
+EntityID,WHEELR
+HandlingType,0,
+Mass,100.000
+Width,1.000
+Height,1.000
+Length,1.000
+CofM_X,0.150
+CofM_Y,0.000
+CofM_Z,0.000
+Buoyancy,50
+VirtualY,0.000
+;
+;GENERAL,
+EntityID,TRAILER
+HandlingType,2,
+Mass,1500.000
+Width,1.500
+Height,1.100
+Length,3.150
+CofM_X,0.000
+CofM_Y,1.000
+CofM_Z,0.000
+Buoyancy,65
+VirtualY,0.400
+;
+;BRAKES,
+ForceFront,6000.000
+ForceRear,3000.000
+HeatingCoeff,0.050
+Efficiency,-10 10 245 260
+AntiLock,1
+;
+;WHEELS & TYRES,
+F_TyreWidth,500
+F_TyreProfile,38
+F_WheelDiameter,18
+F_WheelMass,20
+F_SpacerWidth,0
+F_WearRate,1
+F_HeatingCoeff,4.000
+F_Efficiency,-50 10 190 200
+R_TyreWidth,500
+R_TyreProfile,38
+R_WheelDiameter,18
+R_WheelMass,20
+R_SpacerWidth,0
+R_WearRate,1
+R_HeatingCoeff,4.000
+R_Efficiency,-50 10 190 200
+;
+;SUSPENSION,
+F_Travel,0.600
+F_Rate,5.000
+F_Damping,20.000
+F_RideHeight,0.500
+F_Stabiliser,0.000
+R_Travel,0.600
+R_Rate,5.000
+R_Damping,20.000
+R_RideHeight,0.500
+R_Stabiliser,0.000
+;
+;GENERAL,
+EntityID,BUGGY
+HandlingType,1,
+Mass,800.000
+Width,1.500
+Height,1.100
+Length,3.150
+CofM_X,0.000
+CofM_Y,0.400
+CofM_Z,-0.500
+Buoyancy,65
+VirtualY,0.100
+;
+;AERODYNAMICS
+DragCoeff,0.340
+DownforceFront,0.800
+DownforceRear,0.800
+;
+;ENGINE,
+EngineType,2
+EngineBraking,100
+GraphTorque,500 500 250 250 250 250 250 250 140   0
+GraphRPM,1000 2000 2800 3500 4200 5000 5700 6200 6700 7000
+TractionCtrl,0
+ESP,0
+;
+;GEARBOX,
+DriveType,1
+NumGears,5
+Ratios,3.00 2.40 2.00 1.60 1.00 0.00 0.00
+ReverseRatio, 3.00
+FinalDrive, 8.00
+MaxSpeed,70
+GearChangeTime,0.00
+ClutchTorque,100.00
+;
+;STEERING,
+Lock,40.000
+;
+;BRAKES,
+ForceFront,3000.000
+ForceRear,6000.000
+HeatingCoeff,0.050
+Efficiency,-10 10 245 260
+AntiLock,0
+;
+;WHEELS & TYRES,
+F_TyreWidth,280
+F_TyreProfile,77
+F_WheelDiameter,14
+F_WheelMass,20
+F_SpacerWidth,0
+F_WearRate,1
+F_HeatingCoeff,4.000
+F_Efficiency,-50 10 190 200
+R_TyreWidth,280
+R_TyreProfile,87
+R_WheelDiameter,19
+R_WheelMass,20
+R_SpacerWidth,0
+R_WearRate,1
+R_HeatingCoeff,4.000
+R_Efficiency,-50 10 190 200
+;
+;SUSPENSION,
+F_Travel,0.800
+F_Rate,1.000
+F_Damping,60.000
+F_RideHeight,0.400
+F_Stabiliser,0.600
+R_Travel,0.800
+R_Rate,1.000
+R_Damping,60.000
+R_RideHeight,0.400
+R_Stabiliser,0.600
+;
+;CHARGERS
+TurboLag,0.000
+TurboSize,0
+SuperSize,0
+BOV_DumpTube,0
+;
+;NITROUS OXIDE
+CylinderCC,0
+JetSize,5
+Controller,0
+;
+;GENERAL,
+EntityID,ARMADILLO
+HandlingType,1,
+Mass,2300.000
+Width,1.500
+Height,1.100
+Length,3.150
+CofM_X,0.000
+CofM_Y,1.000
+CofM_Z,0.000
+Buoyancy,65
+VirtualY,0.000
+;
+;AERODYNAMICS
+DragCoeff,0.340
+DownforceFront,0.800
+DownforceRear,0.800
+;
+;ENGINE,
+EngineType,1
+EngineBraking,50
+GraphTorque,540 540 543 543 543 543 543 543  40   0
+GraphRPM,1000 2000 2800 3500 4200 5000 5700 6200 6700 7000
+TractionCtrl,0
+ESP,1
+;
+;GEARBOX,
+DriveType,2
+NumGears,4
+Ratios,4.33 3.09 2.35 1.00 0.00 0.00 0.00
+ReverseRatio, 3.00
+FinalDrive, 12.00
+MaxSpeed,30
+GearChangeTime,0.00
+ClutchTorque,100.00
+;
+;STEERING,
+Lock,40.000
+;
+;BRAKES,
+ForceFront,6000.000
+ForceRear,4000.000
+HeatingCoeff,0.050
+Efficiency,-10 10 245 260
+AntiLock,1
+;
+;WHEELS & TYRES,
+F_TyreWidth,250
+F_TyreProfile,75
+F_WheelDiameter,34
+F_WheelMass,20
+F_SpacerWidth,0
+F_WearRate,1
+F_HeatingCoeff,4.000
+F_Efficiency,-50 10 190 200
+R_TyreWidth,250
+R_TyreProfile,75
+R_WheelDiameter,34
+R_WheelMass,20
+R_SpacerWidth,0
+R_WearRate,1
+R_HeatingCoeff,4.000
+R_Efficiency,-50 10 190 200
+;
+;SUSPENSION,
+F_Travel,0.500
+F_Rate,4.900
+F_Damping,90.000
+F_RideHeight,0.200
+F_Stabiliser,2.000
+R_Travel,0.500
+R_Rate,4.900
+R_Damping,90.000
+R_RideHeight,0.250
+R_Stabiliser,2.000
+;
+;CHARGERS
+TurboLag,0.000
+TurboSize,0
+SuperSize,0
+BOV_DumpTube,0
+;
+;NITROUS OXIDE
+CylinderCC,0
+JetSize,0
+Controller,0
+;
+;GENERAL,
+EntityID,JEEP
+HandlingType,1,
+Mass,1000.000
+Width,1.500
+Height,1.100
+Length,3.150
+CofM_X,0.000
+CofM_Y,0.100
+CofM_Z,0.000
+Buoyancy,65
+VirtualY,0.000
+;
+;AERODYNAMICS
+DragCoeff,0.340
+DownforceFront,0.800
+DownforceRear,0.800
+;
+;ENGINE,
+EngineType,1
+EngineBraking,50
+GraphTorque,540 540 543 543 543 543 543 543  40   0
+GraphRPM,1000 2000 2800 3500 4200 5000 5700 6200 6700 7000
+TractionCtrl,1
+ESP,1
+;
+;GEARBOX,
+DriveType,2
+NumGears,3
+Ratios,3.00 1.20 0.80 0.00 0.00 0.00 0.00
+ReverseRatio, 1.50
+FinalDrive, 8.00
+MaxSpeed,60
+GearChangeTime,0.00
+ClutchTorque,100.00
+;
+;STEERING,
+Lock,60.000
+;
+;BRAKES,
+ForceFront,6000.000
+ForceRear,4000.000
+HeatingCoeff,0.050
+Efficiency,-10 10 245 260
+AntiLock,1
+;
+;WHEELS & TYRES,
+F_TyreWidth,250
+F_TyreProfile,75
+F_WheelDiameter,25
+F_WheelMass,20
+F_SpacerWidth,0
+F_WearRate,1
+F_HeatingCoeff,4.000
+F_Efficiency,-50 10 190 200
+R_TyreWidth,250
+R_TyreProfile,75
+R_WheelDiameter,25
+R_WheelMass,20
+R_SpacerWidth,0
+R_WearRate,1
+R_HeatingCoeff,4.000
+R_Efficiency,-50 10 190 200
+;
+;SUSPENSION,
+F_Travel,0.800
+F_Rate,2.300
+F_Damping,80.000
+F_RideHeight,0.700
+F_Stabiliser,1.500
+R_Travel,0.800
+R_Rate,2.300
+R_Damping,80.000
+R_RideHeight,0.700
+R_Stabiliser,1.500
+;
+;CHARGERS
+TurboLag,0.000
+TurboSize,0
+SuperSize,0
+BOV_DumpTube,0
+;
+;NITROUS OXIDE
+CylinderCC,0
+JetSize,0
+Controller,0
+;
+;GENERAL,
+EntityID,TRUCK
+HandlingType,1,
+Mass,3000.000
+Width,1.500
+Height,1.100
+Length,3.150
+CofM_X,0.000
+CofM_Y,0.400
+CofM_Z,0.500
+Buoyancy,65
+VirtualY,0.700
+;
+;AERODYNAMICS
+DragCoeff,0.340
+DownforceFront,0.800
+DownforceRear,0.800
+;
+;ENGINE,
+EngineType,0
+EngineBraking,50
+GraphTorque,530 530 530 530 530 530 530 540  90   0
+GraphRPM,1000 2000 2800 3500 4200 5000 5700 6200 6700 7000
+TractionCtrl,0
+ESP,1
+;
+;GEARBOX,
+DriveType,2
+NumGears,4
+Ratios,4.00 3.00 2.20 1.00 0.00 0.00 0.00
+ReverseRatio, 3.00
+FinalDrive, 13.00
+MaxSpeed,50
+GearChangeTime,0.00
+ClutchTorque,100.00
+;
+;STEERING,
+Lock,60.000
+;
+;BRAKES,
+ForceFront,6000.000
+ForceRear,3000.000
+HeatingCoeff,0.050
+Efficiency,-10 10 245 260
+AntiLock,1
+;
+;WHEELS & TYRES,
+F_TyreWidth,800
+F_TyreProfile,22
+F_WheelDiameter,34
+F_WheelMass,20
+F_SpacerWidth,0
+F_WearRate,1
+F_HeatingCoeff,4.000
+F_Efficiency,-50 10 190 200
+R_TyreWidth,400
+R_TyreProfile,44
+R_WheelDiameter,34
+R_WheelMass,20
+R_SpacerWidth,0
+R_WearRate,1
+R_HeatingCoeff,4.000
+R_Efficiency,-50 10 190 200
+;
+;SUSPENSION,
+F_Travel,0.800
+F_Rate,3.000
+F_Damping,120.000
+F_RideHeight,0.500
+F_Stabiliser,1.600
+R_Travel,0.800
+R_Rate,3.000
+R_Damping,120.000
+R_RideHeight,0.500
+R_Stabiliser,1.600
+;
+;CHARGERS
+TurboLag,0.000
+TurboSize,0
+SuperSize,0
+BOV_DumpTube,0
+;
+;NITROUS OXIDE
+CylinderCC,0
+JetSize,5
+Controller,0
+;
+;GENERAL,
+EntityID,HELI
+HandlingType,1,
+Mass,1500.000
+Width,1.500
+Height,1.100
+Length,3.150
+CofM_X,0.000
+CofM_Y,0.000
+CofM_Z,0.000
+Buoyancy,50
+VirtualY,0.000
+;
+;AERODYNAMICS
+DragCoeff,0.300
+DownforceFront,0.800
+DownforceRear,0.800
+;
+;ENGINE,
+EngineType,2
+EngineBraking,50
+GraphTorque,  0   0   0   0   0   0   0   0   0   0
+GraphRPM,0 0 0 0 0 0 0 0 0 0
+TractionCtrl,0
+ESP,0
+;
+;GEARBOX,
+DriveType,1
+NumGears,5
+Ratios,0.00 0.00 0.00 0.00 0.00 0.00 0.00
+ReverseRatio, 0.00
+FinalDrive, 0.00
+MaxSpeed,100
+GearChangeTime,0.25
+ClutchTorque,0.00
+;
+;STEERING,
+Lock,35.000
+;
+;BRAKES,
+ForceFront,4000.000
+ForceRear,3000.000
+HeatingCoeff,0.000
+Efficiency,0 0 0 0
+AntiLock,1
+;
+;WHEELS & TYRES,
+F_TyreWidth,205
+F_TyreProfile,55
+F_WheelDiameter,16
+F_WheelMass,0
+F_SpacerWidth,0
+F_WearRate,0
+F_HeatingCoeff,0.000
+F_Efficiency,0 0 0 0
+R_TyreWidth,205
+R_TyreProfile,55
+R_WheelDiameter,16
+R_WheelMass,0
+R_SpacerWidth,0
+R_WearRate,0
+R_HeatingCoeff,0.000
+R_Efficiency,0 0 0 0
+;
+;SUSPENSION,
+F_Travel,0.300
+F_Rate,2.000
+F_Damping,40.000
+F_RideHeight,0.200
+F_Stabiliser,1.400
+R_Travel,0.300
+R_Rate,2.000
+R_Damping,40.000
+R_RideHeight,0.200
+R_Stabiliser,1.400
+;
+;CHARGERS
+TurboLag,0.000
+TurboSize,0
+SuperSize,0
+BOV_DumpTube,0
+;
+;NITROUS OXIDE
+CylinderCC,0
+JetSize,5
+Controller,0
+;
+;GENERAL,
+EntityID,PIPER
+HandlingType,1,
+Mass,1000.000
+Width,1.500
+Height,1.100
+Length,3.150
+CofM_X,0.000
+CofM_Y,0.400
+CofM_Z,-1.500
+Buoyancy,65
+VirtualY,0.000
+;
+;AERODYNAMICS
+DragCoeff,0.340
+DownforceFront,0.800
+DownforceRear,0.800
+;
+;ENGINE,
+EngineType,1
+EngineBraking,50
+GraphTorque,540 540 543 543 543 543 543 543  40   0
+GraphRPM,1000 2000 2800 3500 4200 5000 5700 6200 6700 7000
+TractionCtrl,0
+ESP,1
+;
+;GEARBOX,
+DriveType,2
+NumGears,4
+Ratios,4.33 3.09 2.35 1.00 0.00 0.00 0.00
+ReverseRatio, 3.00
+FinalDrive, 12.00
+MaxSpeed,50
+GearChangeTime,0.00
+ClutchTorque,100.00
+;
+;STEERING,
+Lock,40.000
+;
+;BRAKES,
+ForceFront,6000.000
+ForceRear,4000.000
+HeatingCoeff,0.050
+Efficiency,-10 10 245 260
+AntiLock,1
+;
+;WHEELS & TYRES,
+F_TyreWidth,250
+F_TyreProfile,75
+F_WheelDiameter,15
+F_WheelMass,20
+F_SpacerWidth,0
+F_WearRate,1
+F_HeatingCoeff,4.000
+F_Efficiency,-50 10 190 200
+R_TyreWidth,250
+R_TyreProfile,75
+R_WheelDiameter,15
+R_WheelMass,20
+R_SpacerWidth,0
+R_WearRate,1
+R_HeatingCoeff,4.000
+R_Efficiency,-50 10 190 200
+;
+;SUSPENSION,
+F_Travel,0.200
+F_Rate,2.300
+F_Damping,80.000
+F_RideHeight,0.500
+F_Stabiliser,1.500
+R_Travel,0.200
+R_Rate,2.300
+R_Damping,80.000
+R_RideHeight,0.500
+R_Stabiliser,1.500
+;
+;CHARGERS
+TurboLag,0.000
+TurboSize,0
+SuperSize,0
+BOV_DumpTube,0
+;
+;NITROUS OXIDE
+CylinderCC,0
+JetSize,0
+Controller,0
+;
+;GENERAL,
+EntityID,BOAT
+HandlingType,1,
+Mass,1000.000
+Width,1.500
+Height,1.100
+Length,3.150
+CofM_X,0.000
+CofM_Y,0.100
+CofM_Z,0.000
+Buoyancy,50
+VirtualY,0.000
+;
+;AERODYNAMICS
+DragCoeff,0.340
+DownforceFront,0.800
+DownforceRear,0.800
+;
+;ENGINE,
+EngineType,1
+EngineBraking,50
+GraphTorque,540 540 543 543 543 543 543 543  40   0
+GraphRPM,1000 2000 2800 3500 4200 5000 5700 6200 6700 7000
+TractionCtrl,0
+ESP,1
+;
+;GEARBOX,
+DriveType,2
+NumGears,4
+Ratios,4.33 3.09 2.35 1.00 0.00 0.00 0.00
+ReverseRatio, 3.00
+FinalDrive, 12.00
+MaxSpeed,50
+GearChangeTime,0.00
+ClutchTorque,100.00
+;
+;STEERING,
+Lock,40.000
+;
+;BRAKES,
+ForceFront,6000.000
+ForceRear,4000.000
+HeatingCoeff,0.050
+Efficiency,-10 10 245 260
+AntiLock,1
+;
+;WHEELS & TYRES,
+F_TyreWidth,250
+F_TyreProfile,75
+F_WheelDiameter,25
+F_WheelMass,20
+F_SpacerWidth,0
+F_WearRate,1
+F_HeatingCoeff,4.000
+F_Efficiency,-50 10 190 200
+R_TyreWidth,250
+R_TyreProfile,75
+R_WheelDiameter,25
+R_WheelMass,20
+R_SpacerWidth,0
+R_WearRate,1
+R_HeatingCoeff,4.000
+R_Efficiency,-50 10 190 200
+;
+;SUSPENSION,
+F_Travel,0.800
+F_Rate,2.300
+F_Damping,80.000
+F_RideHeight,0.700
+F_Stabiliser,1.500
+R_Travel,0.800
+R_Rate,2.300
+R_Damping,80.000
+R_RideHeight,0.700
+R_Stabiliser,1.500
+;
+;CHARGERS
+TurboLag,0.000
+TurboSize,0
+SuperSize,0
+BOV_DumpTube,0
+;
+;NITROUS OXIDE
+CylinderCC,0
+JetSize,0
+Controller,0
+;
+;GENERAL,
+EntityID,HUMVEE
+HandlingType,1,
+Mass,2000.000
+Width,1.500
+Height,1.100
+Length,3.150
+CofM_X,0.000
+CofM_Y,0.100
+CofM_Z,0.000
+Buoyancy,65
+VirtualY,0.000
+;
+;AERODYNAMICS
+DragCoeff,0.340
+DownforceFront,0.800
+DownforceRear,0.800
+;
+;ENGINE,
+EngineType,1
+EngineBraking,50
+GraphTorque,540 540 543 543 543 543 543 543  40   0
+GraphRPM,1000 2000 2800 3500 4200 5000 5700 6200 6700 7000
+TractionCtrl,0
+ESP,1
+;
+;GEARBOX,
+DriveType,2
+NumGears,4
+Ratios,4.33 3.09 2.35 1.00 0.00 0.00 0.00
+ReverseRatio, 3.00
+FinalDrive, 12.00
+MaxSpeed,50
+GearChangeTime,0.00
+ClutchTorque,100.00
+;
+;STEERING,
+Lock,40.000
+;
+;BRAKES,
+ForceFront,6000.000
+ForceRear,4000.000
+HeatingCoeff,0.050
+Efficiency,-10 10 245 260
+AntiLock,1
+;
+;WHEELS & TYRES,
+F_TyreWidth,250
+F_TyreProfile,75
+F_WheelDiameter,25
+F_WheelMass,20
+F_SpacerWidth,0
+F_WearRate,1
+F_HeatingCoeff,4.000
+F_Efficiency,-50 10 190 200
+R_TyreWidth,250
+R_TyreProfile,75
+R_WheelDiameter,25
+R_WheelMass,20
+R_SpacerWidth,0
+R_WearRate,1
+R_HeatingCoeff,4.000
+R_Efficiency,-50 10 190 200
+;
+;SUSPENSION,
+F_Travel,0.800
+F_Rate,2.300
+F_Damping,80.000
+F_RideHeight,0.700
+F_Stabiliser,1.500
+R_Travel,0.800
+R_Rate,2.300
+R_Damping,80.000
+R_RideHeight,0.700
+R_Stabiliser,1.500
+;
+;CHARGERS
+TurboLag,0.000
+TurboSize,0
+SuperSize,0
+BOV_DumpTube,0
+;
+;NITROUS OXIDE
+CylinderCC,0
+JetSize,0
+Controller,0

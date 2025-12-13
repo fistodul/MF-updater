@@ -1,0 +1,436 @@
+[Public]
+;Object=(Name=Engine.Console,Class=Class,MetaClass=Engine.Console)
+Object=(Name=Engine.ServerCommandlet,Class=Class,MetaClass=Core.Commandlet)
+Object=(Name=Engine.CheckSumCommandlet,Class=Class,MetaClass=Core.Commandlet)
+Preferences=(Caption="Advanced",Parent="Advanced Options")
+Preferences=(Caption="Game Engine Settings",Parent="Advanced",Class=Engine.GameEngine,Category=Settings,Immediate=True)
+Preferences=(Caption="Key Aliases",Parent="Advanced",Class=Engine.Input,Immediate=True,Category=Aliases)
+Preferences=(Caption="Raw Key Bindings",Parent="Advanced",Class=Engine.Input,Immediate=True,Category=RawKeys)
+Preferences=(Caption="Drivers",Parent="Advanced Options",Class=Engine.Engine,Immediate=False,Category=Drivers)
+Preferences=(Caption="Public Server Information",Parent="Networking",Class=Engine.GameReplicationInfo,Immediate=True)
+Preferences=(Caption="Game Settings",Parent="Advanced Options",Class=Engine.GameInfo,Immediate=True)
+
+[Errors]
+NetOpen=Error opening file
+NetWrite=Error writing to file
+NetRefused=Server refused to send '%s'
+NetClose=Error closing file
+NetSize=File size mismatch
+NetMove=Error moving file
+NetInvalid=Received invalid file request
+NoDownload=Package '%s' is not downloadable
+DownloadFailed=Downloading package '%s' failed: %s
+RequestDenied=Server requested file from pending level: Denied
+ConnectionFailed=Connection failed
+ChAllocate=Couldn't allocate channel
+NetAlready=Already networking
+NetListen=Listen failed: No linker context available
+LoadEntry=Can't load Entry: %s
+InvalidUrl=Invalid URL: %s
+InvalidLink=Invalid Link: %s
+FailedBrowse=Failed to enter %s: %s
+Listen=Listen failed: %s
+AbortToEntry=Failed; returning to Entry
+ServerOpen=Servers can't open network URLs
+ServerListen=Dedicated server can't listen: %s
+Pending=Pending connect to '%s' failed; %s
+LoadPlayerClass=Failed to load player class
+ServerOutdated=Server's version is outdated
+ClientOutdated=You need to upgrade to the latest patch version
+RejectedByServer=Rejected by server
+
+[Progress]
+CancelledConnect=Cancelled Connect Attempt
+RunningNet=%s: %s (%i players)
+NetReceiving=Receiving '%s': %i/%i
+NetReceiveOk=Successfully received '%s'
+NetSend=Sending '%s'
+NetSending=Sending '%s': %i/%i
+Connecting=Connecting...
+Listening=Listening for clients...
+Loading=Loading
+Saving=Saving
+Paused=Paused by %s
+ReceiveFile=Receiving '%s' (F10 Cancels)
+ReceiveOptionalFile=Receiving optional file '%s' (Press F10 to Skip)
+ReceiveSize=Size %iK, Complete %3.1f%%
+ConnectingText=Connecting (F10 Cancels):
+ConnectingURL=MobileForces://%s/%s
+
+[Console]
+ClassCaption=Standard MobileForces Console
+LoadingMessage=Loading...
+SavingMessage=Saving...
+ConnectingMessage=Connecting...
+PausedMessage=Mission Paused
+PrecachingMessage=Starting Mission...
+ChatChannel=(CHAT) 
+TeamChannel=(TEAM) 
+FrameRateText=Frame Rate
+AvgText=Avg
+LastSecText="Last Sec"
+MinText=Min
+MaxText=Max
+fpsText=fps
+SecondsText=seconds.
+FramesText=frames rendered in
+
+[General]
+Upgrade=To enter this server, you need the latest free update to MobileForces available from Rage's Web site:
+UpgradeURL=http://www.MobileForces.com
+UpgradeQuestion=Do you want to launch your web browser and go to the upgrade page now?
+Version=Version %i
+
+[Menu]
+HelpMessage=
+MenuList=
+LeftString=Left
+RightString=Right
+CenterString=Center
+EnabledString=Enabled
+DisabledString=Disabled
+HelpMessage[1]=This menu has not yet been implemented.
+YesString=yes
+NoString=no
+
+[Inventory]
+PickupMessage=Snagged an item.
+M_Activated=" activated."
+M_Selected=" selected."
+M_Deactivated=" deactivated."
+ItemArticle=a
+
+[WarpZoneInfo]
+OtherSideURL=
+
+[GameInfo]
+SwitchLevelMessage=Switching Levels
+DefaultPlayerName=Player
+LeftMessage=" left the game."
+FailedSpawnMessage=Failed to spawn player actor
+FailedPlaceMessage=Could not find starting spot (level might need a 'PlayerStart' actor)
+NameChangedMessage=Name changed to 
+EnteredMessage=" entered the game."
+GameName="Game"
+MaxedOutMessage=Server is already at capacity.
+WrongPassword=The password you entered is incorrect.
+NeedPassword=You need to enter a password to join this game.
+FailedTeamMessage=Could not find team for player
+IPBanned=Your IP address has been banned on this server.
+
+[LevelInfo]
+Title=Untitled
+
+[Weapon]
+MessageNoAmmo=" has no ammo."
+PickupMessage=You got a weapon
+DeathMessage=%o was killed by %k's %w.
+ItemName=Weapon
+DeathMessage[0]=%o was killed by %k's %w.
+DeathMessage[1]=%o was killed by %k's %w.
+DeathMessage[2]=%o was killed by %k's %w.
+DeathMessage[3]=%o was killed by %k's %w.
+
+[Counter]
+CountMessage=Only %i more to go...
+CompleteMessage=Completed!
+
+[Ammo]
+PickupMessage=You picked up some ammo.
+
+[Pickup]
+ExpireMessage=
+
+[SpecialEvent]
+DamageString=
+
+[DamageType]
+Name=killed
+AltName=killed
+
+[PlayerPawn]
+QuickSaveString=Quick Saving
+NoPauseMessage=Game is not pauseable
+ViewingFrom=Now viewing from
+OwnCamera=own camera
+FailedView=Failed to change view.
+CantChangeNameMsg=You can't change your name during a global logged game.
+
+[Pawn]
+NameArticle=" a "
+
+[Spectator]
+MenuName=Spectator
+
+[ServerCommandlet]
+HelpCmd=server
+HelpOneLiner=Network game server
+HelpUsage=server map.unr[?game=gametype] [-option...] [parm=value]...
+HelpWebLink=http://www.MobileForces.com
+HelpParm[0]=Log
+HelpDesc[0]=Specify the log file to generate
+HelpParm[1]=AllAdmin
+HelpDesc[1]=Give all players admin privelages
+
+[CheckSumCommandlet]
+HelpCmd=checksum
+HelpOneLiner=Calculate package checksum for stat logging
+HelpUsage=checksum packagename.u
+HelpParm[0]=Filename
+HelpDesc[0]=Filename to calculate checksum
+
+[KeyNames]
+TXT_KeyName[1]=LeftMouse
+TXT_KeyName[2]=RightMouse
+TXT_KeyName[3]=Cancel
+TXT_KeyName[4]=MiddleMouse
+TXT_KeyName[5]=Unknown05
+TXT_KeyName[6]=Unknown06
+TXT_KeyName[7]=Unknown07
+TXT_KeyName[8]=Backspace
+TXT_KeyName[9]=Tab
+TXT_KeyName[10]=Unknown0A
+TXT_KeyName[11]=Unknown0B
+TXT_KeyName[12]=Unknown0C
+TXT_KeyName[13]=Enter
+TXT_KeyName[14]=Unknown0E
+TXT_KeyName[15]=Unknown0F
+TXT_KeyName[16]=Shift
+TXT_KeyName[17]=Ctrl
+TXT_KeyName[18]=Alt
+TXT_KeyName[19]=Pause
+TXT_KeyName[20]=CapsLock
+TXT_KeyName[21]=Unknown15
+TXT_KeyName[22]=Unknown16
+TXT_KeyName[23]=Unknown17
+TXT_KeyName[24]=Unknown18
+TXT_KeyName[25]=Unknown19
+TXT_KeyName[26]=Unknown1A
+TXT_KeyName[27]=Escape
+TXT_KeyName[28]=Unknown1C
+TXT_KeyName[29]=Unknown1D
+TXT_KeyName[30]=Unknown1E
+TXT_KeyName[31]=Unknown1F
+TXT_KeyName[32]=Space
+TXT_KeyName[33]=PageUp
+TXT_KeyName[34]=PageDown
+TXT_KeyName[35]=End
+TXT_KeyName[36]=Home
+TXT_KeyName[37]=Left
+TXT_KeyName[38]=Up
+TXT_KeyName[39]=Right
+TXT_KeyName[40]=Down
+TXT_KeyName[41]=Select
+TXT_KeyName[42]=Print
+TXT_KeyName[43]=Execute
+TXT_KeyName[44]=PrintScrn
+TXT_KeyName[45]=Insert
+TXT_KeyName[46]=Delete
+TXT_KeyName[47]=Help
+TXT_KeyName[48]=0
+TXT_KeyName[49]=1
+TXT_KeyName[50]=2
+TXT_KeyName[51]=3
+TXT_KeyName[52]=4
+TXT_KeyName[53]=5
+TXT_KeyName[54]=6
+TXT_KeyName[55]=7
+TXT_KeyName[56]=8
+TXT_KeyName[57]=9
+TXT_KeyName[58]=Unknown3A
+TXT_KeyName[59]=Unknown3B
+TXT_KeyName[60]=Unknown3C
+TXT_KeyName[61]=Unknown3D
+TXT_KeyName[62]=Unknown3E
+TXT_KeyName[63]=Unknown3F
+TXT_KeyName[64]=Unknown40
+TXT_KeyName[65]=A 
+TXT_KeyName[66]=B
+TXT_KeyName[67]=C
+TXT_KeyName[68]=D
+TXT_KeyName[69]=E
+TXT_KeyName[70]=F
+TXT_KeyName[71]=G
+TXT_KeyName[72]=H
+TXT_KeyName[73]=I
+TXT_KeyName[74]=J
+TXT_KeyName[75]=K
+TXT_KeyName[76]=L
+TXT_KeyName[77]=M
+TXT_KeyName[78]=N
+TXT_KeyName[79]=O
+TXT_KeyName[80]=P
+TXT_KeyName[81]=Q
+TXT_KeyName[82]=R
+TXT_KeyName[83]=S
+TXT_KeyName[84]=T
+TXT_KeyName[85]=U
+TXT_KeyName[86]=V
+TXT_KeyName[87]=W
+TXT_KeyName[88]=X
+TXT_KeyName[89]=Y
+TXT_KeyName[90]=Z
+TXT_KeyName[91]=Unknown5B
+TXT_KeyName[92]=Unknown5C
+TXT_KeyName[93]=Unknown5D
+TXT_KeyName[94]=Unknown5E
+TXT_KeyName[95]=Unknown5F
+TXT_KeyName[96]=NumPad0
+TXT_KeyName[97]=NumPad1
+TXT_KeyName[98]=NumPad2
+TXT_KeyName[99]=NumPad3
+TXT_KeyName[100]=NumPad4
+TXT_KeyName[101]=NumPad5
+TXT_KeyName[102]=NumPad6
+TXT_KeyName[103]=NumPad7
+TXT_KeyName[104]=NumPad8
+TXT_KeyName[105]=NumPad9
+TXT_KeyName[106]=GreyStar
+TXT_KeyName[107]=GreyPlus
+TXT_KeyName[108]=Separator
+TXT_KeyName[109]=GreyMinus
+TXT_KeyName[110]=NumPadPeriod
+TXT_KeyName[111]=GreySlash
+TXT_KeyName[112]=F1
+TXT_KeyName[113]=F2
+TXT_KeyName[114]=F3
+TXT_KeyName[115]=F4
+TXT_KeyName[116]=F5
+TXT_KeyName[117]=F6
+TXT_KeyName[118]=F7
+TXT_KeyName[119]=F8
+TXT_KeyName[120]=F9
+TXT_KeyName[121]=F10
+TXT_KeyName[122]=F11
+TXT_KeyName[123]=F12
+TXT_KeyName[124]=F13
+TXT_KeyName[125]=F14
+TXT_KeyName[126]=F15
+TXT_KeyName[127]=F16
+TXT_KeyName[128]=F17
+TXT_KeyName[129]=F18
+TXT_KeyName[130]=F19
+TXT_KeyName[131]=F20
+TXT_KeyName[132]=F21
+TXT_KeyName[133]=F22
+TXT_KeyName[134]=F23
+TXT_KeyName[135]=F24
+TXT_KeyName[136]=Unknown88
+TXT_KeyName[137]=Unknown89
+TXT_KeyName[138]=Unknown8A
+TXT_KeyName[139]=Unknown8B
+TXT_KeyName[140]=Unknown8C
+TXT_KeyName[141]=Unknown8D
+TXT_KeyName[142]=Unknown8E
+TXT_KeyName[143]=Unknown8F
+TXT_KeyName[144]=NumLock
+TXT_KeyName[145]=ScrollLock
+TXT_KeyName[146]=Unknown92
+TXT_KeyName[147]=Unknown93
+TXT_KeyName[148]=Unknown94
+TXT_KeyName[149]=Unknown95
+TXT_KeyName[150]=Unknown96
+TXT_KeyName[151]=Unknown97
+TXT_KeyName[152]=Unknown98
+TXT_KeyName[153]=Unknown99
+TXT_KeyName[154]=Unknown9A
+TXT_KeyName[155]=Unknown9B
+TXT_KeyName[156]=Unknown9C
+TXT_KeyName[157]=Unknown9D
+TXT_KeyName[158]=Unknown9E
+TXT_KeyName[159]=Unknown9F
+TXT_KeyName[160]=LShift
+TXT_KeyName[161]=RShift
+TXT_KeyName[162]=LControl
+TXT_KeyName[163]=RControl
+TXT_KeyName[164]=UnknownA4
+TXT_KeyName[165]=UnknownA5
+TXT_KeyName[166]=UnknownA6
+TXT_KeyName[167]=UnknownA7
+TXT_KeyName[168]=UnknownA8
+TXT_KeyName[169]=UnknownA9
+TXT_KeyName[170]=UnknownAA
+TXT_KeyName[171]=UnknownAB
+TXT_KeyName[172]=UnknownAC
+TXT_KeyName[173]=UnknownAD
+TXT_KeyName[174]=UnknownAE
+TXT_KeyName[175]=UnknownAF
+TXT_KeyName[176]=UnknownB0
+TXT_KeyName[177]=UnknownB1
+TXT_KeyName[178]=UnknownB2
+TXT_KeyName[179]=UnknownB3
+TXT_KeyName[180]=UnknownB4
+TXT_KeyName[181]=UnknownB5
+TXT_KeyName[182]=UnknownB6
+TXT_KeyName[183]=UnknownB7
+TXT_KeyName[184]=UnknownB8
+TXT_KeyName[185]=UnknownB9
+TXT_KeyName[186]=Semicolon
+TXT_KeyName[187]=Equals
+TXT_KeyName[188]=Comma
+TXT_KeyName[189]=Minus
+TXT_KeyName[190]=Period
+TXT_KeyName[191]=Slash
+TXT_KeyName[192]=SingleQuote
+TXT_KeyName[193]=UnknownC1
+TXT_KeyName[194]=UnknownC2
+TXT_KeyName[195]=UnknownC3
+TXT_KeyName[196]=UnknownC4
+TXT_KeyName[197]=UnknownC5
+TXT_KeyName[198]=UnknownC6
+TXT_KeyName[199]=UnknownC7
+TXT_KeyName[200]=Joy1
+TXT_KeyName[201]=Joy2
+TXT_KeyName[202]=Joy3
+TXT_KeyName[203]=Joy4
+TXT_KeyName[204]=Joy5
+TXT_KeyName[205]=Joy6
+TXT_KeyName[206]=Joy7
+TXT_KeyName[207]=Joy8
+TXT_KeyName[208]=Joy9
+TXT_KeyName[209]=Joy10
+TXT_KeyName[210]=Joy11
+TXT_KeyName[211]=Joy12
+TXT_KeyName[212]=Joy13
+TXT_KeyName[213]=Joy14
+TXT_KeyName[214]=Joy15
+TXT_KeyName[215]=Joy16
+TXT_KeyName[216]=UnknownD8
+TXT_KeyName[217]=UnknownD9
+TXT_KeyName[218]=UnknownDA
+TXT_KeyName[219]=LeftBracket
+TXT_KeyName[220]=Backslash
+TXT_KeyName[221]=RightBracket
+TXT_KeyName[222]=Tilde
+TXT_KeyName[223]=BackQuote
+TXT_KeyName[224]=JoyX
+TXT_KeyName[225]=JoyY
+TXT_KeyName[226]=JoyZ
+TXT_KeyName[227]=JoyR
+TXT_KeyName[228]=MouseX
+TXT_KeyName[229]=MouseY
+TXT_KeyName[230]=MouseZ
+TXT_KeyName[231]=MouseW
+TXT_KeyName[232]=JoyU
+TXT_KeyName[233]=JoyV
+TXT_KeyName[234]=UnknownEA
+TXT_KeyName[235]=UnknownEB
+TXT_KeyName[236]=MouseWheelUp
+TXT_KeyName[237]=MouseWheelDown
+TXT_KeyName[238]=Unknown10E
+TXT_KeyName[239]=Unknown10F
+TXT_KeyName[240]=JoyPovUp
+TXT_KeyName[241]=JoyPovDown
+TXT_KeyName[242]=JoyPovLeft
+TXT_KeyName[243]=JoyPovRight
+TXT_KeyName[244]=UnknownF4
+TXT_KeyName[245]=UnknownF5
+TXT_KeyName[246]=Attn
+TXT_KeyName[247]=CrSel
+TXT_KeyName[248]=ExSel
+TXT_KeyName[249]=ErEof
+TXT_KeyName[250]=Play
+TXT_KeyName[251]=Zoom
+TXT_KeyName[252]=NoName
+TXT_KeyName[253]=PA1
+TXT_KeyName[254]=OEMClear

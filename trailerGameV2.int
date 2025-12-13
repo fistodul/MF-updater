@@ -1,0 +1,7 @@
+Comment=RageGame.int used as template
+
+[Public]
+Object=(Name=trailerGameV2.trailerGameV2,Class=Class,MetaClass=Engine.GameInfo)
+
+[trailerGameV2]
+GameName=Trailer V2

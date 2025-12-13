@@ -1,0 +1,438 @@
+Comment= ------------------------------------------------------------------------------------------
+Comment= NOTES ON STYLE:
+Comment= (1) Text read as a sentence (e.g. in-game messages) is all lower case and ends with a full stop.
+Comment= (2) Menu options are presented in Title Case (each word begins with a capital),
+Comment=     apart from minor words ('in', 'the', 'a', 'in', etc.) which remain in lower case.
+Comment= (3) 'Red Squad' and 'Blue Squad' always appear in title case (as proper names).
+Comment= (4) Spelling uses the UK, rather than US, dictionary.
+Comment= (5) Hyphinated words have the first word capitalised and the word following the hyphen in lower case
+Comment=     where appropriate. 
+Comment= -------------------------------------------------------------------------------------------
+
+[RPlayer]
+Comment= When the player is repeatedly killing other people, they get messages telling them how brilliant they are.
+Comment= Eight variations, can be used in any order.
+MenuName=Mobile Forces Player
+
+[RageHUD]
+MapTitleString=in
+AuthorString=by
+MapTitleString2=Map:
+AuthorString2=Author:
+PressKeyString="Press "
+ExitLoadoutString=" to Exit Loadout"
+AwaitingLoadoutString="Awaiting Loadout..."
+
+[RDeathMatch]
+NoNameChange=" is already being used as a name."
+GameName=DeathMatch
+
+[RageGameInfo]
+
+Comment= Every time someone is killed in the game, a message is brought up saying who killed who 
+Comment= ie John was killed by Peter. Thirty Two variations. These are intransitive verbs.
+
+DeathMessage[0]=killed
+DeathMessage[1]=murdered
+DeathMessage[2]=slaughtered
+DeathMessage[3]=erased
+DeathMessage[4]=devastated
+DeathMessage[5]=threshed
+DeathMessage[6]=executed
+DeathMessage[7]=skulled
+DeathMessage[8]=shut down
+DeathMessage[9]=broken
+DeathMessage[10]=flayed
+DeathMessage[11]=shredded
+DeathMessage[12]=flattened
+DeathMessage[13]=whitewashed
+DeathMessage[14]=routed
+DeathMessage[15]=crushed
+DeathMessage[16]=conquered
+DeathMessage[17]=overwhelmed
+DeathMessage[18]=trounced
+DeathMessage[19]=fried
+DeathMessage[20]=slagged
+DeathMessage[21]=brained
+DeathMessage[22]=dominated
+DeathMessage[23]=annihilated
+DeathMessage[24]=destroyed
+DeathMessage[25]=melted
+DeathMessage[26]=trashed
+DeathMessage[27]=exterminated
+DeathMessage[28]=mangled
+DeathMessage[29]=massacred
+DeathMessage[30]=maimed
+DeathMessage[31]=eradicated
+
+Comment= When players are killed quickly, this emphasises how quickly they died.
+Comment= ie John was thoroughly killed by Peter. 
+Comment= Such messages are rare. These are all adverbs. Five variations.
+DeathModifier[0]=utterly 
+DeathModifier[1]=unbelievably
+DeathModifier[2]=awe inspiringly
+DeathModifier[3]=totally 
+DeathModifier[4]=soundly 
+
+Comment= Another 'serious' message which will only appear rarely.
+Comment= ie John was skinned alive by Peter
+MajorDeathMessage[0]=skinned alive
+MajorDeathMessage[1]=brutalized
+MajorDeathMessage[2]=eviscerated
+
+Comment= Head-loss messages, these get played when a single, powerful shot (ie a powered-up sniper rifle) 
+Comment= to the head kills the player outright. ie John was head hunted by Peter.
+HeadLossMessage[0]=head hunted
+HeadLossMessage[1]=head shot
+
+Comment=
+DeathVerb=" was "
+
+Comment= The preposition for who did the killing.
+DeathPrep=" by "
+DeathTerm=killed
+
+
+Comment=---------------------------------------------------------------------
+Comment= The following are used if the game doesn't know who was the killer.
+Comment=---------------------------------------------------------------------
+
+Comment= If they died by explosion:
+ExplodeMessage=" was blown to smitherines."
+
+Comment= If they consciously killed themselves:
+ConsoleSuicideMessage=" gave up and got out on a suicide."
+
+Comment= If they fell so far they died:
+FallMessage=" fell and killed himself."
+
+Comment= If they drowned themselves:
+DrownedMessage=" drowned kicking and screaming."
+
+Comment= If they burnt in a fire:
+BurnedMessage=" got incinerated."
+
+Comment= If they died in acid:
+CorrodedMessage=" died in an acid bath."
+
+Comment= A general suicide message:
+SuicideMessage=" fragged himself by accident..."
+
+[OrdersWindow]
+Comment= The player can give orders to team mates, using the following selection.
+Options[0]=Acknowledge
+Options[1]=Attack
+Options[2]=Orders
+Options[3]=Taunts
+Options[4]=Other/Misc
+Options[5]=Gesture
+Options[6]=Order This Bot
+WindowTitle=Orders
+
+[RageTeamGame]
+StartUpTeamMessage=You are on
+teamcolor[0]=Blue
+teamcolor[1]=Red
+StartupTeamTrailer=.
+GameName=Squad DM
+
+[ServerInfo]
+ServerInfoText=Server Info
+ContactInfoText=Contact Info
+NameText=Name:
+AdminText=Admin:
+EMailText=EMail:
+UnknownText=Unknown
+MOTD=Message of the Day
+GameStatsText=Game Stats
+GameTypeText=Game Type:
+PlayersText=Players:
+FragsText=Total Kills:
+BotText=Bots
+
+[RageTeamScoreBoard]
+TeamName[0]=Blue Squad
+TeamName[1]=Red Squad
+OrdersString=Orders:
+InString=Location:
+PlayersNotShown=Player(s) not shown.
+
+[RageScoreBoard]
+MapTitle=in
+Author=by
+Restart=You're dead.  Hit [Fire] to re-spawn!
+Continue=" Hit [Fire] to continue!"
+Ended="The match is over."
+ElapsedTime=Elapsed Time: 
+RemainingTime=Remaining Time: 
+PlayerString=Player
+FragsString=Frags
+DeathsString=Deaths
+PingString=Ping
+TimeString=Time
+LossString=Loss
+FPHString=FPH
+
+[RageGameRepInfo]
+Comment= if you press F1 in game you get a list of all players, if there are bots on your team 
+Comment= you get to see their current orders.
+HumanString=*Human*
+CommanderString=*Commander*
+SupportString=covering
+DefendString=defending
+AttackString=attacking
+HoldString=holding
+FreelanceString=improvising
+GoalStrings[0]=Kill %k to win.
+GoalStrings[1]=Kill the most in %o to win.
+GoalStrings[2]=Kill %k in %o to win.
+
+[RageVoicePack]
+LeaderSign[0]=Blue Leader
+LeaderSign[1]=Red Leader
+CommaText=, 
+
+[RageMessageDeath]
+KilledString=was killed by
+
+[OrdersChildWindow]
+WindowTitle=
+
+[VehicleWeapon]
+Comment= If a player kills another by driving over them in a vehicle:
+DeathMessage=%k ran down %o
+PickupMessage=Entered a vehicle.
+
+[RageControlPoint]
+PointName=Position
+
+[TargetChildWindow]
+AllString=All
+WindowTitle=
+
+[RageMessageDM]
+Comment= If scores are equal at the end of time, the game continues until the next death.
+OvertimeMessage="End of match scores are tied. Extended play: SUDDEN DEATH!!!"
+
+Comment = If player changes their character name...
+GlobalNameChange=changed their name to
+
+Comment = If the player changes the squad they're on...
+NewTeamMessage=is now with
+
+[RagePlayerVoicePack]
+NameTime[0]=0.960000
+NameTime[1]=1.100000
+
+Comment= Following four are acknowledgements of orders and receive a comma and name 
+Coment = as a postfix, as in: Acknowledged, Kurtz.
+AckString[0]=Acknowledged
+AckString[1]=Roger that
+AckString[2]=Moving out
+AckString[3]=I'm on my way
+
+AckTime[0]=0.780000
+AckTime[1]=0.810000
+AckTime[2]=0.980000
+AckTime[3]=0.980000
+
+Comment= Following three are what your team mates say if you shoot them.
+FFireString[0]=Not me, you idiot! Same squad!
+FFireString[1]=Same color, same squad!
+FFireAbbrev[1]=Hey rookie, I'm on YOUR squad!
+
+Comment= What your player says after you've killed someone.
+TauntString[0]=Damn I'm good...
+TauntString[1]=Stop the begging an' start the screamin'... 
+TauntString[2]=Executed!
+TauntString[3]=Hey, rookie: Badaboom!
+TauntString[4]=Burn, baby, burn!
+TauntString[5]=Who's the daddy!!!
+TauntString[6]=Die, you frikin' weasel!
+TauntString[7]=Loser!
+TauntString[8]=You weaklings are body vapor!
+TauntString[9]=Road kill!
+TauntString[10]=Now that's ultra-hardcore!
+TauntString[11]=When I'm bad, I'm real bad...
+TauntString[12]=Oh, yeah...
+TauntString[13]=What are these guys? Chopped liver?!
+TauntString[14]=There's one for the ashtray!
+TauntString[15]=Boxed in, shut down an' no place to go!
+TauntString[16]=Frag'em an' bag'em...
+
+Comment= --------------------------------------------------
+Comment= TEAM ORDERS
+Comment= --------------------------------------------------
+Comment= Orders a player can give to team-mates
+
+Comment= Command post ('Base') can be used in many game types.
+OrderString[0]=Defend the command post.
+Comment= Stay where I'm currently standing.
+OrderString[1]=Defend this area.
+Comment= Attack the enemy command post.
+OrderString[2]=Attack the enemy base.
+Comment = Give me covering fire / keep the enemy off me...
+OrderString[3]=Cover me.
+Comment= Tell other players to just do what they think is best.
+OrderString[4]=Improvise, you're on your own.
+Comment = Tell player to capture enemy flag...
+
+OrderString[5]=Support the captain.
+OrderString[6]=Seek and destroy.
+	
+OrderString[7]=Guard the flag.
+OrderString[8]=Capture their flag.
+	
+OrderString[9]=Take the point.
+OrderString[10]=Take the point.
+
+OrderString[11]=Guard the safe.
+OrderString[12]=Grab the gold.
+
+OrderString[13]=Defend the command post.
+OrderString[14]=Take the trailer.
+
+OrderString[15]=Fire at will.
+
+
+Comment=-------
+Comment=these are the orders selected from a pull-down menu (so have to be short, one-word commands).
+Comment = Generic order to defend.
+OrderAbbrev[0]=Defend!
+Comment = Generic order to attack.
+OrderAbbrev[2]=Attack!
+Comment= Tell other players just to do what they like. Changed from 'freelance'. 
+OrderAbbrev[4]=Improvise!
+
+Comment=Thematic feedback on actions taking place within the game (using military style language)...
+otherstring[0]=Get back to base! - enemy infiltration of HQ!
+otherstring[1]=Enemy taken objective! All forces, search and retrieve!
+otherstring[2]=Mission objective taken!
+otherstring[3]=I've got your back, soldier!
+otherstring[4]=Aieeeeeee! I've been hit!
+otherstring[5]=Man down! Stay alive damnit!
+otherstring[6]=This sector experiencing heavy fire!
+otherstring[7]=you're on point. Stay in contact!
+otherstring[8]=Objective secured! Returning to base...
+otherstring[9]=Rogue Leader, I'm in position.
+otherstring[10]=Copy that, on my way.
+otherstring[11]=Area secure, deploy as planned.
+otherstring[12]=Enemy carrier is in my sights.
+otherstring[13]=Heavy resistance encountered - request backup!
+otherstring[14]=Nuke the whole area - take them down!
+otherstring[15]=I've got you covered - proceed to objective.
+otherstring[16]=All clear - target has been neutralised.
+otherstring[17]=I'm in.
+otherstring[18]=Lets go!
+otherstring[19]=We're off.
+otherstring[20]=I'm outta here!
+otherstring[21]=Yeehaw!
+otherstring[22]=Recover the flag!
+otherstring[23]=Recover the gold!
+otherstring[24]=Recover the key!
+otherstring[25]=Recover the trailer!
+otherstring[26]=I have the enemy flag.
+otherstring[27]=I have the enemy gold.
+otherstring[28]=Flag secured, returning to base.
+otherstring[29]=Gold secured, returning to base.
+otherstring[30]=Key secured.
+otherstring[31]=Trailer secured.
+
+Comment=These are short summaries of the strings above (note the matching numbers)...
+OtherAbbrev[1]=Recover mission objective!
+Comment= As soon as flag is stolen, player says this.
+OtherAbbrev[2]=Mission objective taken.
+OtherAbbrev[3]=I'm covering your back.
+OtherAbbrev[6]=I'm under attack!
+OtherAbbrev[8]=Mision objective secured!
+OtherAbbrev[9]=I'm in position.
+OtherAbbrev[11]=This area secured.
+OtherAbbrev[12]=Enemy carrier located.
+OtherAbbrev[15]=You're covered.
+
+[RageMessageMultiKill]
+Comment= When player kills people in quick succession:
+DoubleKillString=Commando Warfare!
+TripleKillString=Heroic Warfare!
+MultiKillString=Veteran Warfare!
+UltraKillString=ELITE WARFARE!!
+MonsterKillString=MOBILE ANNIHILATION!!!
+
+[RageMessageKillingSpree]
+Comment= When player kills several people without dying themselves:
+EndSpreeNote='s killing spree was abruptly ended by
+EndSelfSpree=was looking unstoppable 'till he got himself killed!
+spreenote[0]=is a one man killing machine!
+spreenote[1]=is seriously deranged!
+spreenote[2]=has gone ballistic!
+spreenote[3]=is gunning for blood!
+spreenote[4]=is a MOBILE WAR HERO!!!
+
+[RageMessageTime]
+TimeMessage[0]=
+TimeMessage[2]=
+TimeMessage[3]=
+TimeMessage[4]=
+TimeMessage[5]=
+TimeMessage[6]=
+TimeMessage[7]=
+TimeMessage[8]=
+TimeMessage[9]=
+TimeMessage[10]=
+TimeMessage[11]=
+TimeMessage[12]=
+TimeMessage[13]=
+TimeMessage[14]=
+TimeMessage[15]=
+
+[RageMessageFirstBlood]
+FirstBloodString=has first kill!
+
+[RageMessageVictim]
+YouWereKilledBy=You were killed by
+KilledByTrailer=!
+
+[RageMessageKiller]
+YouKilled=You killed
+ScoreString=Your Score:
+
+[RageMessageDecapitation]
+DecapitationString=Decapitation!!!
+
+[RageMessageControlPoint]
+ControlPointStr=Control Point
+ControlledBy=now controlled by
+
+[RageTeamReplicationInfo]
+GoalStrings[0]=Kill %k of %w Squad to win.
+GoalStrings[1]=Kill the most members of %w Squad in %o to win.
+GoalStrings[2]=Kill %k of %w Squad in %o to win.
+
+Comment= There are four vehicles in the game -
+Comment= Buggy, like a beach buggy
+Comment= Humvee, like a jeep / Landover.
+Comment= Truck, like a WW2 army truck.
+Comment= (APC) Armadillo, like a tank without the turret. APC = Armoured Personnel Carrier
+
+[ArmadilloWeapon]
+DeathMessage=%k ran down %o in an APC.
+PickupMessage=Now driving the APC.
+
+[HumveeWeapon]
+DeathMessage=%k ran down %o in a humma.
+PickupMessage=Now driving the humma.
+
+[RageWaterZone]
+ZoneName=Underwater
+
+[BuggyWeapon]
+DeathMessage=%k ran down %o in a buggy.
+PickupMessage=Now driving the buggy.
+
+[TruckWeapon]
+DeathMessage=%k ran down %o in a truck.
+PickupMessage=Now driving the truck.
+
+[Humvee]
+MenuName="stray Humma"
+

@@ -1,0 +1,11 @@
+[Public]
+Object=(Name=mutPack.addWeaps,Class=Class,MetaClass=Engine.Mutator,Description="Add weapons")
+Object=(Name=mutPack.changeBotInv,Class=Class,MetaClass=Engine.Mutator,Description="Change bot inventory")
+Object=(Name=mutPack.replaceVehicles,Class=Class,MetaClass=Engine.Mutator,Description="Replace vehicles")
+Object=(Name=mutPack.addVehicles,Class=Class,MetaClass=Engine.Mutator,Description="Add vehicles")
+Object=(Name=mutPack.commands,Class=Class,MetaClass=Engine.Mutator,Description="Commands")
+Object=(Name=vote.vote,Class=Class,MetaClass=Engine.Mutator,Description="Vote")
+Object=(Name=voteMutWindow.windowMut,Class=Class,MetaClass=Engine.Mutator,Description="Window")
+Object=(Name=voteHUD.voteHUD,Class=Class,MetaClass=Engine.Mutator,Description="Vote HUD")
+Object=(Name=mutPack.changeDefProperties,Class=Class,MetaClass=Engine.Mutator,Description="Change default properties")
+Object=(Name=mutPack.changeDamage,Class=Class,MetaClass=Engine.Mutator,Description="Change damage")

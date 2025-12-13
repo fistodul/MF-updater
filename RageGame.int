@@ -1,0 +1,159 @@
+[Public]
+Object=(Name=Rage.RageDeathMatch,Class=Class,MetaClass=Engine.GameInfo)
+Object=(Name=Rage.RageTeamGame,Class=Class,MetaClass=Engine.GameInfo)
+Object=(Name=RageGame.RageCaptains,Class=Class,MetaClass=Engine.GameInfo)
+Object=(Name=RageGame.RageCTF,Class=Class,MetaClass=Engine.GameInfo)
+Object=(Name=RageGame.RageDomination,Class=Class,MetaClass=Engine.GameInfo)
+Object=(Name=RageGame.RageDetonation,Class=Class,MetaClass=Engine.GameInfo)
+Object=(Name=RageGame.RageSafeCracker,Class=Class,MetaClass=Engine.GameInfo)
+Object=(Name=RageGame.TrailerGame,Class=Class,MetaClass=Engine.GameInfo)
+
+Comment= Gametype related text - see ragemenu.int for game type notes.
+
+[RageSafeCracker]
+Comment= Team based game, announcing both teams scored the same.
+TieMessage=- Tie!
+WinMessage=and win!
+ObjectivesMessage=Press F3 for an objectives briefing.
+Comment= In Safe Cracker, one team guards their safe whilst the other team tries to attack their safe.
+DefenderSuccess=safeguarded their gold
+Comment = prefix with character name
+GameEndedMessage=stole the gold in
+GameName=SafeCracker
+
+[RageCTF]
+GameName=CTF
+
+[RageDetonation]
+GameName=Detonation
+
+[TrailerGame]
+GameName=Trailer
+
+[RageCaptains]
+GameName=Captains
+
+[RageDomination]
+GameName=Holdout
+
+[RageCaptainsRepInfo]
+GoalStrings[0]=Kill the %w captain %k time(s) to win.
+GoalStrings[1]=Kill the %w captain the most time(s) in %o to win.
+GoalStrings[2]=Kill the %w captain %k time(s) in %o to win.
+
+[RageDOMReplicationInfo]
+GoalStrings[0]="Capture and hold the control location for %k:00 to win."
+GoalStrings[1]="Capture and hold the control location for most of %o to win."
+GoalStrings[2]="Capture and hold the control location for %k:00 of %o to win."
+
+[TrailerGameReplicationInfo]
+GoalStrings[0]="Deliver the trailer to the %w base %k time(s) to win."
+GoalStrings[1]="Deliver the trailer to the %w base the most time(s) in %o to win."
+GoalStrings[2]="Deliver the trailer to the %w base %k time(s) in %o to win."
+
+[RageDETReplicationInfo]
+GoalStrings[0]=Detonate %w Squad %k time(s) to win.
+GoalStrings[1]=Detonate %w Squad the most time(s) in %o to win.
+GoalStrings[2]=Detonate %w Squad %k time(s) in %o to win.
+
+[RageSafeCrackerRepInfo]
+GoalStrings[0]=Defend the %w safe for %o.
+GoalStrings[1]=Steal %w Squad's gold in %o.
+
+[RageCTFReplicationInfo]
+GoalStrings[0]=Capture the %w flag %k time(s) to win.
+GoalStrings[1]=Capture the %w flag the most time(s) in %o to win.
+GoalStrings[2]=Capture the %w flag %k time(s) in %o to win.
+
+[RageDetMessage]
+Comment=This message can be caused by the detonation key changing position, as well as scoring a detonation
+Restarted=Detonation has restarted.
+
+RedTeam=Red Squad
+BlueTeam=Blue Squad
+
+Comment=Prefix player name
+DetonateBlue=: RED OBJECTIVE ACHIEVED! - BLUE DETONATION ACTIVATED!!!
+DetonateRed=: BLUE OBJECTIVE ACHIEVED! - RED DETONATION ACTIVATED!!!
+DroppedKey=: mission abort! Detonation Key dropped!
+HasKey=: key secured! Proceeding to detonation point!
+
+Comment=Postfix of time in seconds
+CountDown=Detonation in
+Second=sec
+
+[RageDetLocalMessage]
+YouHaveKeyString=You have the detonation key, use it!
+EnemyHasKeyString=The enemy has the detonation key, watch out!
+
+[RageDomMessage]
+Drawn=The game is drawn.
+
+Comment=Prefix player name postfix team name
+Switched=switched Holdout timer for
+
+RedTeam=Red Squad
+BlueTeam=Blue Squad
+
+[RageSCMessage]
+ReturnedBlue=The Blue gold was returned!
+ReturnedRed=The Red gold was returned!
+BlueSafeRepaired=The Blue safe is repaired!
+RedSafeRepaired=The Red safe is repaired!
+BlueSafeBlown=The Blue safe has been blown!
+RedSafeBlown=The Red safe has been blown!
+
+Comment=Prefix player name
+ReturnBlue=: Blue gold has been returned to Blue base!
+ReturnRed=: Red gold has been returned to Red base!
+CaptureBlue=: RED OBJECTIVE ACHIEVED! - BLUE GOLD STOLEN!!!
+CaptureRed=: BLUE OBJECTIVE ACHIEVED! - RED GOLD STOLEN!!!
+DroppedBlue=: mission abort! Blue gold dropped!
+DroppedRed=: mission abort! Red gold dropped!
+HasBlue=: I have the Blue gold! Transport in progress!
+HasRed=: I have the Red gold! Transport in progress!
+
+[RageCTFMessage]
+ReturnedBlue=Blue flag has been returned!
+ReturnedRed=Red flag has been returned!
+
+Comment=Prefix player name
+ReturnBlue=: Blue flag has been returned to Blue base!
+ReturnRed=: Red flag has been returned to Red base!
+CaptureBlue=: RED OBJECTIVE ACHIEVED! - BLUE FLAG CAPTURED!!! 
+CaptureRed=:  BLUE OBJECTIVE ACHIEVED! - RED FLAG CAPTURED!!! 
+DroppedBlue=: mission abort! Blue flag dropped!
+DroppedRed=: mission abort! Red flag dropped!
+HasBlue=: I have the Blue flag! Returning to base!
+HasRed=: I have the Red flag! Returning to base!
+
+[RageTrailerMessage]
+Restarted=Trailer has restarted
+RedTeam=Red Squad
+BlueTeam=Blue Squad
+
+comment=prefix team name
+DetonateBlue=: RED OBJECTIVE ACHIEVED! - BLUE BASE DESTROYED!!!
+DetonateRed=: BLUE OBJECTIVE ACHIEVED! - RED BASE DESTROYED!!!
+comment=prefix player name
+HasKey=: trailer has been captured! Driving to enemy base!
+
+Comment=postfix Time in seconds
+CountDown=Trailer detonation in
+Second=sec
+
+comment=postfix team name
+TimerLocked=Trailer delivered to 
+
+[RageSCLocalMessage]
+YouHaveFlagString=You have the gold, get back to your safe!
+EnemyHasFlagString=The enemy has our gold, initiate recovery!
+
+[RageTrailerLocalMessage]
+YouHaveKeyString=You have the trailer, deliver to enemy base!
+EnemyHasKeyString=The enemy has the trailer, blockade delivery!
+
+[RageCTFLocalMessage]
+YouHaveFlagString=You have the enemy flag, return to base!
+EnemyHasFlagString=The enemy has our flag, priority intercept!
+

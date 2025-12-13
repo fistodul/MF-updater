@@ -1,0 +1,12 @@
+[Public]
+Object=(Name=FNG.AccurateHMG,Class=Class,MetaClass=Engine.Mutator,Description="Accurate HMG")
+Object=(Name=FNG.AllArmadillos,Class=Class,MetaClass=Engine.Mutator,Description="All Armadillos")
+Object=(Name=FNG.AllBuggys,Class=Class,MetaClass=Engine.Mutator,Description="All Buggys")
+Object=(Name=FNG.AllHumvees,Class=Class,MetaClass=Engine.Mutator,Description="All Humvees")
+Object=(Name=FNG.AllRandom,Class=Class,MetaClass=Engine.Mutator,Description="All Random")
+Object=(Name=FNG.AllTrucks,Class=Class,MetaClass=Engine.Mutator,Description="All Trucks")
+Object=(Name=FNG.BalancedWeapons,Class=Class,MetaClass=Engine.Mutator,Description="Balanced Weapons")
+Object=(Name=FNG.LightsOn,Class=Class,MetaClass=Engine.Mutator,Description="Lights On")
+Object=(Name=FNG.LowGrav,Class=Class,MetaClass=Engine.Mutator,Description="Low Gravity")
+Object=(Name=FNG.NoContactFuse,Class=Class,MetaClass=Engine.Mutator,Description="No Contact Fuse")
+Object=(Name=FNG.ServerAds,Class=Class,MetaClass=Engine.Mutator,Description="Server Ads")

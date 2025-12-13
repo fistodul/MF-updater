@@ -1,0 +1,120 @@
+sphere
+pos = -1.222795 -0.197971 1.607477
+radius = 0.779176
+component = CT_WHEEL_FRONT_LEFT
+type = COLT_WHEEL
+material = SMT_RUBBER
+
+sphere
+pos = -1.222795 -0.197971 -1.453462
+radius = 0.779176
+component = CT_WHEEL_REAR_LEFT
+type = COLT_WHEEL
+material = SMT_RUBBER
+
+sphere
+pos = 1.219922 -0.197971 -1.453462
+radius = 0.779176
+component = CT_WHEEL_REAR_RIGHT
+type = COLT_WHEEL
+material = SMT_RUBBER
+
+sphere
+pos = 1.219922 -0.197971 1.607477
+radius = 0.779176
+component = CT_WHEEL_FRONT_RIGHT
+type = COLT_WHEEL
+material = SMT_RUBBER
+
+sphere
+pos = 0.009313 1.602444 1.593856
+radius = 1.821202
+component = CT_CHASSIS
+type = COLT_BODY
+material = SMT_METAL
+
+sphere
+pos = 0.602580 1.282172 -0.392836
+radius = 1.309262
+component = CT_CHASSIS
+type = COLT_BODY
+material = SMT_METAL
+
+sphere
+pos = -0.588086 1.282172 -0.392836
+radius = 1.309262
+component = CT_CHASSIS
+type = COLT_BODY
+material = SMT_METAL
+
+sphere
+pos = -0.902994 0.195960 1.603561
+radius = 0.625203
+component = CT_CHASSIS
+type = COLT_BODY
+material = SMT_METAL
+
+sphere
+pos = -0.902994 0.195960 -1.298118
+radius = 0.625203
+component = CT_CHASSIS
+type = COLT_BODY
+material = SMT_METAL
+
+sphere
+pos = 1.000320 0.195960 -1.298118
+radius = 0.625203
+component = CT_CHASSIS
+type = COLT_BODY
+material = SMT_METAL
+
+sphere
+pos = 1.000320 0.195960 1.603561
+radius = 0.625203
+component = CT_CHASSIS
+type = COLT_BODY
+material = SMT_METAL
+
+sphere
+pos = -0.004887 0.083488 -3.088217
+radius = 0.334953
+component = CT_HOOK
+type = COLT_BODY
+material = SMT_METAL
+
+sphere
+pos = 0.000000 0.000000 0.000000
+radius = 4.081355
+component = CT_CHASSIS
+type = COLT_BOUNDING
+material = SMT_METAL
+
+line
+pos = -1.222795 -0.197971 1.607477
+pos_b = -1.222795 -1.197971 1.607477
+component = CT_WHEEL_FRONT_LEFT
+type = COLT_SPRING
+material = SMT_RUBBER
+
+line
+pos = -1.222795 -0.197971 -1.453462
+pos_b = -1.222795 -1.197971 -1.453462
+component = CT_WHEEL_REAR_LEFT
+type = COLT_SPRING
+material = SMT_RUBBER
+
+line
+pos = 1.219922 -0.197971 -1.453462
+pos_b = 1.219922 -1.197971 -1.453462
+component = CT_WHEEL_REAR_RIGHT
+type = COLT_SPRING
+material = SMT_RUBBER
+
+line
+pos = 1.219922 -0.197971 1.607477
+pos_b = 1.219922 -1.197971 1.607477
+component = CT_WHEEL_FRONT_RIGHT
+type = COLT_SPRING
+material = SMT_RUBBER
+
+end
