@@ -12,13 +12,6 @@ If https://mf.nofisto.com is down or for other reasons, the URL inside updater.s
 url='https://mf.nofisto.com/fast_download'
 ```
 
-If you have installed [modded game files for Russian MF version](https://mf.nofisto.com/download/RUupdate.zip), the following lines may be uncommented (6th and 7th) to skip the Russian voiceovers during the file check/updating process:
-
-```bash
-  #'Announcer.uax'
-  #'RagePlayerVoice.uax'
-```
-
 Before updating, keep in mind to backup the game in case you will want to revert back since the script will overwrite any mismatching file. To start updating, launch one of the `updater.sh` or `updater.py` scripts:
 
 | OS      | Script     | Note                                       |

@@ -13,32 +13,7 @@ from urllib.request import urlopen
 url = 'https://mf.nofisto.com/fast_download'
 
 skip_files = [
-    # 'Announcer.uax',
-    # 'RagePlayerVoice.uax',
-    'Core.int',
-    'D3DDrv.int',
-    'Editor.int',
-    'Engine.int',
-    'Galaxy.int',
-    'IpDrv.int',
-    'IpServer.int',
-    'License.int',
-    'Manifest.int',
-    'MobileForcesEd.int',
-    'MobileForces.int',
-    'RageBrowser.int',
-    'RageGame.int',
-    'RageGfx.int',
-    'Rage.int',
-    'RageMenu.int',
-    'RageWeapons.int',
-    'Setup.int',
-    'Startup.int',
-    'UBrowser.int',
-    'Window.int',
-    'WinDrv.int',
     # 'rage_warehouse.utx',
-    'MobileForceFonts.utx',
 ]
 
 
