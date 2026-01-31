@@ -1,8 +1,0 @@
-sphere
-pos = 0.0 0.0 0.0
-radius = 1
-component = CT_CHASIS
-type = COLT_BODY
-material = SMT_RUBBER
-
-end
