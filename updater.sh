@@ -1,6 +1,6 @@
 #!/bin/bash
 
-url='https://mf.nofisto.com/fast_download'
+url='https://github.com/fistodul/MF-updater/raw/refs/heads/files'
 
 skip_files=(
   #'rage_warehouse.utx'

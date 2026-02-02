@@ -10,7 +10,7 @@ from os import chdir, listdir, path, rename
 from time import sleep
 from urllib.request import urlopen
 
-url = 'https://mf.nofisto.com/fast_download'
+url = 'https://github.com/fistodul/MF-updater/raw/refs/heads/files'
 
 skip_files = [
     # 'rage_warehouse.utx',
