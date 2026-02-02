@@ -2,7 +2,7 @@
 """Updater script for Mobile Forces written in Python.
 
 Below the imports the url to connect to is set alongside the skip_files array
-there's a few commented files that you may want to enable by removing "# "
+there's a commented file that you may want to enable by removing "# "
 """
 
 from hashlib import sha512
