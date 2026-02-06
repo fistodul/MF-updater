@@ -1,6 +1,6 @@
 #!/bin/bash
 
-url='https://github.com/fistodul/MF-updater/raw/refs/heads/files'
+url='https://raw.githubusercontent.com/fistodul/MF-updater/refs/heads/files'
 
 skip_files=(
   #'rage_warehouse.utx'
