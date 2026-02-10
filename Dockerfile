@@ -15,7 +15,7 @@ RUN apt-get update && \
       pipx \
       python3-dev && \
     apt-get clean && rm -rf /var/lib/apt/lists/* && \
-    pipx run nuitka \
+    pipx run 'nuitka[onefile]' \
       --mode=${MODE} \
       --deployment \
       --assume-yes-for-downloads \

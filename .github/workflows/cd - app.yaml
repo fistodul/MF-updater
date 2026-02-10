@@ -38,7 +38,7 @@ jobs:
           python-version: '3.13'
 
       - name: Install dependencies
-        run: pip install nuitka
+        run: pip install 'nuitka[onefile]'
 
       - name: Compile to single binary
         shell: bash
