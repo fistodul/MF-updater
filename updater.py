@@ -36,7 +36,7 @@ def download_shasums() -> list[str]:
     except Exception as e:
         print('Failed to download sha512.txt with', e)
         sleep(5)
-        raise SystemExit(1)
+        raise SystemExit(2)
 
     print('sha512.txt successfully downloaded')
     return res.read().decode().splitlines()

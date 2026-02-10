@@ -30,7 +30,7 @@ download_shasums() {
   if ! curl -sSf "$url/sha512.txt" -o sha512.txt; then
     echo 'Failed to download sha512.txt'
     sleep 5
-    exit 1
+    exit 2
   fi
 
   echo 'sha512.txt successfully downloaded'
