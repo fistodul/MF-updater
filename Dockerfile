@@ -22,8 +22,8 @@ RUN apt-get update && \
       --python-flag=-OO \
       --output-filename=updater-linux-x64.bin \
       updater.py && \
-      [ -f *.bin  ] && mkdir out && \
-      mv *.bin out/ || mv *.dist out
+    [ -f *.bin  ] && mkdir out && \
+    mv *.bin out/ || mv *.dist out
 
 FROM gcr.io/distroless/cc-debian${OS_VERSION}:latest
 
