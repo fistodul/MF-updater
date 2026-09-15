@@ -1,0 +1,5 @@
+[Public]
+Object=(Name=KOH.KOHGame,Class=Class,MetaClass=Engine.GameInfo)
+
+[KOHGame]
+GameName=King of the Hill
